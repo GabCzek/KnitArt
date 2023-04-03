@@ -1,20 +1,5 @@
 @import '../general/variables.scss';
 
-.container {
-  display: flex;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
-}
-
-.main-container {
-  background-color: #F0E0D6;
-  max-width: $container-width;
-  height: 100%;
-  flex: 1;
-  display: flex;
-}
-
 .main-img {
   background: no-repeat center url("/images/main.png");
   background-size: cover;
@@ -23,12 +8,70 @@
   border-right: $accent-border-desktop;
 }
 
+.main-links {
+  width: 50%;
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
+
+  &:focus, &:hover, &:visited, &:link, &:active {
+    text-decoration: none;
+  }
+}
+
 .main-link {
   height: 30%;
   width: 100%;
   font-family: $header-font;
+  border-bottom: $accent-border-desktop;
+
   & h1 {
-    font-size: 62px;
+    display: block;
+    width: 40%;
+    font-size: 3em;
     font-weight: normal;
+    padding: 9% 30% 0 10%;
+    line-height: 1.2;
   }
+
+  & .arrow-right-main {
+    width: 40%;
+    height: auto;
+    margin-left: 10.5%;
+    margin-bottom: 2%;
+  }
+}
+
+.secondary-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 65%;
+}
+
+.secondary-link {
+  justify-self: end;
+  font-family: $main-font;
+  font-size: 1.5em;
+  width: 35%;
+  margin-left: 10%;
+  margin-top: 20%;
+
+  & h2 {
+    display: block;
+    line-height: 1.4;
+  }
+}
+
+.secondary-link-right {
+  align-self: end;
+  display: block;
+}
+
+.arrow-right-second {
+  width: 80%;
+  height: auto;
+  margin-bottom: 4%;
 }

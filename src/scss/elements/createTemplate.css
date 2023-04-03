@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.main-container {
+  background-color: #F0E0D6;
+  max-width: 1440px;
+  height: 100%;
+  flex: 1;
+  display: flex;
+}
+
+.title {
+  font-family: "Amiri", serif;
+  border-bottom: 5px solid #FFFFFF;
+  height: 15%;
+  display: flex;
+  align-items: center;
+}
+.title h1 {
+  font-size: 4em;
+  padding-left: 6%;
+}
+
+.template-container {
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=createTemplate.css.map */

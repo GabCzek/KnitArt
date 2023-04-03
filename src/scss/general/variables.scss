@@ -16,3 +16,17 @@ $accent-border-phone: 3px solid $border-color;
 //widths
 $container-width: 1440px;
 
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.main-container {
+  background-color: #F0E0D6;
+  max-width: $container-width;
+  height: 100%;
+  flex: 1;
+  display: flex;
+}

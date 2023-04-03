@@ -29,6 +29,14 @@
 .main-link h1 {
   font-size: 62px;
   font-weight: normal;
+  margin-left: 10%;
+  line-height: 1.2;
+}
+
+.arrow-right {
+  width: 70%;
+  height: auto;
+  margin-left: 6%;
 }
 
 /*# sourceMappingURL=main.css.map */

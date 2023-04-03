@@ -1,0 +1,17 @@
+@import '../general/variables.scss';
+
+.title {
+  font-family: $header-font;
+  border-bottom: $accent-border-desktop;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  & h1 {
+    font-size: 4em;
+    padding-left: 6%;
+  }
+}
+
+.template-container {
+  flex-direction: column;
+}
