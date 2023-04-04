@@ -29,4 +29,10 @@
   flex-direction: column;
 }
 
+.template {
+  margin-top: 5%;
+  margin-left: 5%;
+  width: 60%;
+}
+
 /*# sourceMappingURL=createTemplate.css.map */
