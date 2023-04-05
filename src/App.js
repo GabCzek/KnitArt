@@ -8,7 +8,9 @@ import {
     NavLink,
     Outlet
 } from 'react-router-dom';
-import Template from "./js/createTemplate";
+import Template from "./js/templateCreation/CreateTemplate";
+import TemplateGallery from "./js/templateGallery/TemplateGallery"
+import ProjectGallery from "./js/projectGallery/ProjectGallery"
 
 function App() {
     return (
@@ -16,6 +18,8 @@ function App() {
             <Routes>
                 <Route path='/' element={<Main/>}/>
                 <Route path='/template' element={<Template/>}/>
+                <Route path='/template-gallery' element={<TemplateGallery />}/>
+                <Route path='/project-gallery' element={<ProjectGallery />}/>
             </Routes>
         </HashRouter>
     )

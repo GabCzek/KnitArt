@@ -7,17 +7,16 @@ const templateGrid = ({columns, rows}) => {
         <div className="template-grid"
              style={{
                  display: "grid",
-                 gridTemplateColumns: `repeat(16, 37px)`,
-                 gridTemplateRows: `repeat(16, 1fr)`,
-                 gridGap: 1
+                 gridTemplateColumns: `repeat(${columns}, 2em)`,
+                 gap: 1
              }}>
             {arr.map((el, i) => <div key={i} style={{
                 backgroundColor: '#679289',
                 borderRadius: "50%",
-                height: 600 / 16
+                height: "2em"
             }}>{el}</div>)}
         </div>
     )
 }
 
-export default templateGrid
+export default templateGrid;

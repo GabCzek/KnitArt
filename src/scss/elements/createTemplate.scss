@@ -6,6 +6,7 @@
   height: 15%;
   display: flex;
   align-items: center;
+
   & h1 {
     font-size: 4em;
     padding-left: 6%;
@@ -17,7 +18,69 @@
 }
 
 .template {
+  display: flex;
   margin-top: 5%;
   margin-left: 5%;
-  width: 60%;
+  height: 70%;
 }
+
+.template-info {
+  height: 100%;
+  font-family: $main-font;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10%;
+
+  & form {
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    height: 60%;
+  }
+}
+
+.template-label {
+  display: inline-flex;
+  font-size: 24px;
+  & input {
+    width: 46px;
+    height: 24px;
+    margin-left: 3em;
+  }
+}
+
+.template_color-picker {
+  margin-left: 3em;
+}
+
+.template_choose-color{
+  height: 50px;
+  width: 50px;
+}
+
+.template-icons_container {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  & span {
+    font-size: 20px;
+  }
+
+  & div {
+    display: flex;
+  }
+}
+
+.template_one-icon {
+  align-self: center;
+  justify-self: center;
+}
+
+.template-icons {
+  height: 3em;
+}
+
+
