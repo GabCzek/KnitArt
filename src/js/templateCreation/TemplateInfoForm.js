@@ -1,16 +1,27 @@
-import React from "react";
+import React, {useState} from "react";
 import ColorPicker from "./ColorPicker";
-const TemplateInfoForm = () => {
+const TemplateInfoForm = ({changeRows, changeColumns}) => {
+    const [rowsValue, setRowsValue] = useState(20);
+    const [columnsValue, setColumnsValue] = useState(20);
+    const handleRowsChange = ({target: {value}}) => {
+        setRowsValue(value)
+        changeRows(rowsValue)
+    };
+
+    const handleColumnsChange = ({target: {value}}) => {
+        setColumnsValue(value)
+        changeColumns(columnsValue)
+    };
+
     return (
         <form>
             <label className="template-label">
                 Number of rows:
-                {/*Zrobić tak żeby pojawiał się span z numerem, jak klikniemy, to pojawia się input i możemy zmienić*/}
-                <input type="number"/>
+                <input onChange={handleRowsChange}  value={rowsValue} type="number"/>
             </label>
             <label className="template-label">
                 Number of stitches:
-                <input type="number"/>
+                <input onChange={handleColumnsChange}  value={columnsValue} type="number"/>
             </label>
             <label className="template-label">
                 Choose main color:

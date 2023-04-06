@@ -10,6 +10,7 @@ const ColorPicker = () => {
         a: '1',
     });
 
+
     const handleColorChange = (color) => {
         setColor(color.rgb);
     };
@@ -19,6 +20,7 @@ const ColorPicker = () => {
 
     const handleClose = () => {
         setDisplayColorPicker(false)
+
     };
 
     const colorPickerStyles = {
