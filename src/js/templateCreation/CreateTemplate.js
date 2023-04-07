@@ -4,8 +4,8 @@ import TemplateGrid from "./TemplateGrid";
 import TemplateInfo from "./TemplateInfo";
 
 const Template = () => {
-    const [rows, setRows] = useState(20);
-    const [columns, setColumns] = useState(20);
+    const [rows, setRows] = useState(25);
+    const [columns, setColumns] = useState(25);
 
     const changeRows = rows => {
         setRows(rows);

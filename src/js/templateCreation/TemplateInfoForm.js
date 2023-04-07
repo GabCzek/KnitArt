@@ -1,17 +1,18 @@
 import React, {useState} from "react";
 import ColorPicker from "./ColorPicker";
 const TemplateInfoForm = ({changeRows, changeColumns}) => {
-    const [rowsValue, setRowsValue] = useState(20);
-    const [columnsValue, setColumnsValue] = useState(20);
+    const [rowsValue, setRowsValue] = useState(25);
+    const [columnsValue, setColumnsValue] = useState(25);
     const handleRowsChange = ({target: {value}}) => {
         setRowsValue(value)
         changeRows(rowsValue)
     };
-
+    changeRows(rowsValue)
     const handleColumnsChange = ({target: {value}}) => {
         setColumnsValue(value)
-        changeColumns(columnsValue)
+
     };
+    changeColumns(columnsValue)
 
     return (
         <form>

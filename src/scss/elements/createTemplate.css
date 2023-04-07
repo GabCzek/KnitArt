@@ -31,9 +31,17 @@
 
 .template {
   display: flex;
+  justify-content: around;
   margin-top: 5%;
   margin-left: 5%;
   height: 70%;
+}
+
+.template-grid {
+  width: 60%;
+  overflow: scroll;
+  align-self: center;
+  justify-content: center;
 }
 
 .template-info {
