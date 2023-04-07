@@ -1,0 +1,58 @@
+@import '../general/variables.scss';
+
+.container {
+  & .gallery_template-container {
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+
+    .gallery-template {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .gallery_template-info {
+        display: flex;
+        gap: 1em;
+        flex-direction: column;
+        font-family: $main-font;
+        text-transform: uppercase;
+        font-size: 1.5em;
+      }
+    }
+
+    & .gallery-template1 {
+      grid-column: 1 / 8;
+      grid-row: 1 / 2;
+    }
+
+    & .gallery-template2 {
+      grid-column: 8 / -1;
+      grid-row: 1 / 2;
+    }
+
+    & .gallery-template3 {
+      grid-column: 1 / 6;
+      grid-row: 2 / 3;
+    }
+
+    & .gallery-template4 {
+      grid-column: 6 / -1;
+      grid-row: 2 / 3;
+    }
+
+    & .gallery-template5 {
+      grid-column: 1 / 8;
+      grid-row: 3 / 4;
+    }
+
+    & .gallery-template6 {
+      grid-column: 8 / -1;
+      grid-row: 3 / 4;
+    }
+  }
+}

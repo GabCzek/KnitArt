@@ -20,7 +20,7 @@ const TemplateGrid = ({columns, rows}) => {
             {arr.map((el, i) => <div onClick={e => handleClick(e)} key={i} style={{
                 backgroundColor: color,
                 borderRadius: "50%",
-                height: `${rows} > 20 ? "1.5em" : "2em"`,
+                height: "2em",
                 cursor: "pointer"
             }}>{el}</div>)}
         </div>
