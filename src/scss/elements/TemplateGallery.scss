@@ -1,10 +1,8 @@
-@import '../general/variables.scss';
-
 .container {
-  & .gallery_template-container {
+  .gallery_template-container {
     width: 100%;
     height: 100%;
-    background-color: #FFF;
+    background-color: #fff;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -15,7 +13,7 @@
       justify-content: space-around;
       align-items: center;
 
-      .gallery_template-info {
+      &-info {
         display: flex;
         gap: 1em;
         flex-direction: column;

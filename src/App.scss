@@ -1,7 +1,6 @@
-@import "./scss/elements/main.scss";
 @import "./scss/general/reset.scss";
-@import './scss/general/variables.scss';
-
-.main {
-  background-color: #F0E0D6;
-}
+@import "./scss/general/variables.scss";
+@import "./scss/elements/createTemplate.scss";
+@import "./scss/elements/main.scss";
+@import "./scss/elements/ProjectGallery.scss";
+@import "./scss/elements/TemplateGallery.scss";

@@ -1,5 +1,4 @@
 import React from "react";
-import '../../scss/elements/TemplateGallery.scss';
 import SingleGalleryTemplate from "./SingleGalleryTemplate";
 import SingleGalleryTemplateReversed from "./SingleGalleryTemplateReversed";
 

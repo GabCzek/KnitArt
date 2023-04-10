@@ -1,13 +1,13 @@
 //colors
-$background-color: #F0E0D6;
+$background-color: #f0e0d6;
 $main-color: #679289;
-$secondary-color: #1D7874;
-$accent-color: #852E0F;
-$border-color: #FFFFFF;
+$secondary-color: #1d7874;
+$accent-color: #852e0f;
+$border-color: #ffffff;
 
 //fonts
-$header-font: 'Amiri', serif;
-$main-font: 'Montserrat', sans-serif;
+$header-font: "Amiri", serif;
+$main-font: "Montserrat", sans-serif;
 
 //border
 $accent-border-desktop: 5px solid $border-color;
@@ -24,7 +24,7 @@ $container-width: 1440px;
 }
 
 .main-container {
-  background-color: #F0E0D6;
+  background-color: $background-color;
   max-width: $container-width;
   height: 100%;
   flex: 1;

@@ -1,14 +1,18 @@
-import React, {useState} from "react";
+import React from "react";
+
 import TemplateInfoForm from "./TemplateInfoForm";
 import TemplateIcons from "./TemplateIcons";
-import ColorPicker from "./ColorPicker";
-const TemplateInfo = ({changeRows, changeColumns}) => {
-    return (
-        <div className="template-info">
-            <TemplateInfoForm changeRows={changeRows} changeColumns={changeColumns}/>
-            <TemplateIcons />
-        </div>
-    )
-}
+
+const TemplateInfo = ({ rows, columns, changeRows, changeColumns }) => (
+  <div className="template-info">
+    <TemplateInfoForm
+      rows={rows}
+      columns={columns}
+      changeRows={changeRows}
+      changeColumns={changeColumns}
+    />
+    <TemplateIcons />
+  </div>
+);
 
 export default TemplateInfo;

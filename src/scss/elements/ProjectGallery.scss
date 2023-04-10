@@ -1,14 +1,11 @@
-@import '../general/variables.scss';
-
 .container {
   & .main-container-projects {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
   }
 }
 
 .project-gallery-grid {
   height: 60%;
-
 }
 
 .all-projects {
@@ -18,7 +15,7 @@
   width: 100%;
 }
 
-.single-project{
+.single-project {
   display: flex;
   height: 33%;
 }
