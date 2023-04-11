@@ -1,7 +1,7 @@
 import React from "react";
-import scarf from "../../images/scarf.png";
-import sweater from "../../images/sweaters.png";
-import blanket from "../../images/blanket.png";
+import scarf from "../../src/images/scarf.png";
+import sweater from "../../src/images/sweaters.png";
+import blanket from "../../src/images/blanket.png";
 import SingleProject from "./SingleProject";
 
 const ProjectGallery = () => {

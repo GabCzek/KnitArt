@@ -5,9 +5,17 @@
   display: flex;
   align-items: center;
 
-  & h1 {
+  &-label {
     font-size: 4em;
     padding-left: 6%;
+
+    &-name{
+      font-family: $header-font;
+      font-size: 0.9em;
+      margin-left: 0.5em;
+      width: 7em;
+      height: 1.2em;
+    }
   }
 }
 
@@ -56,15 +64,20 @@
 .template-label {
   display: inline-flex;
   font-size: 24px;
-  & input {
+  &-number {
     width: 46px;
     height: 24px;
     margin-left: 3em;
   }
+
+  &-checkbox {
+    margin-left: 0.5em;
+    width: 20px;
+  }
 }
 
 .template_color-picker {
-  margin-left: 3em;
+  margin-left: 2em;
 }
 
 .template_choose-color {
@@ -94,4 +107,28 @@
 
 .template-icons {
   height: 3em;
+}
+
+.template-icons_el {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.fa-solid {
+  font-size: 2em;
+}
+
+.fa-floppy-disk {
+  color: $main-color;
+  margin-right: 0.3em;
+}
+
+.fa-eraser {
+  color: $secondary-color;
+}
+
+.fa-file-pdf {
+  color: $accent-color;
+  margin-right: 0.1em;
 }

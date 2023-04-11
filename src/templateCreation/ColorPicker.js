@@ -1,18 +1,19 @@
 import React, {useState} from "react";
 import {ChromePicker} from 'react-color'
 
-const ColorPicker = () => {
+const ColorPicker = ({changeColor, defaultColor}) => {
     const [displayColorPicker, setDisplayColorPicker] = useState(false)
     const [color, setColor] = useState({
-        r: '241',
-        g: '112',
-        b: '19',
-        a: '1',
+        r: defaultColor.r,
+        g: defaultColor.g,
+        b: defaultColor.b,
+        a: defaultColor.a,
     });
 
 
     const handleColorChange = (color) => {
         setColor(color.rgb);
+        changeColor(color.rgb)
     };
     const handleClick = () => {
         setDisplayColorPicker(!displayColorPicker)
@@ -20,7 +21,6 @@ const ColorPicker = () => {
 
     const handleClose = () => {
         setDisplayColorPicker(false)
-
     };
 
     const colorPickerStyles = {

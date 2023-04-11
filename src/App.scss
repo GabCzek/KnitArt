@@ -1,6 +1,6 @@
-@import "./scss/general/reset.scss";
-@import "./scss/general/variables.scss";
-@import "./scss/elements/createTemplate.scss";
-@import "./scss/elements/main.scss";
-@import "./scss/elements/ProjectGallery.scss";
-@import "./scss/elements/TemplateGallery.scss";
+@import "general/reset.scss";
+@import "general/variables.scss";
+@import "templateCreation/templateCreation.scss";
+@import "home/main.scss";
+@import "projectGallery/ProjectGallery.scss";
+@import "templateGallery/TemplateGallery.scss";

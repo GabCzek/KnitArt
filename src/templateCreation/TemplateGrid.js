@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const primaryColor = "#679289";
-const secondaryColor = "#1d7874";
-const tertiaryColor = "#852e0f";
-
-const TemplateGrid = ({ columns, rows }) => {
-  const [activeColor, setActiveColor] = useState(tertiaryColor);
+const TemplateGrid = ({ columns, rows, activeColor, primaryColor, secondaryColor, tertiaryColor}) => {
   const elementSize = rows >= 20 || columns >= 20 ? "1.5em" : "2em";
   const [template, setTemplate] = useState([]);
 
@@ -21,7 +16,7 @@ const TemplateGrid = ({ columns, rows }) => {
       color: primaryColor,
     }));
     setTemplate(newTemplate);
-  }, [columns, rows]);
+  }, [columns, rows, primaryColor]);
 
   return (
     <div
