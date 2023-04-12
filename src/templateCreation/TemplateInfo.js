@@ -3,7 +3,7 @@ import React from "react";
 import TemplateInfoForm from "./TemplateInfoForm";
 import TemplateIcons from "./TemplateIcons";
 
-const TemplateInfo = ({ rows, columns, changePrimaryColor, changeSecondaryColor, changeTertiaryColor, changeActiveColor, changeRows, changeColumns }) => (
+const TemplateInfo = ({ rows, columns, handleSubmitTemplate, changePrimaryColor, changeSecondaryColor, changeTertiaryColor, changeActiveColor, changeRows, changeColumns }) => (
   <div className="template-info">
     <TemplateInfoForm
       rows={rows}
@@ -15,7 +15,7 @@ const TemplateInfo = ({ rows, columns, changePrimaryColor, changeSecondaryColor,
       changeTertiaryColor={changeTertiaryColor}
       changeActiveColor={changeActiveColor}
     />
-    <TemplateIcons/>
+    <TemplateIcons handleSubmitTemplate={handleSubmitTemplate}/>
   </div>
 );
 

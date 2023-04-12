@@ -1,8 +1,10 @@
-import React, {useState, useRef} from "react";
+import React, {useState, useEffect} from "react";
+import {collection, getDocs, addDoc} from "firebase/firestore";
 import ReactToPrint from "react-to-print";
 
 import TemplateGrid from "./TemplateGrid";
 import TemplateInfo from "./TemplateInfo";
+import {db} from "../config/firebase";
 
 const Template = () => {
     const [name, setName] = useState("Template 1");
@@ -12,6 +14,47 @@ const Template = () => {
     const [secondaryColor, setSecondaryColor] = useState("#1d7874");
     const [tertiaryColor, setTertiaryColor] = useState("#852e0f");
     const [activeColor, setActiveColor] = useState("#679289");
+    const [templates, setTemplates] = useState([]);
+    const [grid, setGrid] = useState([])
+
+    const templatesColRef = collection(db, 'templates');
+
+    const getTemplates = async () => {
+        try {
+            const data = await getDocs(templatesColRef)
+            const filteredData = data.docs.map((doc) => ({...doc.data(), id: doc.id}));
+            setTemplates(filteredData);
+            console.log(templates)
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    useEffect(() => {
+        getTemplates();
+    }, []);
+
+    const handleSubmitTemplate = async () => {
+        try {
+            await addDoc(templatesColRef, {
+                name,
+                rows,
+                stitches: columns,
+                primaryColor,
+                secondaryColor,
+                tertiaryColor
+            });
+            getTemplates();
+
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
+    const handleGridChange = (grid) => {
+        setGrid(grid)
+    }
+
     const handleNameChange = ({target: {value}}) => {
         setName(value);
     };
@@ -71,9 +114,8 @@ const Template = () => {
                         rows={rows}
                         columns={columns}
                         primaryColor={primaryColor}
-                        secondaryColor={secondaryColor}
-                        tertiaryColor={tertiaryColor}
-                        activeColor={activeColor}/>
+                        activeColor={activeColor}
+                        handleGridChange={handleGridChange}/>
                     <TemplateInfo
                         rows={rows}
                         columns={columns}
@@ -83,6 +125,7 @@ const Template = () => {
                         changeSecondaryColor={changeSecondaryColor}
                         changeTertiaryColor={changeTertiaryColor}
                         changeActiveColor={changeActiveColor}
+                        handleSubmitTemplate={handleSubmitTemplate}
                     />
                 </div>
             </div>
