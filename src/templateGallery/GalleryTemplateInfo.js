@@ -1,32 +1,29 @@
-import React, {useEffect, useState} from "react";
-import {collection, getDocs} from "firebase/firestore";
+import React, {useEffect} from "react";
+import {deleteDoc, doc} from "firebase/firestore";
 import {db} from "../config/firebase";
 
-const GalleryTemplateInfo = ({color}) => {
-    const [templates, setTemplates] = useState([]);
+const GalleryTemplateInfo = ({color, templates, template, getTemplates}) => {
+    const textColor = color === "#1D7874" || color === "#852E0F" ? "#FFF" : "#000";
 
-    const templatesColRef = collection(db, 'templates');
-    const getTemplates = async () => {
-        try {
-            const data = await getDocs(templatesColRef)
-            const filteredData = data.docs.map((doc) => ({...doc.data(), id: doc.id}));
-            setTemplates(filteredData);
-        } catch (err) {
-            console.error(err);
-        }
+    const deleteTemplate = async (id) => {
+        const templateDoc = doc(db, "templates", id);
+        await deleteDoc(templateDoc);
     }
 
     useEffect(() => {
         getTemplates();
-    }, []);
+    }, [templates]);
 
-    const textColor = color === "#1D7874" || color === "#852E0F" ? "#FFF" : "#000";
     return (
-        <section>
-            <div className="gallery-template-info" style={{color: textColor}}>
-                <span>Name: {templates > 0 && templates[0].name}</span>
-                <span>Stitches: {templates > 0 && templates[0].stitches}</span>
-                <span>Rows: {templates > 0 && templates[0].rows}</span>
+        <section className="gallery-template-info">
+            <div className="gallery-template-info-data" style={{color: textColor}}>
+                <span>{templates.length > 0 && template.name}</span>
+                <span>Stitches: {templates.length > 0 && template.stitches}</span>
+                <span>Rows: {templates.length > 0 && template.rows}</span>
+            </div>
+            <div className="gallery-template-info-icons" style={{color: textColor}}>
+                <i className="fa-solid fa-trash" onClick={() => deleteTemplate(template.id)}></i>
+                <i className="fa-solid fa-pencil"></i>
             </div>
         </section>
     )

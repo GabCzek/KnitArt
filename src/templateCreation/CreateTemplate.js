@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from "react";
-import {collection, getDocs, addDoc} from "firebase/firestore";
-import ReactToPrint from "react-to-print";
+import { getDocs, addDoc} from "firebase/firestore";
 
 import TemplateGrid from "./TemplateGrid";
 import TemplateInfo from "./TemplateInfo";
-import {db} from "../config/firebase";
+import {templatesColRef} from "../config/firebase";
 
 const Template = () => {
     const [name, setName] = useState("Template 1");
@@ -16,9 +15,6 @@ const Template = () => {
     const [activeColor, setActiveColor] = useState("#679289");
     const [templates, setTemplates] = useState([]);
     const [grid, setGrid] = useState([])
-
-    const templatesColRef = collection(db, 'templates');
-
     const getTemplates = async () => {
         try {
             const data = await getDocs(templatesColRef)
@@ -42,10 +38,10 @@ const Template = () => {
                 stitches: columns,
                 primaryColor,
                 secondaryColor,
-                tertiaryColor
+                tertiaryColor,
+                grid
             });
             getTemplates();
-
         } catch (err) {
             console.error(err)
         }
@@ -88,20 +84,8 @@ const Template = () => {
         setTertiaryColor(`rgba(${tertiaryColor.r}, ${tertiaryColor.g}, ${tertiaryColor.b}, ${tertiaryColor.a})`);
     };
 
-    // let componentRef = useRef(null);
-
     return (
         <div className="container">
-            {/*<ReactToPrint*/}
-            {/*    trigger = {() => {*/}
-            {/*        return <button> Print </button>*/}
-            {/*    }}*/}
-            {/*    content = {() => componentRef}*/}
-            {/*    documentTitle="Template"*/}
-            {/*    pageStyle="print"*/}
-            {/*/>*/}
-
-            {/*<div className="main-container template-container" ref={el => (componentRef = el)}>*/}
             <div className="main-container template-container">
                 <div className="title">
                     <label className="title-label">

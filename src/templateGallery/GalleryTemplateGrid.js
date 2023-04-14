@@ -1,44 +1,20 @@
-import React, {useEffect, useState} from "react";
-import {collection, getDocs} from "firebase/firestore";
-import {db} from "../config/firebase";
-
-const GalleryTemplateGrid = ({gridColor}) => {
-    const [templates, setTemplates] = useState([]);
-
-    const templatesColRef = collection(db, 'templates');
-    const getTemplates = async () => {
-        try {
-            const data = await getDocs(templatesColRef)
-            const filteredData = data.docs.map((doc) => ({...doc.data(), id: doc.id}));
-            setTemplates(filteredData);
-        } catch (err) {
-            console.error(err);
-        }
-    }
-
-    useEffect(() => {
-        getTemplates();
-    }, []);
-
-    const arr = new Array(20 * 20).fill('');
-
-    // Zrobić tak, żeby renderował się grid ładnie, plus zmienić gridTemplateColumns na numer stitches z firebase
+import React from "react";
+const GalleryTemplateGrid = ({templates, template}) => {
+    const size = template.stitches > 25 || template.rows > 25 ? "0.3em" : "0.5em";
 
     return (
         <div className="templates-grid">
+            {templates.length > 0 &&
             <div className="template-gallery-grid"
                  style={{
-                     display: "grid",
-                     gridTemplateColumns: `repeat(20, 0.6em)`,
-                     gap: 1
+                     gridTemplateColumns: `repeat(${template.stitches}, ${size})`,
                  }}>
-                {templates > 0 && templates[2].grid.map((el, i) => <div key={i} style={{
+                {templates.length > 0 && template.grid.map((el, i) => <div key={i} style={{
                     backgroundColor: el.color,
                     borderRadius: "50%",
-                    height: "0.6em",
-                    cursor: "pointer"
+                    height: size
                 }}></div>)}
-            </div>
+            </div>}
         </div>
     )
 };

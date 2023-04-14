@@ -73,6 +73,7 @@
   &-checkbox {
     margin-left: 0.5em;
     width: 20px;
+    cursor: pointer;
   }
 }
 
@@ -113,6 +114,7 @@
   display: flex;
   align-items: center;
   gap: 0.5em;
+  cursor: pointer;
 }
 
 .fa-solid {
