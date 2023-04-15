@@ -1,35 +1,43 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 const ShowTemplateRow = ({
                              stitches,
                              currentRowSize,
-                             currentRow,
+                             row,
                              gridRowClassName,
-                             handleArrowUp,
-                             handleArrowDown,
-                             className
+                             className,
+                             counter,
+                             templatesLength,
+                             grid,
+                             rows
                          }) => {
+    const [thisRow, setThisRow] = useState(row)
+
+
+    useEffect(() => {
+        const filterArray2 = templatesLength > 0 && grid.filter(el => {
+            const numberOfStitches = templatesLength > 0 && stitches;
+            const highestIdNumber = templatesLength > 0 && stitches * rows
+            const currentHighestIdNumber = highestIdNumber - (stitches * counter)
+            return (
+                el.id < currentHighestIdNumber && el.id >= currentHighestIdNumber - numberOfStitches
+            )
+        })
+        templatesLength > 0 && setThisRow(filterArray2)
+    }, [counter])
 
 
     return (
         <div className="showTemplate-display-row">
-            <div className>
                 <div className={className}
                      style={{
-                         gridTemplateColumns: `repeat(${stitches}, ${currentRowSize})`,
+                         gridTemplateColumns: `repeat(${stitches}, ${currentRowSize}em)`,
                      }}>
-                    {currentRow.map((el, i) => <div key={i} className={gridRowClassName} style={{
+                    {thisRow.map((el, i) => <div key={i} className={gridRowClassName} style={{
                         backgroundColor: el.color,
                         borderRadius: "50%"
                     }}></div>)}
                 </div>
-            </div>
-            {className === "showTemplate-display-currentRow" &&
-                <div className="showTemplate-display-arrows">
-                    <i className="fa-solid fa-caret-up" onClick={handleArrowUp}></i>
-                    <i className="fa-solid fa-caret-down" onClick={handleArrowDown}></i>
-                </div>
-            }
         </div>
     )
 }

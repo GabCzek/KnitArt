@@ -1,18 +1,14 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {deleteDoc, doc} from "firebase/firestore";
-import {db} from "../config/firebase";
+import {db} from "../firebase";
 
-const GalleryTemplateInfo = ({color, templates, template, getTemplates}) => {
+const GalleryTemplateInfo = ({ color, templates, template }) => {
     const textColor = color === "#1D7874" || color === "#852E0F" ? "#FFF" : "#000";
 
     const deleteTemplate = async (id) => {
         const templateDoc = doc(db, "templates", id);
         await deleteDoc(templateDoc);
     }
-
-    useEffect(() => {
-        getTemplates();
-    }, [templates]);
 
     return (
         <section className="gallery-template-info">

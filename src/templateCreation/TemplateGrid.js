@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const TemplateGrid = ({ columns, rows, activeColor, primaryColor, handleGridChange}) => {
-  const elementSize = rows >= 20 || columns >= 20 ? "1.5em" : "2em";
+  const elementSize = rows >= 20 || columns >= 20 ? "1.3em" : "1.9em";
   const [template, setTemplate] = useState([]);
 
   const handleClick = (id) => {

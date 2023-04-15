@@ -522,7 +522,6 @@ textarea {
 .gallery-template-link {
   background-color: #FFF;
   padding: 3px;
-  border-radius: 5px;
   overflow: auto;
   max-height: 70%;
   max-width: 45%;
@@ -569,30 +568,37 @@ textarea {
 .showTemplate-info-container {
   display: flex;
   width: 100%;
-  height: 40%;
+  height: 38%;
   justify-content: space-around;
   align-items: center;
   border-bottom: 5px solid #ffffff;
+}
+.showTemplate-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 25%;
 }
 .showTemplate-info h2 {
   font-size: 4em;
   font-family: "Amiri", serif;
   margin-bottom: 10px;
 }
+.showTemplate-info span,
 .showTemplate-info p {
   font-size: 1.5em;
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
+  padding: 10px;
+}
+.showTemplate-info span {
   border: 1px solid #000;
   border-radius: 3px;
-  padding: 10px;
 }
 .showTemplate-display {
   display: flex;
-  flex-direction: column;
   height: 60%;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 20px;
 }
 .showTemplate-display-row {
@@ -600,12 +606,17 @@ textarea {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  min-height: 50px;
 }
 .showTemplate-display-arrows {
   display: flex;
   flex-direction: column;
 }
-.showTemplate-display-rowBeforePrevious, .showTemplate-display-currentRow, .showTemplate-display-previousRow {
+.showTemplate-display-arrows-btn {
+  border: none;
+  background-color: #f0e0d6;
+}
+.showTemplate-display-rowBeforePrevious, .showTemplate-display-currentRow, .showTemplate-display-previousRow, .showTemplate-display-nextRow, .showTemplate-display-rowAfterNext {
   display: grid;
   gap: 1px;
   flex-grow: 1;
@@ -615,10 +626,10 @@ textarea {
 .showTemplate-display-currentRow {
   border: 1px solid #000;
 }
-.showTemplate-display-previousRow {
+.showTemplate-display-previousRow, .showTemplate-display-nextRow {
   scale: 0.9;
 }
-.showTemplate-display-rowBeforePrevious {
+.showTemplate-display-rowBeforePrevious, .showTemplate-display-rowAfterNext {
   scale: 0.8;
 }
 .showTemplate-grid {

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {collection, getDocs, addDoc, deleteDoc, updateDoc, doc} from "firebase/firestore";
 
-import {db, storage} from "./config/firebase";
+import {db, storage} from "./firebase";
 
 const FireBaseTest = () => {
     const [templates, setTemplates] = useState([]);
@@ -22,6 +22,8 @@ const FireBaseTest = () => {
 
     useEffect(() => {
         getTemplates();
+
+
     }, []);
 
     const handleSubmitTemplate = async () => {

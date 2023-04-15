@@ -7,52 +7,67 @@
   &-info-container {
     display: flex;
     width: 100%;
-    height: 40%;
+    height: 38%;
     justify-content: space-around;
     align-items: center;
     border-bottom: $accent-border-desktop;
   }
 
   &-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 25%;
+
     h2 {
       font-size: 4em;
       font-family: $header-font;
       margin-bottom: 10px;
     }
 
+    span,
     p {
       font-size: 1.5em;
       font-family: $main-font;
       text-transform: uppercase;
+      padding: 10px;
+    }
+
+    span {
       border: 1px solid #000;
       border-radius: 3px;
-      padding: 10px;
     }
   }
 
   &-display {
     display: flex;
-    flex-direction: column;
     height: 60%;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     gap: 20px;
 
-    &-row{
+    &-row {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 20px;
+      min-height: 50px;
     }
 
-    &-arrows{
+    &-arrows {
       display: flex;
       flex-direction: column;
+
+      &-btn {
+        border: none;
+        background-color: $background-color;
+      }
     }
 
     &-rowBeforePrevious,
     &-currentRow,
-    &-previousRow {
+    &-previousRow,
+    &-nextRow,
+    &-rowAfterNext {
       display: grid;
       gap: 1px;
       flex-grow: 1;
@@ -64,11 +79,13 @@
       border: 1px solid #000;
     }
 
-    &-previousRow {
+    &-previousRow,
+    &-nextRow {
       scale: (0.9);
     }
 
-    &-rowBeforePrevious {
+    &-rowBeforePrevious,
+    &-rowAfterNext {
       scale: (0.8);
     }
   }
@@ -78,7 +95,6 @@
     gap: 1px;
     flex-grow: 1;
   }
-
 }
 
 .small {

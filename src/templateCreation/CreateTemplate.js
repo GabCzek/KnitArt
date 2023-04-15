@@ -3,7 +3,7 @@ import { addDoc} from "firebase/firestore";
 
 import TemplateGrid from "./TemplateGrid";
 import TemplateInfo from "./TemplateInfo";
-import {templatesColRef} from "../config/firebase";
+import {templatesColRef} from "../firebase";
 
 const Template = () => {
     const [name, setName] = useState("Template 1");
@@ -39,9 +39,10 @@ const Template = () => {
         setName(value);
     };
     const changeRows = (rows) => {
-        setRows(rows);
+        (rows >= 0 && rows <= 80) && setRows(rows);
     };
     const changeColumns = (columns) => {
+        (columns >= 0 && columns <= 80) &&
         setColumns(columns);
     };
 

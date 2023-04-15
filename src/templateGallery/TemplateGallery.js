@@ -2,7 +2,7 @@ import React from "react";
 import SingleGalleryTemplate from "./SingleGalleryTemplate";
 
 
-const TemplateGallery = ({templates, getTemplates}) => {
+const TemplateGallery = ({templates}) => {
     const color1 = "#F0E0D6";
     const color2 = "#1D7874";
 
@@ -17,7 +17,6 @@ const TemplateGallery = ({templates, getTemplates}) => {
                                            template={template}
                                            color1={color1}
                                            color2={color2}
-                                           getTemplates={getTemplates}
                     />)}
             </div>
         </div>

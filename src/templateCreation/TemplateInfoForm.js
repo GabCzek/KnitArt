@@ -1,7 +1,11 @@
 import React, {useState} from "react";
+import {Tooltip} from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
+
 import ColorPicker from "./ColorPicker";
 
-const TemplateInfoForm = ({   rows,
+const TemplateInfoForm = ({
+                              rows,
                               columns,
                               changePrimaryColor,
                               changeSecondaryColor,
@@ -53,11 +57,28 @@ const TemplateInfoForm = ({   rows,
         <form>
             <label className="template-label">
                 Number of rows:
-                <input onChange={handleRowsChange} value={rows} type="number" className="template-label-number"/>
+                <input data-tooltip-id="numberOfRows"
+                       data-tooltip-content="Please choose a number between 0 and 80"
+                       onChange={handleRowsChange}
+                       value={rows}
+                       type="number"
+                       min="0"
+                       max="80"
+                       className="template-label-number"/>
+                <Tooltip id="numberOfRows"/>
             </label>
+
             <label className="template-label">
                 Number of stitches:
-                <input onChange={handleColumnsChange} value={columns} type="number" className="template-label-number"/>
+                <input data-tooltip-id="numberOfStitches"
+                       data-tooltip-content="Please choose a number between 0 and 80"
+                       onChange={handleColumnsChange}
+                       value={columns}
+                       type="number"
+                       min="0"
+                       max="80"
+                       className="template-label-number"/>
+                <Tooltip id="numberOfStitches"/>
             </label>
             <label className="template-label">
                 Choose main color:
