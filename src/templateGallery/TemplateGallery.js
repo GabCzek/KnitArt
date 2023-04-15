@@ -1,26 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import SingleGalleryTemplate from "./SingleGalleryTemplate";
-import {getDocs} from "firebase/firestore";
-import {templatesColRef} from "../config/firebase";
 
-const TemplateGallery = () => {
-    const [templates, setTemplates] = useState([]);
+
+const TemplateGallery = ({templates, getTemplates}) => {
     const color1 = "#F0E0D6";
     const color2 = "#1D7874";
-    const getTemplates = async () => {
-        try {
-            const data = await getDocs(templatesColRef)
-            const filteredData = data.docs.map((doc) => ({...doc.data(), id: doc.id}));
-            setTemplates(filteredData);
-        } catch (err) {
-            console.error(err);
-        }
-    }
-
-    useEffect(() => {
-        getTemplates();
-    }, []);
-
 
     return (
         <div className="container">

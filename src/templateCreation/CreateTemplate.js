@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import { getDocs, addDoc} from "firebase/firestore";
+import React, {useState} from "react";
+import { addDoc} from "firebase/firestore";
 
 import TemplateGrid from "./TemplateGrid";
 import TemplateInfo from "./TemplateInfo";
@@ -13,22 +13,7 @@ const Template = () => {
     const [secondaryColor, setSecondaryColor] = useState("#1d7874");
     const [tertiaryColor, setTertiaryColor] = useState("#852e0f");
     const [activeColor, setActiveColor] = useState("#679289");
-    const [templates, setTemplates] = useState([]);
     const [grid, setGrid] = useState([])
-    const getTemplates = async () => {
-        try {
-            const data = await getDocs(templatesColRef)
-            const filteredData = data.docs.map((doc) => ({...doc.data(), id: doc.id}));
-            setTemplates(filteredData);
-            console.log(templates)
-        } catch (err) {
-            console.error(err);
-        }
-    }
-
-    useEffect(() => {
-        getTemplates();
-    }, []);
 
     const handleSubmitTemplate = async () => {
         try {
@@ -41,7 +26,6 @@ const Template = () => {
                 tertiaryColor,
                 grid
             });
-            getTemplates();
         } catch (err) {
             console.error(err)
         }

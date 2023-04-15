@@ -1,4 +1,6 @@
 import React from "react";
+import {Link} from "react-router-dom";
+
 import GalleryTemplateGrid from "./GalleryTemplateGrid";
 import GalleryTemplateInfo from "./GalleryTemplateInfo";
 
@@ -8,7 +10,9 @@ const SingleGalleryTemplate = ({color1, colorId, color2, gridColor, className, t
 
     return (
         <section style={{backgroundColor: color}} className={className}>
-            <GalleryTemplateGrid gridColor={gridColor} template={template} templates={templates}/>
+            <Link to={`/show-template/${template.id}`} className="link gallery-template-link">
+                <GalleryTemplateGrid gridColor={gridColor} template={template} templates={templates}/>
+            </Link>
             <GalleryTemplateInfo color={color} template={template} templates={templates} getTemplates={getTemplates}/>
         </section>
     )

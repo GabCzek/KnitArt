@@ -519,7 +519,7 @@ textarea {
   gap: 5px;
 }
 
-.templates-grid {
+.gallery-template-link {
   background-color: #FFF;
   padding: 3px;
   border-radius: 5px;
@@ -560,6 +560,87 @@ textarea {
   display: grid;
   gap: 1px;
   flex-grow: 1;
+}
+
+.showTemplate-main-container {
+  display: flex;
+  flex-direction: column;
+}
+.showTemplate-info-container {
+  display: flex;
+  width: 100%;
+  height: 40%;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 5px solid #ffffff;
+}
+.showTemplate-info h2 {
+  font-size: 4em;
+  font-family: "Amiri", serif;
+  margin-bottom: 10px;
+}
+.showTemplate-info p {
+  font-size: 1.5em;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  border: 1px solid #000;
+  border-radius: 3px;
+  padding: 10px;
+}
+.showTemplate-display {
+  display: flex;
+  flex-direction: column;
+  height: 60%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.showTemplate-display-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.showTemplate-display-arrows {
+  display: flex;
+  flex-direction: column;
+}
+.showTemplate-display-rowBeforePrevious, .showTemplate-display-currentRow, .showTemplate-display-previousRow {
+  display: grid;
+  gap: 1px;
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 3px;
+}
+.showTemplate-display-currentRow {
+  border: 1px solid #000;
+}
+.showTemplate-display-previousRow {
+  scale: 0.9;
+}
+.showTemplate-display-rowBeforePrevious {
+  scale: 0.8;
+}
+.showTemplate-grid {
+  display: grid;
+  gap: 1px;
+  flex-grow: 1;
+}
+
+.small {
+  height: 1.4em;
+}
+
+.normal {
+  height: 1.1em;
+}
+
+.big {
+  height: 0.8em;
+}
+
+.biggest {
+  height: 0.6em;
 }
 
 /*# sourceMappingURL=App.css.map */

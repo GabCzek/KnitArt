@@ -1,0 +1,11 @@
+.container .gallery_template-container {
+  height: 100vh;
+  background-color: #fff;
+  display: grid;
+  align-content: center;
+  grid-template-columns: repeat(3, 33%);
+  grid-auto-rows: 33%;
+  gap: 5px;
+}
+
+/*# sourceMappingURL=showTemplate.css.map */
