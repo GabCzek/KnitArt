@@ -6,15 +6,14 @@ import ShowTemplateInfo from "./ShowTemplateInfo";
 
 function ShowTemplate({templates}) {
     const {id} = useParams();
-
-    const currentTemplate = templates.find(obj => {
+    const template = templates.find(obj => {
         return obj.id === id;
     });
 
 
-    const filterArray = templates.length > 0 && currentTemplate.grid.filter(el => {
-        let numberOfStitches = templates.length > 0 && currentTemplate.stitches;
-        let highestIdNumber = templates.length > 0 && (currentTemplate.stitches * currentTemplate.rows);
+    const filterArray = templates.length > 0 && template.grid.filter(el => {
+        let numberOfStitches = templates.length > 0 && template.stitches;
+        let highestIdNumber = templates.length > 0 && (template.stitches * template.rows);
         return (
             el.id < highestIdNumber && el.id >= highestIdNumber - numberOfStitches
         )
@@ -33,31 +32,32 @@ function ShowTemplate({templates}) {
     const handleArrowDown = () => {
         setCounter(prev => prev - 1)
     }
-
     return (
         <div className="container">
             {templates.length > 0 &&
                 <div className="main-container showTemplate-main-container">
                     <ShowTemplateInfo
-                        name={currentTemplate.name}
-                        currentRow={counter + 1}
-                        rows={currentTemplate.rows}
+                        name={template.name}
+                        counter={counter + 1}
+                        currentRow={currentRow}
+                        rows={template.rows}
                         templatesLength={templates.length}
-                        stitches={currentTemplate.stitches}
-                        grid={currentTemplate.grid}
+                        stitches={template.stitches}
+                        grid={template.grid}
                         className="showTemplate-info-container"/>
                     <ShowTemplateDisplay
-                        stitches={currentTemplate.stitches}
+                        stitches={template.stitches}
                         currentRow={currentRow}
-                        rows={currentTemplate.rows}
+                        rows={template.rows}
                         templatesLength={templates.length}
                         handleArrowUp={handleArrowUp}
                         handleArrowDown={handleArrowDown}
                         counter={counter}
-                        grid={currentTemplate.grid}
+                        grid={template.grid}
                         className="showTemplate-display"
                     />
-                </div>}
+                </div>
+        }
         </div>
     )
 }

@@ -510,10 +510,9 @@ textarea {
 }
 
 .container .gallery_template-container {
-  height: 100vh;
+  height: 100%;
   background-color: #fff;
   display: grid;
-  align-content: center;
   grid-template-columns: repeat(3, 33%);
   grid-auto-rows: 33%;
   gap: 5px;
@@ -636,6 +635,17 @@ textarea {
   display: grid;
   gap: 1px;
   flex-grow: 1;
+}
+.showTemplate-grid .currentRow {
+  position: relative;
+}
+.showTemplate-grid .currentRow::before {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .small {

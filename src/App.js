@@ -4,7 +4,7 @@ import {
     createBrowserRouter,
     createRoutesFromElements,
 } from "react-router-dom";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 import "./App.scss";
 import Main from "./home/main.js";
@@ -16,24 +16,22 @@ import {onSnapshot, doc} from "firebase/firestore";
 import {templatesColRef} from "./firebase";
 
 function App() {
-    const [templates, setTemplates] = useState();
+    const [templates, setTemplates] = useState([]);
 
-    onSnapshot(templatesColRef, (snapshot) => {
-        const x = [];
-        snapshot.docs.forEach((doc) => {
-            x.push({...doc.data(), id: doc.id})
-        })
-        setTemplates(x)
-        console.log(templates)
-    })
+    useEffect(
+        () =>
+            onSnapshot(templatesColRef, (snapshot) =>
+                setTemplates(snapshot.docs.map(doc => ({...doc.data(), id: doc.id})))
+            ), [])
+
 
     const routeDefinitions = createRoutesFromElements(
         <Route>
             <Route path="/" element={<Main/>}/>
             <Route path="/template" element={<Template/>}/>
-            <Route path="/template-gallery" element={<TemplateGallery/>}/>
+            <Route path="/template-gallery" element={<TemplateGallery templates={templates}/>}/>
             <Route path="/project-gallery" element={<ProjectGallery/>}/>
-            <Route path='/show-template/:id' element={<ShowTemplate/>}/>
+            <Route path='/show-template/:id' element={<ShowTemplate templates={templates}/>}/>
         </Route>
     );
     const router = createBrowserRouter(routeDefinitions);
