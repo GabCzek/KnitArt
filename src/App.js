@@ -10,6 +10,7 @@ import "./App.scss";
 import Main from "./home/main.js";
 import Template from "./templateCreation/CreateTemplate";
 import TemplateGallery from "./templateGallery/TemplateGallery";
+import Dashboard from "./home/Dashboard";
 import ProjectGallery from "./projectGallery/ProjectGallery";
 import ShowTemplate from "./showTemplate/ShowTemplate"
 import {onSnapshot, doc} from "firebase/firestore";
@@ -27,11 +28,13 @@ function App() {
 
     const routeDefinitions = createRoutesFromElements(
         <Route>
-            <Route path="/" element={<Main/>}/>
-            <Route path="/template" element={<Template/>}/>
-            <Route path="/template-gallery" element={<TemplateGallery templates={templates}/>}/>
-            <Route path="/project-gallery" element={<ProjectGallery/>}/>
-            <Route path='/show-template/:id' element={<ShowTemplate templates={templates}/>}/>
+            <Route element={<Dashboard/>}>
+                <Route path="/" element={<Main/>}/>
+                <Route path="/template" element={<Template/>}/>
+                <Route path="/template-gallery" element={<TemplateGallery templates={templates}/>}/>
+                <Route path="/project-gallery" element={<ProjectGallery/>}/>
+                <Route path='/show-template/:id' element={<ShowTemplate templates={templates}/>}/>
+            </Route>
         </Route>
     );
     const router = createBrowserRouter(routeDefinitions);
