@@ -1,0 +1,131 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.home {
+  &-content {
+    display: flex;
+    height: 100%;
+
+
+  }
+
+  &-img {
+    background: no-repeat center url("../images/main.png");
+    background-size: cover;
+    width: 50%;
+    height: 100%;
+    border-right: $accent-border-desktop;
+  }
+
+  &-links {
+    width: 50%;
+  }
+
+  &-link {
+    height: 30%;
+    width: 100%;
+    font-family: $header-font;
+    border-bottom: $accent-border-desktop;
+
+    h1 {
+      display: block;
+      width: 40%;
+      font-size: 2.6em;
+      font-weight: normal;
+      padding: 9% 30% 0 10%;
+      line-height: 1.2;
+
+      &:after {
+        content: "";
+        display: block;
+        background: url("../images/arrow1.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        width: 100%;
+        height: 40px;
+      }
+    }
+
+    @include laptop {
+      h1 {
+        font-size: 2em;
+        padding-top: 15%;
+      }
+    }
+
+    & .arrow-right-main {
+      width: 40%;
+      height: auto;
+      margin-left: 10.5%;
+      margin-bottom: 2%;
+    }
+  }
+}
+
+
+.secondary-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 65%;
+}
+
+.secondary-link {
+  justify-self: end;
+  font-family: $header-font;
+  font-size: 2em;
+  width: 35%;
+  margin-left: 10%;
+  margin-top: 20%;
+
+  @include laptop {
+    font-size: 1.5em;
+  }
+
+  & h2 {
+    display: block;
+    line-height: 1.1;
+    margin-right: 0.8em;
+
+    &:before {
+      content: "";
+      display: block;
+      background: url("../images/arrow1.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      width: 90%;
+      height: 40px;
+    }
+  }
+
+  &-right {
+    align-self: end;
+    display: block;
+  }
+}
+
+
+@include tablet {
+  .home {
+    &-content {
+      flex-direction: column;
+    }
+
+    &-img {
+      width: 100%;
+      height: 30%;
+    }
+
+    &-links{
+      display: none;
+    }
+  }
+}
+
+
+
+

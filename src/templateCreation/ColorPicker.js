@@ -53,7 +53,7 @@ const ColorPicker = ({changeColor, defaultColor}) => {
 
     return (
         <div>
-            <div className="template_color-picker" style={colorPickerStyles.swatch} onClick={handleClick}>
+            <div className="template-color-picker" style={colorPickerStyles.swatch} onClick={handleClick}>
                 <div style={colorPickerStyles.color}/>
             </div>
             {displayColorPicker ? <div style={colorPickerStyles.popover}>

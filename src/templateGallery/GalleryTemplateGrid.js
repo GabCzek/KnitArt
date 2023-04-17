@@ -19,7 +19,7 @@ const GalleryTemplateGrid = ({templates, template}) => {
     return (
             <div className="templates-grid">
                 {templates.length > 0 &&
-                    <div className="template-gallery-grid"
+                    <div className="gallery-template-grid"
                          style={{
                              gridTemplateColumns: `repeat(${template.stitches}, ${size})`,
                          }}>

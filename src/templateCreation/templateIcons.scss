@@ -1,0 +1,45 @@
+.template {
+
+  &-icons {
+    height: 3em;
+
+    &-container {
+      align-self: center;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      & span {
+        font-size: 20px;
+      }
+
+      & div {
+        display: flex;
+      }
+    }
+
+    &-el {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      cursor: pointer;
+    }
+  }
+  &-icon {
+    font-size: 2em;
+  }
+}
+
+.fa-floppy-disk {
+  color: $main-color;
+  margin-right: 0.3em;
+}
+
+.fa-eraser {
+  color: $secondary-color;
+}
+
+.fa-file-pdf {
+  color: $accent-color;
+  margin-right: 0.1em;
+}

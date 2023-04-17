@@ -72,8 +72,8 @@ const Template = () => {
     return (
         <div className="container">
             <div className="main-container template-container">
-                <div className="title">
-                    <label className="title-label">
+                <div className="template-title">
+                    <label className="template-title-label">
                         Name:
                         <input onChange={handleNameChange} value={name} type="text" className="title-label-name"/>
                     </label>

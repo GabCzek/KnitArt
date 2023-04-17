@@ -14,7 +14,28 @@ $accent-border-desktop: 5px solid $border-color;
 $accent-border-phone: 3px solid $border-color;
 
 //widths
-$container-width: 1440px;
+$dashboard-width: 1440px;
+$laptop-width: 1120px;
+$tablet-width: 768px;
+$phone-width: 390px;
+
+@mixin laptop {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$laptop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$phone-width}) and (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media (max-width: #{$phone-width}) {
+    @content;
+  }
+}
 
 .container {
   display: flex;
@@ -25,8 +46,21 @@ $container-width: 1440px;
 
 .main-container {
   background-color: $background-color;
-  max-width: $container-width;
+  max-width: $dashboard-width;
   height: 100%;
   flex: 1;
   display: flex;
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
 }

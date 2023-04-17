@@ -1,0 +1,149 @@
+.container-dashboard {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.main-container-dashboard {
+  background-color: $background-color;
+  max-width: $dashboard-width;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+  display: flex;
+}
+
+.main-nav {
+  height: 6%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: $accent-border-desktop;
+  background-color: #FFF;
+  gap: 5px;
+  font-size: 40px;
+
+  @include tablet {
+    background-color: $background-color;
+  }
+
+  &-burger {
+    display: none;
+
+    @include tablet {
+      display: block;
+      font-size: 2em;
+      margin-right: 20px;
+      color: $accent-color
+    }
+  }
+
+  &-logo {
+    background-color: $background-color;
+    width: 50%;
+    display: flex;
+    align-items: center;
+
+    &-container {
+      color: $accent-color;
+      font-family: $header-font;
+
+      &-start {
+        position: relative;
+        padding-left: 20px;
+        padding-right: 15px;
+
+        &::before,
+        &::after {
+          content: "l";
+          font-family: 'Neucha', cursive;
+          display: block;
+          font-size: 50px;
+          background-color: $background-color;
+          height: 45px;
+          width: auto;
+          position: absolute;
+        }
+
+        &:before {
+          top: 17%;
+          left: 92%;
+        }
+
+        &:after {
+          transform: rotate(8deg);
+          left: 85%;
+          top: 14%;
+        }
+      }
+
+      @include laptop {
+        transform: scale(0.8);
+
+        &-start {
+          padding-left: 10px;
+        }
+      }
+
+      @include tablet {
+        transform: scale(0.8);
+
+        &-start {
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+
+  &-links {
+    display: flex;
+    font-family: $main-font;
+    font-size: 17px;
+    width: 50%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFF;
+    height: 100%;
+    gap: 5px;
+  }
+
+  &-link {
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    background-color: $background-color;
+    flex: 1;
+    justify-content: center;
+
+    h2 {
+      color: $accent-color;
+      font-weight: 500;
+
+    }
+  }
+
+  @include laptop {
+    &-links {
+      font-size: 15px;
+    }
+
+    &-link h2 {
+      text-align: center;
+      width: 60%;
+    }
+  }
+
+  @include tablet {
+    &-links {
+      background-color: $background-color;
+      justify-content: end;
+    }
+
+    &-link {
+      display: none;
+    }
+  }
+}
+
+

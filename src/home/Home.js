@@ -1,16 +1,17 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-const Main = () => {
+const Home = () => {
     return (
         <div className="container">
             <div className="main-container">
-                <div className="main-content">
-                    <div className="main-img"></div>
-                    <nav className="main-links">
-                        <div className="main-link">
+                <div className="home-content">
+                    <div className="home-img"></div>
+                    <nav className="home-links">
+                        <div className="home-link">
                             <Link to="/template" className="link">
                                 <h1>Create your template</h1>
+                                <i className="fa-thin fa-grip-lines"></i>
                             </Link>
                         </div>
                         <div className="secondary-links">
@@ -28,6 +29,7 @@ const Main = () => {
                                 </div>
                             </Link>
                         </div>
+
                     </nav>
                 </div>
             </div>
@@ -35,4 +37,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default Home;

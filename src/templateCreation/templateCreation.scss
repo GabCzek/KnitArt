@@ -1,136 +1,80 @@
-.title {
-  font-family: $header-font;
-  border-bottom: $accent-border-desktop;
-  height: 15%;
-  display: flex;
-  align-items: center;
-
-  &-label {
-    font-size: 3.5em;
-    padding-left: 6%;
-
-    &-name{
-      font-family: $header-font;
-      font-size: 0.9em;
-      margin-left: 0.5em;
-      width: 7em;
-      height: 1.2em;
-    }
-  }
-}
-
-.template-container {
-  flex-direction: column;
-}
-
 .template {
   display: flex;
   margin-top: 5%;
   margin-left: 5%;
   height: 70%;
-}
 
-.template-grid {
-  width: 60%;
-  max-height: 100%;
-  overflow: auto;
-  align-self: center;
-  justify-content: center;
-  display: grid;
-  gap: 1px;
+  &-title {
+    font-family: $header-font;
+    border-bottom: $accent-border-desktop;
+    height: 15%;
+    display: flex;
+    align-items: center;
 
-  &-item {
-    cursor: pointer;
-    border-radius: 50%;
+    &-label {
+      font-size: 3em;
+      padding-left: 6%;
+
+      &-name{
+        font-family: $header-font;
+        font-size: 0.9em;
+        margin-left: 0.5em;
+        width: 7em;
+        height: 1.2em;
+      }
+    }
   }
-}
 
-.template-info {
-  height: 100%;
-  font-family: $main-font;
-  text-transform: uppercase;
-  display: flex;
-  flex-direction: column;
-  padding-left: 4%;
+  &-grid {
+    width: 60%;
+    max-height: 100%;
+    overflow: auto;
+    align-self: center;
+    justify-content: center;
+    display: grid;
+    gap: 1px;
 
-  & form {
+    &-item {
+      cursor: pointer;
+      border-radius: 50%;
+    }
+  }
+
+  &-info {
+    height: 100%;
+    font-family: $main-font;
+    text-transform: uppercase;
     display: flex;
     flex-direction: column;
-    gap: 5%;
-    height: 60%;
+    padding-left: 4%;
+
+    &-form {
+      display: flex;
+      flex-direction: column;
+      gap: 5%;
+      height: 60%;
+
+      &-label {
+        display: inline-flex;
+        font-size: 24px;
+
+        &-number {
+          width: 46px;
+          height: 24px;
+          margin-left: 3em;
+        }
+
+        &-checkbox {
+          margin-left: 0.5em;
+          width: 20px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &-color-picker {
+    margin-left: 2em;
   }
 }
 
-.template-label {
-  display: inline-flex;
-  font-size: 24px;
-  &-number {
-    width: 46px;
-    height: 24px;
-    margin-left: 3em;
-  }
-
-  &-checkbox {
-    margin-left: 0.5em;
-    width: 20px;
-    cursor: pointer;
-  }
-}
-
-.template_color-picker {
-  margin-left: 2em;
-}
-
-.template_choose-color {
-  height: 50px;
-  width: 50px;
-}
-
-.template-icons_container {
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-  & span {
-    font-size: 20px;
-  }
-
-  & div {
-    display: flex;
-  }
-}
-
-.template_one-icon {
-  align-self: center;
-  justify-self: center;
-}
-
-.template-icons {
-  height: 3em;
-}
-
-.template-icons_el {
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-  cursor: pointer;
-}
-
-.fa-solid {
-  font-size: 2em;
-}
-
-.fa-floppy-disk {
-  color: $main-color;
-  margin-right: 0.3em;
-}
-
-.fa-eraser {
-  color: $secondary-color;
-}
-
-.fa-file-pdf {
-  color: $accent-color;
-  margin-right: 0.1em;
-}

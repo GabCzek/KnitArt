@@ -8,7 +8,7 @@ const TemplateGallery = ({templates}) => {
 
     return (
         <div className="container">
-            <div className="main-container gallery_template-container">
+            <div className="main-container gallery-template-container">
                 {templates.map((template, i) =>
                     <SingleGalleryTemplate key={i}
                                            className={`gallery-template-${i + 1} gallery-template`}

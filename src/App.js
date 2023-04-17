@@ -7,10 +7,10 @@ import {
 import React, {useState, useEffect} from "react";
 
 import "./App.scss";
-import Main from "./home/main.js";
+import Home from "./home/Home.js";
 import Template from "./templateCreation/CreateTemplate";
 import TemplateGallery from "./templateGallery/TemplateGallery";
-import Dashboard from "./home/Dashboard";
+import Dashboard from "./dashboard/Dashboard";
 import ProjectGallery from "./projectGallery/ProjectGallery";
 import ShowTemplate from "./showTemplate/ShowTemplate"
 import {onSnapshot, doc} from "firebase/firestore";
@@ -29,7 +29,7 @@ function App() {
     const routeDefinitions = createRoutesFromElements(
         <Route>
             <Route element={<Dashboard/>}>
-                <Route path="/" element={<Main/>}/>
+                <Route path="/" element={<Home/>}/>
                 <Route path="/template" element={<Template/>}/>
                 <Route path="/template-gallery" element={<TemplateGallery templates={templates}/>}/>
                 <Route path="/project-gallery" element={<ProjectGallery/>}/>

@@ -54,8 +54,8 @@ const TemplateInfoForm = ({
     }
 
     return (
-        <form>
-            <label className="template-label">
+        <form className="template-info-form">
+            <label className="template-info-form-label">
                 Number of rows:
                 <input data-tooltip-id="numberOfRows"
                        data-tooltip-content="Please choose a number between 0 and 80"
@@ -64,11 +64,11 @@ const TemplateInfoForm = ({
                        type="number"
                        min="0"
                        max="80"
-                       className="template-label-number"/>
+                       className="template-info-form-label-number"/>
                 <Tooltip id="numberOfRows"/>
             </label>
 
-            <label className="template-label">
+            <label className="template-info-form-label">
                 Number of stitches:
                 <input data-tooltip-id="numberOfStitches"
                        data-tooltip-content="Please choose a number between 0 and 80"
@@ -77,31 +77,31 @@ const TemplateInfoForm = ({
                        type="number"
                        min="0"
                        max="80"
-                       className="template-label-number"/>
+                       className="template-info-form-label-number"/>
                 <Tooltip id="numberOfStitches"/>
             </label>
-            <label className="template-label">
+            <label className="template-info-form-label">
                 Choose main color:
                 <ColorPicker changeColor={changePrimaryColor} defaultColor={defaultPrimaryColor}/>
                 <input type="checkbox" name="primaryColor" onChange={handleCheckboxChange}
-                       className="template-label-checkbox"
+                       className="template-info-form-label-checkbox"
                        checked={checked.includes("primaryColor")}
                        disabled={!checked.includes("primaryColor") && checked.length > 1}
                 />
             </label>
-            <label className="template-label">
+            <label className="template-info-form-label">
                 Choose second color:
                 <ColorPicker changeColor={changeSecondaryColor} defaultColor={defaultSecondaryColor}/>
                 <input type="checkbox" name="secondaryColor" onChange={handleCheckboxChange}
-                       className="template-label-checkbox"
+                       className="template-info-form-label-checkbox"
                        checked={checked.includes("secondaryColor")}
                        disabled={!checked.includes("secondaryColor") && checked.length > 1}/>
             </label>
-            <label className="template-label">
+            <label className="template-info-form-label">
                 Choose third color:
                 <ColorPicker changeColor={changeTertiaryColor} defaultColor={defaultTertiaryColor}/>
                 <input type="checkbox" name="tertiaryColor" onChange={handleCheckboxChange}
-                       className="template-label-checkbox"
+                       className="template-info-form-label-checkbox"
                        checked={checked.includes("tertiaryColor")}
                        disabled={!checked.includes("tertiaryColor") && checked.length > 1}/>
             </label>

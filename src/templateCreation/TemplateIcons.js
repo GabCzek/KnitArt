@@ -6,17 +6,17 @@ const TemplateIcons = ({handleSubmitTemplate}) => {
     }
 
     return (
-        <div className="template-icons_container">
-            <div className="template-icons_el">
-                <i className="fa-solid fa-eraser"></i>
+        <div className="template-icons-container">
+            <div className="template-icons-el">
+                <i className="fa-solid fa-eraser template-icon"></i>
                 <span>Clear</span>
             </div>
-            <div className="template-icons_el" onClick={handleClick}>
-                <i className="fa-solid fa-floppy-disk"></i>
+            <div className="template-icons-el" onClick={handleClick}>
+                <i className="fa-solid fa-floppy-disk template-icon"></i>
                 <span>Save</span>
             </div>
-            <div className="template-icons_el">
-                <i className="fa-solid fa-file-pdf"></i>
+            <div className="template-icons-el">
+                <i className="fa-solid fa-file-pdf template-icon"></i>
                 <span>Export</span>
             </div>
         </div>
