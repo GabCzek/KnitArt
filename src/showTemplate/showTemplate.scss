@@ -22,6 +22,10 @@
       font-size: 4em;
       font-family: $header-font;
       margin-bottom: 10px;
+
+      @include media(phone, tablet) {
+        font-size: 3em;
+      }
     }
 
     span,
@@ -30,6 +34,10 @@
       font-family: $main-font;
       text-transform: uppercase;
       padding: 10px;
+
+      @include media(phone, tablet) {
+        font-size: 1.2em;
+      }
     }
 
     span {
@@ -99,7 +107,7 @@
       position: relative;
 
       &::before {
-        background-color: rgba(255,255,255,0.3);
+        background-color: rgba(255, 255, 255, 0.3);
         border-radius: 4px;
         content: "";
         position: absolute;
@@ -114,16 +122,32 @@
   height: 1.4em;
 }
 
+.smallPhone {
+  height: 1.2em
+}
+
 .normal {
   height: 1.1em;
 }
 
+.normalPhone {
+  height: 1.1em;
+}
+
 .big {
+  height: 0.9em;
+}
+
+.bigPhone {
   height: 0.8em;
 }
 
 .biggest {
   height: 0.6em;
+}
+
+.biggestPhone {
+  height: 0.8em;
 }
 
 

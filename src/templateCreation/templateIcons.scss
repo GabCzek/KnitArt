@@ -9,7 +9,12 @@
       flex-direction: column;
       gap: 20px;
 
-      & span {
+      @include media(phone, tablet)  {
+        flex-direction: row;
+        margin-bottom: 1em;
+      }
+
+        & span {
         font-size: 20px;
       }
 

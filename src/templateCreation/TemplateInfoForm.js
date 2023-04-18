@@ -3,16 +3,20 @@ import {Tooltip} from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 
 import ColorPicker from "./ColorPicker";
+import TemplateIcons from "./TemplateIcons";
 
 const TemplateInfoForm = ({
                               rows,
                               columns,
+                              name,
+                              changeName,
                               changePrimaryColor,
                               changeSecondaryColor,
                               changeTertiaryColor,
                               changeActiveColor,
                               changeRows,
-                              changeColumns
+                              changeColumns,
+                              windowWidth
                           }) => {
 
     const [checked, setChecked] = useState([]);
@@ -53,58 +57,77 @@ const TemplateInfoForm = ({
         }
     }
 
+    const handleNameChange = ({target: {value}}) => {
+        changeName(value);
+    };
+
     return (
         <form className="template-info-form">
-            <label className="template-info-form-label">
-                Number of rows:
-                <input data-tooltip-id="numberOfRows"
-                       data-tooltip-content="Please choose a number between 0 and 80"
-                       onChange={handleRowsChange}
-                       value={rows}
-                       type="number"
-                       min="0"
-                       max="80"
-                       className="template-info-form-label-number"/>
-                <Tooltip id="numberOfRows"/>
-            </label>
-
-            <label className="template-info-form-label">
-                Number of stitches:
-                <input data-tooltip-id="numberOfStitches"
-                       data-tooltip-content="Please choose a number between 0 and 80"
-                       onChange={handleColumnsChange}
-                       value={columns}
-                       type="number"
-                       min="0"
-                       max="80"
-                       className="template-info-form-label-number"/>
-                <Tooltip id="numberOfStitches"/>
-            </label>
-            <label className="template-info-form-label">
-                Choose main color:
-                <ColorPicker changeColor={changePrimaryColor} defaultColor={defaultPrimaryColor}/>
-                <input type="checkbox" name="primaryColor" onChange={handleCheckboxChange}
-                       className="template-info-form-label-checkbox"
-                       checked={checked.includes("primaryColor")}
-                       disabled={!checked.includes("primaryColor") && checked.length > 1}
-                />
-            </label>
-            <label className="template-info-form-label">
-                Choose second color:
-                <ColorPicker changeColor={changeSecondaryColor} defaultColor={defaultSecondaryColor}/>
-                <input type="checkbox" name="secondaryColor" onChange={handleCheckboxChange}
-                       className="template-info-form-label-checkbox"
-                       checked={checked.includes("secondaryColor")}
-                       disabled={!checked.includes("secondaryColor") && checked.length > 1}/>
-            </label>
-            <label className="template-info-form-label">
-                Choose third color:
-                <ColorPicker changeColor={changeTertiaryColor} defaultColor={defaultTertiaryColor}/>
-                <input type="checkbox" name="tertiaryColor" onChange={handleCheckboxChange}
-                       className="template-info-form-label-checkbox"
-                       checked={checked.includes("tertiaryColor")}
-                       disabled={!checked.includes("tertiaryColor") && checked.length > 1}/>
-            </label>
+            <div className="template-info-form-labels">
+                <label className="template-info-form-label">
+                    <span>Name:</span>
+                    <input onChange={handleNameChange} value={name} type="text"
+                           className="template-info-form-label-name"/>
+                </label>
+                <label className="template-info-form-label">
+                    {windowWidth >= 820 ? <span>Number of rows:</span> : <span>Rows:</span>}
+                    <input data-tooltip-id="numberOfRows"
+                           data-tooltip-content="Please choose a number between 0 and 80"
+                           onChange={handleRowsChange}
+                           value={rows}
+                           type="number"
+                           min="0"
+                           max="80"
+                           className="template-info-form-label-number"/>
+                    <Tooltip id="numberOfRows"/>
+                </label>
+                <label className="template-info-form-label">
+                    {windowWidth >= 820 ? <span>Number of stitches:</span> : <span>Stitches:</span>}
+                    <input data-tooltip-id="numberOfStitches"
+                           data-tooltip-content="Please choose a number between 0 and 80"
+                           onChange={handleColumnsChange}
+                           value={columns}
+                           type="number"
+                           min="0"
+                           max="80"
+                           className="template-info-form-label-number"/>
+                    <Tooltip id="numberOfStitches"/>
+                </label>
+            </div>
+            <div className="template-info-form-colors">
+                <label style={{display: "none"}}/>
+                <label className="template-info-form-label">
+                    {windowWidth >= 820 ? <span>Choose main color:</span> : <span>Main color:</span>}
+                    <div className="template-info-form-color">
+                        <ColorPicker changeColor={changePrimaryColor} defaultColor={defaultPrimaryColor}/>
+                        <input type="checkbox" name="primaryColor" onChange={handleCheckboxChange}
+                               className="template-info-form-label-checkbox"
+                               checked={checked.includes("primaryColor")}
+                               disabled={!checked.includes("primaryColor") && checked.length > 1}
+                        />
+                    </div>
+                </label>
+                <label className="template-info-form-label">
+                    {windowWidth >= 820 ? <span>Choose second color:</span> : <span>2nd color:</span>}
+                    <div className="template-info-form-color">
+                        <ColorPicker changeColor={changeSecondaryColor} defaultColor={defaultSecondaryColor}/>
+                        <input type="checkbox" name="secondaryColor" onChange={handleCheckboxChange}
+                               className="template-info-form-label-checkbox"
+                               checked={checked.includes("secondaryColor")}
+                               disabled={!checked.includes("secondaryColor") && checked.length > 1}/>
+                    </div>
+                </label>
+                <label className="template-info-form-label">
+                    {windowWidth >= 820 ? <span>Choose third color:</span> : <span>3rd color:</span>}
+                    <div className="template-info-form-color">
+                        <ColorPicker changeColor={changeTertiaryColor} defaultColor={defaultTertiaryColor}/>
+                        <input type="checkbox" name="tertiaryColor" onChange={handleCheckboxChange}
+                               className="template-info-form-label-checkbox"
+                               checked={checked.includes("tertiaryColor")}
+                               disabled={!checked.includes("tertiaryColor") && checked.length > 1}/>
+                    </div>
+                </label>
+            </div>
         </form>
     );
 };

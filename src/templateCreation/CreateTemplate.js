@@ -1,11 +1,11 @@
 import React, {useState} from "react";
-import { addDoc} from "firebase/firestore";
+import {addDoc} from "firebase/firestore";
 
 import TemplateGrid from "./TemplateGrid";
 import TemplateInfo from "./TemplateInfo";
 import {templatesColRef} from "../firebase";
 
-const Template = () => {
+const Template = ({windowWidth}) => {
     const [name, setName] = useState("Template 1");
     const [rows, setRows] = useState(20);
     const [columns, setColumns] = useState(20);
@@ -35,8 +35,8 @@ const Template = () => {
         setGrid(grid)
     }
 
-    const handleNameChange = ({target: {value}}) => {
-        setName(value);
+    const changeName = (name) => {
+        setName(name);
     };
     const changeRows = (rows) => {
         (rows >= 0 && rows <= 80) && setRows(rows);
@@ -71,31 +71,55 @@ const Template = () => {
 
     return (
         <div className="container">
-            <div className="main-container template-container">
-                <div className="template-title">
-                    <label className="template-title-label">
-                        Name:
-                        <input onChange={handleNameChange} value={name} type="text" className="title-label-name"/>
-                    </label>
-                </div>
+            <div className="main-container">
                 <div className="template">
-                    <TemplateGrid
-                        rows={rows}
-                        columns={columns}
-                        primaryColor={primaryColor}
-                        activeColor={activeColor}
-                        handleGridChange={handleGridChange}/>
-                    <TemplateInfo
-                        rows={rows}
-                        columns={columns}
-                        changeRows={changeRows}
-                        changeColumns={changeColumns}
-                        changePrimaryColor={changePrimaryColor}
-                        changeSecondaryColor={changeSecondaryColor}
-                        changeTertiaryColor={changeTertiaryColor}
-                        changeActiveColor={changeActiveColor}
-                        handleSubmitTemplate={handleSubmitTemplate}
-                    />
+                    {windowWidth >= 820 ? <>
+                            <TemplateGrid
+                                rows={rows}
+                                columns={columns}
+                                primaryColor={primaryColor}
+                                activeColor={activeColor}
+                                handleGridChange={handleGridChange}/>
+                            <TemplateInfo
+                                rows={rows}
+                                columns={columns}
+                                name={name}
+                                changeName={changeName}
+                                changeRows={changeRows}
+                                changeColumns={changeColumns}
+                                changePrimaryColor={changePrimaryColor}
+                                changeSecondaryColor={changeSecondaryColor}
+                                changeTertiaryColor={changeTertiaryColor}
+                                changeActiveColor={changeActiveColor}
+                                handleSubmitTemplate={handleSubmitTemplate}
+                                windowWidth={windowWidth}
+                            />
+                        </> :
+                        <>
+                            <TemplateInfo
+                                rows={rows}
+                                columns={columns}
+                                name={name}
+                                changeName={changeName}
+                                changeRows={changeRows}
+                                changeColumns={changeColumns}
+                                changePrimaryColor={changePrimaryColor}
+                                changeSecondaryColor={changeSecondaryColor}
+                                changeTertiaryColor={changeTertiaryColor}
+                                changeActiveColor={changeActiveColor}
+                                windowWidth={windowWidth}
+                            />
+                            <TemplateGrid
+                                rows={rows}
+                                columns={columns}
+                                primaryColor={primaryColor}
+                                activeColor={activeColor}
+                                handleGridChange={handleGridChange}
+                                windowWidth={windowWidth}
+                                handleSubmitTemplate={handleSubmitTemplate}
+                            />
+                        </>
+                    }
                 </div>
             </div>
         </div>

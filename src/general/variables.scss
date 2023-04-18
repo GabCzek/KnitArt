@@ -16,8 +16,8 @@ $accent-border-phone: 3px solid $border-color;
 //widths
 $dashboard-width: 1440px;
 $laptop-width: 1120px;
-$tablet-width: 768px;
-$phone-width: 390px;
+$tablet-width: 820px;
+$phone-width: 500px;
 
 @mixin laptop {
   @media (min-width: #{$tablet-width}) and (max-width: #{$laptop-width - 1px}) {
@@ -34,6 +34,24 @@ $phone-width: 390px;
 @mixin phone {
   @media (max-width: #{$phone-width}) {
     @content;
+  }
+}
+
+@mixin media($keys...) {
+  @each $key in $keys {
+    @if ($key == phone) {
+      @include phone {
+        @content
+      }
+    } @else if ($key == tablet) {
+      @include tablet {
+        @content
+      }
+    } @else if ($key == laptop) {
+      @include laptop {
+        @content
+      }
+    }
   }
 }
 

@@ -1,38 +1,35 @@
 .template {
   display: flex;
-  margin-top: 5%;
-  margin-left: 5%;
-  height: 70%;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 
-  &-title {
-    font-family: $header-font;
-    border-bottom: $accent-border-desktop;
-    height: 15%;
-    display: flex;
-    align-items: center;
-
-    &-label {
-      font-size: 3em;
-      padding-left: 6%;
-
-      &-name{
-        font-family: $header-font;
-        font-size: 0.9em;
-        margin-left: 0.5em;
-        width: 7em;
-        height: 1.2em;
-      }
-    }
+  @include media(phone, tablet) {
+    flex-direction: column;
+    justify-content: space-around;
   }
 
   &-grid {
-    width: 60%;
     max-height: 100%;
     overflow: auto;
     align-self: center;
     justify-content: center;
     display: grid;
     gap: 1px;
+
+    &-container {
+      display: flex;
+      width: 50%;
+      height: 90%;
+      align-items: center;
+      justify-content: center;
+
+      @include media(phone, tablet) {
+        height: 65%;
+        width: 80%;
+      }
+    }
 
     &-item {
       cursor: pointer;
@@ -41,40 +38,127 @@
   }
 
   &-info {
-    height: 100%;
     font-family: $main-font;
     text-transform: uppercase;
     display: flex;
     flex-direction: column;
-    padding-left: 4%;
+    height: 80%;
+    width: 35%;
+    margin-right: 2%;
+
+    @include media(phone, tablet)  {
+      height: 17%;
+      width: 80%;
+      justify-content: space-around;
+      margin: 0 1em;
+    }
 
     &-form {
       display: flex;
       flex-direction: column;
       gap: 5%;
-      height: 60%;
+      height: 65%;
+      margin-top: 6%;
+
+      @include media(phone, tablet) {
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        margin-top: 0;
+      }
+
+      @include phone {
+        gap: 8%;
+      }
+
+      &-labels{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        @include media(phone, tablet) {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 40%;
+        }
+        @include phone {
+          width: 50%;
+          gap: 1.4em;
+        }
+      }
+
+      &-colors{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+      }
 
       &-label {
-        display: inline-flex;
-        font-size: 24px;
+        font-size: 22px;
+        display: flex;
+        justify-content: space-between;
+        gap: 1em;
+
+        @include laptop {
+          font-size: 20px;
+        }
+
+        @include media(phone, tablet)  {
+          font-size: 1.1em;
+          gap: 0.5em;
+        }
+
+        @include phone {
+          font-size: 0.9em;
+        }
+
+        span {
+          margin-top: 0.3em;
+        }
+
+        &-name {
+          font-family: $header-font;
+          margin-bottom: 2em;
+          width: 10em;
+          height: 1.4em;
+
+          @include media(phone, tablet) {
+            margin-bottom: 0;
+            width: 5em;
+          }
+
+          @include phone {
+            width: 4em;
+          }
+        }
 
         &-number {
           width: 46px;
           height: 24px;
-          margin-left: 3em;
+          margin-right: 0.5em;
+
+          @include media(phone, tablet)  {
+            margin-right: 0;
+          }
         }
 
         &-checkbox {
-          margin-left: 0.5em;
           width: 20px;
+          height: 20px;
           cursor: pointer;
+          margin-bottom: 2px;
         }
+      }
+
+      &-color {
+        display: flex;
+        gap: 0.5em;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
 
-  &-color-picker {
-    margin-left: 2em;
-  }
 }
 

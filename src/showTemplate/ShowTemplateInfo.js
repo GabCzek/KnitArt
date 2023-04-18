@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
-const ShowTemplateInfo = ({templatesLength, grid, name, rows, stitches, className, currentRow, counter}) => {
-    const size = (templatesLength > 0 && rows > 25) ? "0.2" : "0.5";
+const ShowTemplateInfo = ({templatesLength, grid, name, rows, stitches, className, currentRow, counter, windowWidth}) => {
+    const size = (templatesLength > 0 || rows > 25) ? "0.2" : "0.5";
+    const phoneSize = (templatesLength > 0 || rows > 25) ? "0.09" : "0.3";
     const [thisRow, setThisRow] = useState(currentRow)
 
     useEffect(() => {
@@ -27,12 +28,12 @@ const ShowTemplateInfo = ({templatesLength, grid, name, rows, stitches, classNam
                     {templatesLength > 0 &&
                         <div className="showTemplate-grid"
                              style={{
-                                 gridTemplateColumns: `repeat(${stitches}, ${size}em)`,
+                                 gridTemplateColumns: `repeat(${stitches}, ${windowWidth >= 820 ? size : phoneSize}em)`,
                              }}>
                             {grid.map((el, i) => <div key={i} className={thisRow.includes(el.id) ? "currentRow" : null} style={{
                                 backgroundColor: `${className !== "currentRow" ? el.color : null}`,
                                 borderRadius: "50%",
-                                height: `${size}em`
+                                height: `${windowWidth >= 820 ? size : phoneSize}em`
                             }}
                             ></div>)}
                         </div>}

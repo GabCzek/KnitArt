@@ -4,12 +4,13 @@ import {useParams} from "react-router-dom";
 import ShowTemplateDisplay from "./ShowTemplateDisplay";
 import ShowTemplateInfo from "./ShowTemplateInfo";
 
-function ShowTemplate({templates}) {
+function ShowTemplate({templates, windowWidth}) {
     const {id} = useParams();
     const template = templates.find(obj => {
         return obj.id === id;
     });
 
+    console.log(windowWidth)
 
     const filterArray = templates.length > 0 && template.grid.filter(el => {
         let numberOfStitches = templates.length > 0 && template.stitches;
@@ -43,6 +44,7 @@ function ShowTemplate({templates}) {
                         rows={template.rows}
                         templatesLength={templates.length}
                         stitches={template.stitches}
+                        windowWidth={windowWidth}
                         grid={template.grid}
                         className="showTemplate-info-container"/>
                     <ShowTemplateDisplay
@@ -54,6 +56,7 @@ function ShowTemplate({templates}) {
                         handleArrowDown={handleArrowDown}
                         counter={counter}
                         grid={template.grid}
+                        windowWidth={windowWidth}
                         className="showTemplate-display"
                     />
                 </div>

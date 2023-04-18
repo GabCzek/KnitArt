@@ -3,6 +3,10 @@
   justify-content: center;
   width: 100vw;
   height: 100vh;
+
+  @include media(phone, tablet) {
+    justify-content: start;
+  }
 }
 
 .main-container-dashboard {
@@ -24,14 +28,14 @@
   gap: 5px;
   font-size: 40px;
 
-  @include tablet {
+  @include media(phone, tablet)  {
     background-color: $background-color;
   }
 
   &-burger {
     display: none;
 
-    @include tablet {
+    @include media(phone, tablet)  {
       display: block;
       font-size: 2em;
       margin-right: 20px;
@@ -78,7 +82,7 @@
         }
       }
 
-      @include laptop {
+      @include media(phone, tablet, laptop)  {
         transform: scale(0.8);
 
         &-start {
@@ -86,13 +90,6 @@
         }
       }
 
-      @include tablet {
-        transform: scale(0.8);
-
-        &-start {
-          padding-left: 10px;
-        }
-      }
     }
   }
 
@@ -118,7 +115,7 @@
 
     h2 {
       color: $accent-color;
-      font-weight: 500;
+      font-weight: 600;
 
     }
   }
@@ -134,7 +131,7 @@
     }
   }
 
-  @include tablet {
+  @include media(phone, tablet) {
     &-links {
       background-color: $background-color;
       justify-content: end;
