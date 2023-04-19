@@ -12,6 +12,7 @@ const ShowTemplateDisplay = ({
                                  grid,
                                  rows,
                                  windowWidth
+
                              }) => {
 
     let gridRowClassName;
@@ -44,7 +45,7 @@ const ShowTemplateDisplay = ({
 
     return (
         <section className={className}>
-            <div className="showTemplate-display-rows">
+            <div>
                 <ShowTemplateRow
                     stitches={stitches}
                     currentRowSize={windowWidth >= 820 ? currentRowSize : currentRowSizePhone}
@@ -114,6 +115,18 @@ const ShowTemplateDisplay = ({
                         <i className="fa-solid fa-caret-down"></i>
                     </button>
                 </div> : null}
+
+
+            {/*<div className="showTemplate-display-arrows">*/}
+            {/*    <button className="showTemplate-display-arrows-btn" disabled={counter > rows - 2}*/}
+            {/*            onClick={handleArrowUp}>*/}
+            {/*        <i className="fa-solid fa-caret-up"></i>*/}
+            {/*    </button>*/}
+            {/*    <button className="showTemplate-display-arrows-btn" disabled={counter <= 0}*/}
+            {/*            onClick={handleArrowDown}>*/}
+            {/*        <i className="fa-solid fa-caret-down"></i>*/}
+            {/*    </button>*/}
+            {/*</div>*/}
         </section>
     )
 }

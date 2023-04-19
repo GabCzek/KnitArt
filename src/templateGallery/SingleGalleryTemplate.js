@@ -10,9 +10,11 @@ const SingleGalleryTemplate = ({color1, colorId, color2, gridColor, className, t
 
     return (
         <section style={{backgroundColor: color}} className={className}>
+            <div className="gallery-template-el">
             <Link to={`/show-template/${template.id}`} className="link gallery-template-link">
                 <GalleryTemplateGrid gridColor={gridColor} template={template} templates={templates}/>
             </Link>
+            </div>
             <GalleryTemplateInfo color={color} template={template} templates={templates}/>
         </section>
     )

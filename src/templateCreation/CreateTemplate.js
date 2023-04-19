@@ -70,7 +70,7 @@ const Template = ({windowWidth}) => {
     };
 
     return (
-        <div className="container">
+        <div className="container mediaContainerTemplate">
             <div className="main-container">
                 <div className="template">
                     {windowWidth >= 820 ? <>
@@ -96,6 +96,7 @@ const Template = ({windowWidth}) => {
                             />
                         </> :
                         <>
+                            <h2 className="template-title">Create your template</h2>
                             <TemplateInfo
                                 rows={rows}
                                 columns={columns}

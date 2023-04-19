@@ -11,7 +11,6 @@ const Home = () => {
                         <div className="home-link">
                             <Link to="/template" className="link">
                                 <h1>Create your template</h1>
-                                <i className="fa-thin fa-grip-lines"></i>
                             </Link>
                         </div>
                         <div className="secondary-links">

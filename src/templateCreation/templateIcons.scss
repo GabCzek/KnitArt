@@ -9,13 +9,17 @@
       flex-direction: column;
       gap: 20px;
 
-      @include media(phone, tablet)  {
+      @include media(phone, tablet) {
         flex-direction: row;
-        margin-bottom: 1em;
+        margin-bottom: 2em;
       }
 
-        & span {
+      & span {
         font-size: 20px;
+
+        @include media(tablet, phone) {
+          font-size: 1em;
+        }
       }
 
       & div {
@@ -28,8 +32,13 @@
       align-items: center;
       gap: 0.5em;
       cursor: pointer;
+
+      @include media(tablet, phone) {
+        font-size: 0.8em;
+      }
     }
   }
+
   &-icon {
     font-size: 2em;
   }

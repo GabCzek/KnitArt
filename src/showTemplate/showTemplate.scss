@@ -1,7 +1,25 @@
+.mediaContainer {
+  @include media(phone, tablet) {
+    height: 36em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+}
+
+.mobile-img {
+  background: no-repeat center url("../images/mainPhone.png");
+  background-size: cover;
+  width: 100%;
+  height: 12em;
+  border-bottom: $accent-border-desktop;
+}
+
 .showTemplate {
   &-main-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
   }
 
   &-info-container {
@@ -11,6 +29,13 @@
     justify-content: space-around;
     align-items: center;
     border-bottom: $accent-border-desktop;
+
+    @include media(phone, tablet) {
+      height: 30%;
+      font-size: 0.9em;
+      border-bottom: none;
+      margin-top: 1em;
+    }
   }
 
   &-info {
@@ -18,13 +43,17 @@
     flex-direction: column;
     min-width: 25%;
 
+    @include media(phone, tablet) {
+      font-size: 0.8em;
+    }
+
     h2 {
       font-size: 4em;
       font-family: $header-font;
       margin-bottom: 10px;
 
       @include media(phone, tablet) {
-        font-size: 3em;
+        font-size: 2em;
       }
     }
 
@@ -53,12 +82,29 @@
     justify-content: center;
     gap: 20px;
 
+    @include media(phone, tablet) {
+      flex-direction: column;
+      height: 60%;
+      border-bottom: $accent-border-desktop;
+      gap: 0;
+
+      h2 {
+        font-size: 1.5em;
+        font-family: $main-font;
+        text-transform: uppercase;
+      }
+    }
+
     &-row {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 20px;
       min-height: 50px;
+
+      @include media(phone, tablet) {
+        min-height: 0;
+      }
     }
 
     &-arrows {

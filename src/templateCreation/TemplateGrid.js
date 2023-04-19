@@ -3,7 +3,7 @@ import TemplateIcons from "./TemplateIcons";
 
 const TemplateGrid = ({columns, rows, activeColor, primaryColor, handleGridChange, handleSubmitTemplate, windowWidth}) => {
     const elementSize = rows > 20 || columns > 20 ? "1.2em" : "1.4em";
-    const elementSizeMobile = rows >= 30 || columns >= 30 ? "1em" : "1.1em";
+    const elementSizeMobile = "0.9em"
     const [template, setTemplate] = useState([]);
 
     const handleClick = (id) => {

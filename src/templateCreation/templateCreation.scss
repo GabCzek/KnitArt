@@ -1,3 +1,10 @@
+.mediaContainerTemplate {
+  @include media(phone, tablet) {
+    height: 52em;
+    border-bottom: $accent-border-desktop;
+  }
+}
+
 .template {
   display: flex;
   justify-content: space-around;
@@ -5,13 +12,20 @@
   height: 100%;
   width: 100%;
 
+  &-title {
+    font-size: 1.3em;
+    margin: 1em 0;
+  }
+
   @include media(phone, tablet) {
     flex-direction: column;
     justify-content: space-around;
+    gap: 1em;
   }
 
   &-grid {
     max-height: 100%;
+    max-width: 100%;
     overflow: auto;
     align-self: center;
     justify-content: center;
@@ -26,7 +40,7 @@
       justify-content: center;
 
       @include media(phone, tablet) {
-        height: 65%;
+        height: 55%;
         width: 80%;
       }
     }
@@ -46,10 +60,9 @@
     width: 35%;
     margin-right: 2%;
 
-    @include media(phone, tablet)  {
+    @include media(phone, tablet) {
       height: 17%;
       width: 80%;
-      justify-content: space-around;
       margin: 0 1em;
     }
 
@@ -71,7 +84,7 @@
         gap: 8%;
       }
 
-      &-labels{
+      &-labels {
         display: flex;
         flex-direction: column;
         gap: 1em;
@@ -88,7 +101,7 @@
         }
       }
 
-      &-colors{
+      &-colors {
         display: flex;
         flex-direction: column;
         gap: 1em;
@@ -104,7 +117,7 @@
           font-size: 20px;
         }
 
-        @include media(phone, tablet)  {
+        @include media(phone, tablet) {
           font-size: 1.1em;
           gap: 0.5em;
         }
@@ -138,7 +151,7 @@
           height: 24px;
           margin-right: 0.5em;
 
-          @include media(phone, tablet)  {
+          @include media(phone, tablet) {
             margin-right: 0;
           }
         }

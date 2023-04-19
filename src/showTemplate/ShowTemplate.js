@@ -3,14 +3,15 @@ import {useParams} from "react-router-dom";
 
 import ShowTemplateDisplay from "./ShowTemplateDisplay";
 import ShowTemplateInfo from "./ShowTemplateInfo";
-
 function ShowTemplate({templates, windowWidth}) {
     const {id} = useParams();
-    const template = templates.find(obj => {
-        return obj.id === id;
-    });
 
-    console.log(windowWidth)
+    const template = windowWidth >= 820 ?
+        templates.find(obj => {
+            return obj.id === id;
+        }) :
+        templates[3]
+    ;
 
     const filterArray = templates.length > 0 && template.grid.filter(el => {
         let numberOfStitches = templates.length > 0 && template.stitches;
@@ -34,7 +35,8 @@ function ShowTemplate({templates, windowWidth}) {
         setCounter(prev => prev - 1)
     }
     return (
-        <div className="container">
+        <div className="container mediaContainer">
+            {windowWidth <= 820 && <div className="mobile-img"></div>}
             {templates.length > 0 &&
                 <div className="main-container showTemplate-main-container">
                     <ShowTemplateInfo
@@ -59,6 +61,16 @@ function ShowTemplate({templates, windowWidth}) {
                         windowWidth={windowWidth}
                         className="showTemplate-display"
                     />
+                    {/*{windowWidth < 820 && <ShowTemplateInfoMedia*/}
+                    {/*    counter={counter + 1}*/}
+                    {/*    currentRow={currentRow}*/}
+                    {/*    rows={template.rows}*/}
+                    {/*    templatesLength={templates.length}*/}
+                    {/*    stitches={template.stitches}*/}
+                    {/*    windowWidth={windowWidth}*/}
+                    {/*    grid={template.grid}*/}
+                    {/*    className="showTemplate-info-container"*/}
+                    {/*/>}*/}
                 </div>
         }
         </div>
