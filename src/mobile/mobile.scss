@@ -1,0 +1,14 @@
+.mobile {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+
+}
+.mobile-content{
+  height: 100%;
+  flex: 1;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

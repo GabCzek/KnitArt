@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {addDoc} from "firebase/firestore";
 
 import TemplateGrid from "./TemplateGrid";
@@ -14,7 +14,10 @@ const Template = ({windowWidth}) => {
     const [tertiaryColor, setTertiaryColor] = useState("#852e0f");
     const [activeColor, setActiveColor] = useState("#679289");
     const [grid, setGrid] = useState([])
+    const [show, setShow] = useState(true);
+    const [height, setHeight] = useState("100%")
 
+    console.log(windowWidth)
     const handleSubmitTemplate = async () => {
         try {
             await addDoc(templatesColRef, {
@@ -69,9 +72,28 @@ const Template = ({windowWidth}) => {
         setTertiaryColor(`rgba(${tertiaryColor.r}, ${tertiaryColor.g}, ${tertiaryColor.b}, ${tertiaryColor.a})`);
     };
 
+    useEffect(() => {
+        setShow(windowWidth >= 820)
+    }, [windowWidth])
+
+    useEffect(() => {
+            if (windowWidth < 820) {
+            show === false ? setHeight("auto") : setHeight("50em")
+        }
+    }, [show])
+    const handleClick = () => {
+        setShow(prev => !prev)
+    }
+
     return (
-        <div className="container mediaContainerTemplate">
+        <div className="container mediaContainerTemplate" style={{height: height}}>
             <div className="main-container">
+                {windowWidth < 820 &&
+                    <div className="template-title" onClick={handleClick}>
+                        <h2 >Create your template</h2>
+                    </div>
+                    }
+                { show &&
                 <div className="template">
                     {windowWidth >= 820 ? <>
                             <TemplateGrid
@@ -96,7 +118,6 @@ const Template = ({windowWidth}) => {
                             />
                         </> :
                         <>
-                            <h2 className="template-title">Create your template</h2>
                             <TemplateInfo
                                 rows={rows}
                                 columns={columns}
@@ -122,6 +143,7 @@ const Template = ({windowWidth}) => {
                         </>
                     }
                 </div>
+                }
             </div>
         </div>
     );

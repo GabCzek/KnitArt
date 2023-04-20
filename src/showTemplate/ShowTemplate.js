@@ -3,15 +3,22 @@ import {useParams} from "react-router-dom";
 
 import ShowTemplateDisplay from "./ShowTemplateDisplay";
 import ShowTemplateInfo from "./ShowTemplateInfo";
+
 function ShowTemplate({templates, windowWidth}) {
     const {id} = useParams();
+    const [show, setShow] = useState(true);
+    const [height, setHeight] = useState("100%")
 
-    const template = windowWidth >= 820 ?
-        templates.find(obj => {
+    const template = id === undefined ?
+        templates[2]
+        : templates.find(obj => {
             return obj.id === id;
-        }) :
-        templates[3]
-    ;
+        })    ;
+
+    useEffect(() => {
+        setShow(windowWidth >= 820)
+        console.log("x")
+    }, [windowWidth])
 
     const filterArray = templates.length > 0 && template.grid.filter(el => {
         let numberOfStitches = templates.length > 0 && template.stitches;
@@ -34,11 +41,25 @@ function ShowTemplate({templates, windowWidth}) {
     const handleArrowDown = () => {
         setCounter(prev => prev - 1)
     }
+
+    useEffect(() => {
+        if (windowWidth < 820) {
+            show === false ? setHeight("auto") : setHeight("30em")
+        }
+    }, [show])
+    const handleClick = () => {
+        setShow(prev => !prev)
+    }
+
     return (
-        <div className="container mediaContainer">
-            {windowWidth <= 820 && <div className="mobile-img"></div>}
-            {templates.length > 0 &&
-                <div className="main-container showTemplate-main-container">
+        <div className="container mediaContainer" style={{height: height}}>
+            {windowWidth < 820 &&
+                <div className="showTemplate-info-title" onClick={handleClick}>
+                    <h2>Show current template</h2>
+                </div>
+            }
+            {templates.length > 0 && show &&
+                <div className={`main-container showTemplate-main-container`}>
                     <ShowTemplateInfo
                         name={template.name}
                         counter={counter + 1}
@@ -61,18 +82,8 @@ function ShowTemplate({templates, windowWidth}) {
                         windowWidth={windowWidth}
                         className="showTemplate-display"
                     />
-                    {/*{windowWidth < 820 && <ShowTemplateInfoMedia*/}
-                    {/*    counter={counter + 1}*/}
-                    {/*    currentRow={currentRow}*/}
-                    {/*    rows={template.rows}*/}
-                    {/*    templatesLength={templates.length}*/}
-                    {/*    stitches={template.stitches}*/}
-                    {/*    windowWidth={windowWidth}*/}
-                    {/*    grid={template.grid}*/}
-                    {/*    className="showTemplate-info-container"*/}
-                    {/*/>}*/}
                 </div>
-        }
+            }
         </div>
     )
 }

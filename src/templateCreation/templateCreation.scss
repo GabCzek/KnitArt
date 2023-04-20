@@ -1,7 +1,12 @@
+#numberOfRows,
+#numberOfStitches {
+  width: 6em;
+}
+
 .mediaContainerTemplate {
+  height: 94%;
   @include media(phone, tablet) {
     height: 52em;
-    border-bottom: $accent-border-desktop;
   }
 }
 
@@ -12,9 +17,20 @@
   height: 100%;
   width: 100%;
 
+  @include media(phone, tablet) {
+    border-bottom: $accent-border-desktop;
+  }
+
+
   &-title {
+    display: flex;
+    justify-content: space-around;
+    font-family: $header-font;
+    align-items: center;
     font-size: 1.3em;
-    margin: 1em 0;
+    height: 5em;
+    border-bottom: $accent-border-phone;
+    cursor: pointer;
   }
 
   @include media(phone, tablet) {
@@ -63,7 +79,7 @@
     @include media(phone, tablet) {
       height: 17%;
       width: 80%;
-      margin: 0 1em;
+      margin: 1em;
     }
 
     &-form {

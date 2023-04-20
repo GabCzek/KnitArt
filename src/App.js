@@ -41,12 +41,12 @@ function App() {
 
     const routeDefinitions = createRoutesFromElements(
         <Route>
-            <Route element={<Dashboard/>}>
+            <Route element={<Dashboard windowWidth={windowWidth}/>}>
                 {windowWidth >= "820" ? <Route path="/" element={<Home/>}/> :
                     <Route path="/" element={<Mobile templates={templates} windowWidth={windowWidth}/>}/>}
                 <Route path="/template" element={<Template windowWidth={windowWidth}/> }/>
                 <Route path="/template-gallery" element={<TemplateGallery templates={templates} windowWidth={windowWidth}/>}/>
-                <Route path="/project-gallery" element={<ProjectGallery/>}/>
+                <Route path="/show-template" element={<ShowTemplate templates={templates} windowWidth={windowWidth}/>}/>
                 <Route path='/show-template/:id' element={<ShowTemplate templates={templates} windowWidth={windowWidth}/>}/>
             </Route>
         </Route>

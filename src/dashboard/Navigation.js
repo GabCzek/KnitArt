@@ -18,13 +18,12 @@ const Navigation = () => {
                 <Link to="/template-gallery" className="main-nav-link link">
                     <h2>TEMPLATE GALLERY</h2>
                 </Link>
-                <Link to="/project-gallery" className="main-nav-link link">
-                    <h2>PROJECT GALLERY</h2>
+                <Link to="/show-template" className="main-nav-link link">
+                    <h2>CURRENT TEMPLATE</h2>
                 </Link>
-
-                <div className="main-nav-burger">
-                    <i className="fa-solid fa-bars"></i>
-                </div>
+                {/*<div className="main-nav-burger">*/}
+                {/*    <i className="fa-solid fa-bars"></i>*/}
+                {/*</div>*/}
             </div>
 
         </nav>

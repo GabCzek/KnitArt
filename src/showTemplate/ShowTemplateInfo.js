@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 const ShowTemplateInfo = ({templatesLength, grid, name, rows, stitches, className, currentRow, counter, windowWidth}) => {
     const size = (templatesLength > 40 || rows > 40) ? "0.2" : "0.4";
-    const phoneSize = (templatesLength > 40 || rows > 40) ? "0.09" : "0.2";
+    const phoneSize = (templatesLength > 40 || rows > 40) ? "0.09" : "0.1";
     const [thisRow, setThisRow] = useState(currentRow)
 
     useEffect(() => {

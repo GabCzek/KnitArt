@@ -22,9 +22,9 @@ const Home = () => {
                                     <h2>See template gallery</h2>
                                 </div>
                             </Link>
-                            <Link to="/project-gallery" className="link secondary-link">
+                            <Link to="/show-template" className="link secondary-link">
                                 <div>
-                                    <h2>See project gallery</h2>
+                                    <h2>See current project</h2>
                                 </div>
                             </Link>
                         </div>

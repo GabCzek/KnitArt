@@ -254,7 +254,6 @@ textarea {
   display: flex;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
 }
 @media (max-width: 500px) {
   .container-dashboard {
@@ -434,6 +433,21 @@ textarea {
   }
 }
 
+.mobile {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+}
+
+.mobile-content {
+  height: 100%;
+  flex: 1;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -542,16 +556,22 @@ textarea {
     display: none;
   }
 }
+#numberOfRows,
+#numberOfStitches {
+  width: 6em;
+}
+
+.mediaContainerTemplate {
+  height: 94%;
+}
 @media (max-width: 500px) {
   .mediaContainerTemplate {
     height: 52em;
-    border-bottom: 5px solid #ffffff;
   }
 }
 @media (min-width: 500px) and (max-width: 819px) {
   .mediaContainerTemplate {
     height: 52em;
-    border-bottom: 5px solid #ffffff;
   }
 }
 
@@ -562,9 +582,25 @@ textarea {
   height: 100%;
   width: 100%;
 }
+@media (max-width: 500px) {
+  .template {
+    border-bottom: 5px solid #ffffff;
+  }
+}
+@media (min-width: 500px) and (max-width: 819px) {
+  .template {
+    border-bottom: 5px solid #ffffff;
+  }
+}
 .template-title {
+  display: flex;
+  justify-content: space-around;
+  font-family: "Amiri", serif;
+  align-items: center;
   font-size: 1.3em;
-  margin: 1em 0;
+  height: 5em;
+  border-bottom: 3px solid #ffffff;
+  cursor: pointer;
 }
 @media (max-width: 500px) {
   .template {
@@ -625,14 +661,14 @@ textarea {
   .template-info {
     height: 17%;
     width: 80%;
-    margin: 0 1em;
+    margin: 1em;
   }
 }
 @media (min-width: 500px) and (max-width: 819px) {
   .template-info {
     height: 17%;
     width: 80%;
-    margin: 0 1em;
+    margin: 1em;
   }
 }
 .template-info-form {
@@ -789,13 +825,13 @@ textarea {
 @media (max-width: 500px) {
   .template-icons-container {
     flex-direction: row;
-    margin-bottom: 2em;
+    margin-bottom: 0.5em;
   }
 }
 @media (min-width: 500px) and (max-width: 819px) {
   .template-icons-container {
     flex-direction: row;
-    margin-bottom: 2em;
+    margin-bottom: 0.5em;
   }
 }
 .template-icons-container span {
@@ -908,9 +944,11 @@ textarea {
   padding: 1em 0;
   display: flex;
   justify-content: center;
+  font-family: "Amiri", serif;
   align-items: center;
   background-color: #f0e0d6;
-  height: 5%;
+  height: 5em;
+  cursor: pointer;
   border-bottom: 3px solid #ffffff;
 }
 .gallery-template-container {
@@ -986,7 +1024,7 @@ textarea {
 
 @media (max-width: 500px) {
   .mediaContainer {
-    height: 36em;
+    height: 23em;
     display: flex;
     flex-direction: column;
     gap: 2em;
@@ -994,7 +1032,7 @@ textarea {
 }
 @media (min-width: 500px) and (max-width: 819px) {
   .mediaContainer {
-    height: 36em;
+    height: 23em;
     display: flex;
     flex-direction: column;
     gap: 2em;
@@ -1013,6 +1051,9 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+.showTemplate-main-container-hide {
+  display: none;
 }
 .showTemplate-info-container {
   display: flex;
@@ -1045,12 +1086,32 @@ textarea {
 }
 @media (max-width: 500px) {
   .showTemplate-info {
-    font-size: 0.8em;
+    width: 40%;
   }
 }
 @media (min-width: 500px) and (max-width: 819px) {
   .showTemplate-info {
-    font-size: 0.8em;
+    width: 40%;
+  }
+}
+.showTemplate-info-title {
+  display: flex;
+  justify-content: center;
+  font-family: "Amiri", serif;
+  align-items: center;
+  height: 5em;
+  font-size: 1.3em;
+  border-bottom: 3px solid #ffffff;
+  cursor: pointer;
+}
+@media (max-width: 500px) {
+  .showTemplate-info {
+    font-size: 0.7em;
+  }
+}
+@media (min-width: 500px) and (max-width: 819px) {
+  .showTemplate-info {
+    font-size: 0.7em;
   }
 }
 .showTemplate-info h2 {
@@ -1079,12 +1140,16 @@ textarea {
   .showTemplate-info span,
   .showTemplate-info p {
     font-size: 1.2em;
+    padding: 10px 4px;
+    display: flex;
   }
 }
 @media (min-width: 500px) and (max-width: 819px) {
   .showTemplate-info span,
   .showTemplate-info p {
     font-size: 1.2em;
+    padding: 10px 4px;
+    display: flex;
   }
 }
 .showTemplate-info span {
@@ -1097,6 +1162,7 @@ textarea {
   align-items: center;
   justify-content: center;
   gap: 20px;
+  touch-action: none;
 }
 @media (max-width: 500px) {
   .showTemplate-display {
@@ -1155,6 +1221,16 @@ textarea {
   flex-grow: 1;
   padding: 10px;
   border-radius: 3px;
+}
+@media (max-width: 500px) {
+  .showTemplate-display-rowBeforePrevious, .showTemplate-display-currentRow, .showTemplate-display-previousRow, .showTemplate-display-nextRow, .showTemplate-display-rowAfterNext {
+    padding: 5px;
+  }
+}
+@media (min-width: 500px) and (max-width: 819px) {
+  .showTemplate-display-rowBeforePrevious, .showTemplate-display-currentRow, .showTemplate-display-previousRow, .showTemplate-display-nextRow, .showTemplate-display-rowAfterNext {
+    padding: 5px;
+  }
 }
 .showTemplate-display-currentRow {
   border: 1px solid #000;

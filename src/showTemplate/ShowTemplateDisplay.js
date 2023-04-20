@@ -1,5 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import ShowTemplateRow from "./ShowTemplateRow";
+import {Swiper, SwiperSlide} from "swiper/react";
+import 'swiper/css';
 
 const ShowTemplateDisplay = ({
                                  templatesLength,
@@ -42,10 +44,37 @@ const ShowTemplateDisplay = ({
         currentRowSizePhone = 0.23;
     }
 
+    const [touchPosition, setTouchPosition] = useState(null)
+// ...
+    const handleTouchStart = (e) => {
+        const touchDown = e.touches[0].clientY
+        setTouchPosition(touchDown)
+    }
+
+    const handleTouchMove = (e) => {
+        const touchDown = touchPosition
+
+        if(touchDown === null) {
+            return
+        }
+
+        const currentTouch = e.touches[0].clientY
+        const diff = touchDown - currentTouch
+
+        if (diff < 5) {
+            handleArrowUp()
+        }
+
+        if (diff > -5) {
+            handleArrowDown()
+        }
+
+        setTouchPosition(null)
+    }
 
     return (
-        <section className={className}>
-            <div>
+        <section className={className} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
+            <div >
                 <ShowTemplateRow
                     stitches={stitches}
                     currentRowSize={windowWidth >= 820 ? currentRowSize : currentRowSizePhone}

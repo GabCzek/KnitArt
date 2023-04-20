@@ -8,9 +8,11 @@
     padding: 1em 0;
     display: flex;
     justify-content: center;
+    font-family: $header-font;
     align-items: center;
     background-color: $background-color;
-    height: 5%;
+    height: 5em;
+    cursor: pointer;
     border-bottom: $accent-border-phone;
   }
 
