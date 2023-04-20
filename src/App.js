@@ -11,7 +11,6 @@ import Home from "./home/Home.js";
 import Template from "./templateCreation/CreateTemplate";
 import TemplateGallery from "./templateGallery/TemplateGallery";
 import Dashboard from "./dashboard/Dashboard";
-import ProjectGallery from "./projectGallery/ProjectGallery";
 import ShowTemplate from "./showTemplate/ShowTemplate"
 import Mobile from "./mobile/Mobile";
 import {onSnapshot, doc} from "firebase/firestore";
