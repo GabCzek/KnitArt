@@ -13,7 +13,6 @@
     background-color: $background-color;
     height: 5em;
     cursor: pointer;
-    border-bottom: $accent-border-phone;
   }
 
   &-container {
@@ -26,6 +25,8 @@
     @include media(tablet, phone) {
       height: 90%;
       gap: 3px;
+      border-top: $accent-border-phone;
+      grid-auto-rows: 23%;
     }
 
     &-media {
@@ -79,7 +80,7 @@
     }
 
     &-icons {
-      font-size: 0.8em;
+      font-size: 1.1em;
       display: flex;
       gap: 10px;
       cursor: pointer;

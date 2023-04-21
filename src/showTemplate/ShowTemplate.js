@@ -4,20 +4,19 @@ import {useParams} from "react-router-dom";
 import ShowTemplateDisplay from "./ShowTemplateDisplay";
 import ShowTemplateInfo from "./ShowTemplateInfo";
 
-function ShowTemplate({templates, windowWidth}) {
+function ShowTemplate({templates, windowWidth, handleIsOpenShowTemplate}) {
     const {id} = useParams();
     const [show, setShow] = useState(true);
-    const [height, setHeight] = useState("100%")
+    const [height, setHeight] = useState("94%")
 
     const template = id === undefined ?
         templates[2]
         : templates.find(obj => {
             return obj.id === id;
-        })    ;
+        });
 
     useEffect(() => {
         setShow(windowWidth >= 820)
-        console.log("x")
     }, [windowWidth])
 
     const filterArray = templates.length > 0 && template.grid.filter(el => {
@@ -44,19 +43,23 @@ function ShowTemplate({templates, windowWidth}) {
 
     useEffect(() => {
         if (windowWidth < 820) {
-            show === false ? setHeight("auto") : setHeight("30em")
+            show === false ? setHeight("33%") : setHeight("30em")
         }
     }, [show])
     const handleClick = () => {
         setShow(prev => !prev)
+        handleIsOpenShowTemplate(prev => !prev)
     }
 
     return (
         <div className="container mediaContainer" style={{height: height}}>
-            {windowWidth < 820 &&
+            {windowWidth < 820 && show === false &&
                 <div className="showTemplate-info-title" onClick={handleClick}>
-                    <h2>Show current template</h2>
-                </div>
+                    <h2>Current template</h2>
+                </div>}
+            {windowWidth < 820 && show && <div className="showTemplate-info-title" onClick={handleClick} style={{backgroundColor: "#852e0f"}}>
+                <h2 style={{color: "#FFF"}}>Hide current template</h2>
+            </div>
             }
             {templates.length > 0 && show &&
                 <div className={`main-container showTemplate-main-container`}>

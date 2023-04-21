@@ -3,7 +3,6 @@ import {Tooltip} from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 
 import ColorPicker from "./ColorPicker";
-import TemplateIcons from "./TemplateIcons";
 
 const TemplateInfoForm = ({
                               rows,
@@ -19,7 +18,7 @@ const TemplateInfoForm = ({
                               windowWidth
                           }) => {
 
-    const [checked, setChecked] = useState([]);
+    const [checked, setChecked] = useState(["secondaryColor"]);
 
     const defaultPrimaryColor = {
         r: '103',
@@ -72,11 +71,11 @@ const TemplateInfoForm = ({
                 <label className="template-info-form-label">
                     {windowWidth >= 820 ? <span>Number of rows:</span> : <span>Rows:</span>}
                     <input data-tooltip-id="numberOfRows"
-                           data-tooltip-content="Please choose a number between 0 and 80"
+                           data-tooltip-content="Please choose a number between 1 and 80"
                            onChange={handleRowsChange}
                            value={rows}
                            type="number"
-                           min="0"
+                           min="1"
                            max="80"
                            className="template-info-form-label-number"/>
                     <Tooltip id="numberOfRows"/>
@@ -84,11 +83,11 @@ const TemplateInfoForm = ({
                 <label className="template-info-form-label">
                     {windowWidth >= 820 ? <span>Number of stitches:</span> : <span>Stitches:</span>}
                     <input data-tooltip-id="numberOfStitches"
-                           data-tooltip-content="Please choose a number between 0 and 80"
+                           data-tooltip-content="Please choose a number between 1 and 80"
                            onChange={handleColumnsChange}
                            value={columns}
                            type="number"
-                           min="0"
+                           min="1"
                            max="80"
                            className="template-info-form-label-number"/>
                     <Tooltip id="numberOfStitches"/>

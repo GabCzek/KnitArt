@@ -1,25 +1,32 @@
 import React, {useState, useEffect} from "react";
 import TemplateIcons from "./TemplateIcons";
 
-const TemplateGrid = ({columns, rows, activeColor, primaryColor, handleGridChange, handleSubmitTemplate, windowWidth}) => {
+const TemplateGrid = ({
+                          columns,
+                          rows,
+                          activeColor,
+                          primaryColor,
+                          handleSubmitTemplate,
+                          windowWidth,
+                          createNewArray,
+                          template,
+                          setTemplate
+                      }) => {
+
     const elementSize = rows > 20 || columns > 20 ? "1.2em" : "1.4em";
     const elementSizeMobile = "0.9em"
-    const [template, setTemplate] = useState([]);
+    // const [template, setTemplate] = useState([]);
 
     const handleClick = (id) => {
         const tempTemplate = [...template];
-        tempTemplate[id].color = activeColor;
+        if (activeColor !== null) {
+            tempTemplate[id].color = activeColor;
+        }
         setTemplate(tempTemplate);
     };
 
-
     useEffect(() => {
-        const newTemplate = [...Array(rows * columns)].map((el, i) => ({
-            id: i,
-            color: primaryColor,
-        }));
-        setTemplate(newTemplate);
-        handleGridChange(newTemplate);
+        createNewArray();
     }, [columns, rows, primaryColor]);
 
     return (<>
@@ -46,7 +53,8 @@ const TemplateGrid = ({columns, rows, activeColor, primaryColor, handleGridChang
                         })}
                 </div>
             </div>
-            {windowWidth <= 820 ? <TemplateIcons handleSubmitTemplate={handleSubmitTemplate}/> : null}
+            {windowWidth <= 820 ?
+                <TemplateIcons handleSubmitTemplate={handleSubmitTemplate} createNewArray={createNewArray}/> : null}
         </>
     );
 };

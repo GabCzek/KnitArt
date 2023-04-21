@@ -231,7 +231,7 @@ textarea {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 94%;
+  height: 93%;
 }
 
 .main-container {
@@ -437,6 +437,7 @@ textarea {
   flex-direction: column;
   display: flex;
   justify-content: center;
+  height: calc(100vh - 48px);
 }
 
 .mobile-content {
@@ -444,8 +445,16 @@ textarea {
   flex: 1;
   flex-direction: column;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+}
+
+.mobile-img {
+  background: no-repeat center url("../images/mainPhone.png");
+  background-size: cover;
+  width: 100%;
+  height: 10em;
+  border-bottom: 5px solid #ffffff;
 }
 
 .main-container {
@@ -567,12 +576,17 @@ textarea {
 @media (max-width: 500px) {
   .mediaContainerTemplate {
     height: 52em;
+    border-bottom: 5px solid #ffffff;
   }
 }
 @media (min-width: 500px) and (max-width: 819px) {
   .mediaContainerTemplate {
     height: 52em;
+    border-bottom: 5px solid #ffffff;
   }
+}
+.mediaContainerTemplate-title {
+  justify-content: center;
 }
 
 .template {
@@ -582,14 +596,29 @@ textarea {
   height: 100%;
   width: 100%;
 }
+@media (min-width: 500px) and (max-width: 819px) {
+  .template {
+    width: calc(100vw - 10px);
+  }
+}
 @media (max-width: 500px) {
   .template {
-    border-bottom: 5px solid #ffffff;
+    width: calc(100vw - 10px);
+  }
+}
+@media (min-width: 820px) and (max-width: 1119px) {
+  .template {
+    width: calc(100vw - 10px);
+  }
+}
+@media (max-width: 500px) {
+  .template {
+    border-top: 3px solid #ffffff;
   }
 }
 @media (min-width: 500px) and (max-width: 819px) {
   .template {
-    border-bottom: 5px solid #ffffff;
+    border-top: 3px solid #ffffff;
   }
 }
 .template-title {
@@ -599,21 +628,20 @@ textarea {
   align-items: center;
   font-size: 1.3em;
   height: 5em;
-  border-bottom: 3px solid #ffffff;
   cursor: pointer;
 }
 @media (max-width: 500px) {
   .template {
     flex-direction: column;
     justify-content: space-around;
-    gap: 1em;
+    gap: 3em;
   }
 }
 @media (min-width: 500px) and (max-width: 819px) {
   .template {
     flex-direction: column;
     justify-content: space-around;
-    gap: 1em;
+    gap: 3em;
   }
 }
 .template-grid {
@@ -662,6 +690,7 @@ textarea {
     height: 17%;
     width: 80%;
     margin: 1em;
+    margin-top: 3em;
   }
 }
 @media (min-width: 500px) and (max-width: 819px) {
@@ -669,6 +698,7 @@ textarea {
     height: 17%;
     width: 80%;
     margin: 1em;
+    margin-top: 3em;
   }
 }
 .template-info-form {
@@ -763,7 +793,7 @@ textarea {
   margin-top: 0.3em;
 }
 .template-info-form-label-name {
-  font-family: "Amiri", serif;
+  font-family: "Montserrat", sans-serif;
   margin-bottom: 2em;
   width: 10em;
   height: 1.4em;
@@ -789,6 +819,8 @@ textarea {
   width: 46px;
   height: 24px;
   margin-right: 0.5em;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9em;
 }
 @media (max-width: 500px) {
   .template-info-form-label-number {
@@ -825,13 +857,13 @@ textarea {
 @media (max-width: 500px) {
   .template-icons-container {
     flex-direction: row;
-    margin-bottom: 0.5em;
+    margin-bottom: 2em;
   }
 }
 @media (min-width: 500px) and (max-width: 819px) {
   .template-icons-container {
     flex-direction: row;
-    margin-bottom: 0.5em;
+    margin-bottom: 2em;
   }
 }
 .template-icons-container span {
@@ -868,6 +900,12 @@ textarea {
 }
 .template-icon {
   font-size: 2em;
+}
+.template-icon-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
 }
 
 .fa-floppy-disk {
@@ -949,7 +987,6 @@ textarea {
   background-color: #f0e0d6;
   height: 5em;
   cursor: pointer;
-  border-bottom: 3px solid #ffffff;
 }
 .gallery-template-container {
   height: 100%;
@@ -962,12 +999,16 @@ textarea {
   .gallery-template-container {
     height: 90%;
     gap: 3px;
+    border-top: 3px solid #ffffff;
+    grid-auto-rows: 23%;
   }
 }
 @media (max-width: 500px) {
   .gallery-template-container {
     height: 90%;
     gap: 3px;
+    border-top: 3px solid #ffffff;
+    grid-auto-rows: 23%;
   }
 }
 .gallery-template-container-media {
@@ -1016,7 +1057,7 @@ textarea {
   }
 }
 .gallery-template-info-icons {
-  font-size: 0.8em;
+  font-size: 1.1em;
   display: flex;
   gap: 10px;
   cursor: pointer;
@@ -1027,7 +1068,7 @@ textarea {
     height: 23em;
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    border-bottom: 5px solid #ffffff;
   }
 }
 @media (min-width: 500px) and (max-width: 819px) {
@@ -1035,16 +1076,8 @@ textarea {
     height: 23em;
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    border-bottom: 5px solid #ffffff;
   }
-}
-
-.mobile-img {
-  background: no-repeat center url("../images/mainPhone.png");
-  background-size: cover;
-  width: 100%;
-  height: 12em;
-  border-bottom: 5px solid #ffffff;
 }
 
 .showTemplate-main-container {
@@ -1054,6 +1087,16 @@ textarea {
 }
 .showTemplate-main-container-hide {
   display: none;
+}
+@media (max-width: 500px) {
+  .showTemplate-main-container {
+    border-top: 3px solid #ffffff;
+  }
+}
+@media (min-width: 500px) and (max-width: 819px) {
+  .showTemplate-main-container {
+    border-top: 3px solid #ffffff;
+  }
 }
 .showTemplate-info-container {
   display: flex;
@@ -1065,7 +1108,7 @@ textarea {
 }
 @media (max-width: 500px) {
   .showTemplate-info-container {
-    height: 30%;
+    height: 50%;
     font-size: 0.9em;
     border-bottom: none;
     margin-top: 1em;
@@ -1073,7 +1116,7 @@ textarea {
 }
 @media (min-width: 500px) and (max-width: 819px) {
   .showTemplate-info-container {
-    height: 30%;
+    height: 50%;
     font-size: 0.9em;
     border-bottom: none;
     margin-top: 1em;
@@ -1101,7 +1144,6 @@ textarea {
   align-items: center;
   height: 5em;
   font-size: 1.3em;
-  border-bottom: 3px solid #ffffff;
   cursor: pointer;
 }
 @media (max-width: 500px) {
@@ -1115,7 +1157,7 @@ textarea {
   }
 }
 .showTemplate-info h2 {
-  font-size: 4em;
+  font-size: 3.6em;
   font-family: "Amiri", serif;
   margin-bottom: 10px;
 }
@@ -1131,7 +1173,7 @@ textarea {
 }
 .showTemplate-info span,
 .showTemplate-info p {
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   padding: 10px;
@@ -1156,6 +1198,34 @@ textarea {
   border: 1px solid #000;
   border-radius: 3px;
 }
+.showTemplate-info button {
+  margin-top: 2em;
+  font-size: 0.9em;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  padding: 10px 4px;
+  border-radius: 3px;
+  background-color: #852e0f;
+  border: 1px solid black;
+  width: 53%;
+}
+@media (min-width: 500px) and (max-width: 819px) {
+  .showTemplate-info button {
+    margin-top: 0.5em;
+    padding: 5px 0;
+    width: 40%;
+  }
+}
+@media (max-width: 500px) {
+  .showTemplate-info button {
+    width: 70%;
+    margin-top: 0;
+  }
+}
+.showTemplate-info-link {
+  color: #FFF;
+}
 .showTemplate-display {
   display: flex;
   height: 60%;
@@ -1168,7 +1238,6 @@ textarea {
   .showTemplate-display {
     flex-direction: column;
     height: 60%;
-    border-bottom: 5px solid #ffffff;
     gap: 0;
   }
   .showTemplate-display h2 {
@@ -1181,7 +1250,6 @@ textarea {
   .showTemplate-display {
     flex-direction: column;
     height: 60%;
-    border-bottom: 5px solid #ffffff;
     gap: 0;
   }
   .showTemplate-display h2 {

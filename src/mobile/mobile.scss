@@ -2,13 +2,22 @@
   flex-direction: column;
   display: flex;
   justify-content: center;
-
+  height: calc(100vh - 48px);
 }
+
 .mobile-content{
   height: 100%;
   flex: 1;
   flex-direction: column;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+}
+
+.mobile-img {
+  background: no-repeat center url("../images/mainPhone.png");
+  background-size: cover;
+  width: 100%;
+  height: 10em;
+  border-bottom: $accent-border-desktop;
 }

@@ -7,6 +7,11 @@
   height: 94%;
   @include media(phone, tablet) {
     height: 52em;
+    border-bottom: $accent-border-desktop;
+  }
+
+  &-title {
+    justify-content: center;
   }
 }
 
@@ -17,8 +22,12 @@
   height: 100%;
   width: 100%;
 
+  @include media(tablet, phone, laptop) {
+    width: calc(100vw - 10px);
+  }
+
   @include media(phone, tablet) {
-    border-bottom: $accent-border-desktop;
+    border-top: $accent-border-phone;
   }
 
 
@@ -29,14 +38,13 @@
     align-items: center;
     font-size: 1.3em;
     height: 5em;
-    border-bottom: $accent-border-phone;
     cursor: pointer;
   }
 
   @include media(phone, tablet) {
     flex-direction: column;
     justify-content: space-around;
-    gap: 1em;
+    gap: 3em;
   }
 
   &-grid {
@@ -80,6 +88,7 @@
       height: 17%;
       width: 80%;
       margin: 1em;
+      margin-top: 3em;
     }
 
     &-form {
@@ -147,7 +156,7 @@
         }
 
         &-name {
-          font-family: $header-font;
+          font-family: $main-font;
           margin-bottom: 2em;
           width: 10em;
           height: 1.4em;
@@ -166,6 +175,8 @@
           width: 46px;
           height: 24px;
           margin-right: 0.5em;
+          font-family: $main-font;
+          font-size: 0.9em;
 
           @include media(phone, tablet) {
             margin-right: 0;

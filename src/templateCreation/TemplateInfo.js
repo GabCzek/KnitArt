@@ -14,7 +14,8 @@ const TemplateInfo = ({ rows,
                           changeActiveColor,
                           changeRows,
                           changeColumns,
-                          windowWidth }) => (
+                          windowWidth,
+                          createNewArray }) => (
   <div className="template-info">
     <TemplateInfoForm
       rows={rows}
@@ -29,7 +30,7 @@ const TemplateInfo = ({ rows,
       changeActiveColor={changeActiveColor}
       windowWidth={windowWidth}
     />
-      {windowWidth >= 820 ? <TemplateIcons handleSubmitTemplate={handleSubmitTemplate}/> : null}
+      {windowWidth >= 820 ? <TemplateIcons handleSubmitTemplate={handleSubmitTemplate} createNewArray={createNewArray}/> : null}
   </div>
 );
 

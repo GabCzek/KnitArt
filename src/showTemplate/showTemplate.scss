@@ -3,17 +3,10 @@
     height: 23em;
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    border-bottom: $accent-border-desktop;
   }
 }
 
-.mobile-img {
-  background: no-repeat center url("../images/mainPhone.png");
-  background-size: cover;
-  width: 100%;
-  height: 12em;
-  border-bottom: $accent-border-desktop;
-}
 
 .showTemplate {
   &-main-container {
@@ -23,6 +16,10 @@
 
     &-hide {
       display: none;
+    }
+
+    @include media(phone, tablet) {
+      border-top: $accent-border-phone;
     }
   }
 
@@ -35,7 +32,7 @@
     border-bottom: $accent-border-desktop;
 
     @include media(phone, tablet) {
-      height: 30%;
+      height: 50%;
       font-size: 0.9em;
       border-bottom: none;
       margin-top: 1em;
@@ -58,7 +55,6 @@
       align-items: center;
       height: 5em;
       font-size: 1.3em;
-      border-bottom: $accent-border-phone;
       cursor: pointer;
     }
 
@@ -67,7 +63,7 @@
     }
 
     h2 {
-      font-size: 4em;
+      font-size: 3.6em;
       font-family: $header-font;
       margin-bottom: 10px;
 
@@ -78,7 +74,7 @@
 
     span,
     p {
-      font-size: 1.5em;
+      font-size: 1.3em;
       font-family: $main-font;
       text-transform: uppercase;
       padding: 10px;
@@ -94,6 +90,34 @@
       border: 1px solid #000;
       border-radius: 3px;
     }
+
+    button {
+      margin-top: 2em;
+      font-size: 0.9em;
+      font-weight: 500;
+      font-family: $main-font;
+      text-transform: uppercase;
+      padding: 10px 4px;
+      border-radius: 3px;
+      background-color: $accent-color;
+      border: 1px solid black;
+      width: 53%;
+
+      @include tablet {
+        margin-top: 0.5em;
+        padding: 5px 0;
+        width: 40%;
+      }
+
+      @include phone {
+        width: 70%;
+        margin-top: 0;
+      }
+    }
+
+    &-link {
+      color: #FFF;
+    }
   }
 
   &-display {
@@ -107,7 +131,6 @@
     @include media(phone, tablet) {
       flex-direction: column;
       height: 60%;
-      border-bottom: $accent-border-desktop;
       gap: 0;
 
       h2 {

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import ShowTemplateRow from "./ShowTemplateRow";
 import {Swiper, SwiperSlide} from "swiper/react";
 import 'swiper/css';
@@ -61,16 +61,18 @@ const ShowTemplateDisplay = ({
         const currentTouch = e.touches[0].clientY
         const diff = touchDown - currentTouch
 
-        if (diff < 5) {
+        if (diff < 5 && counter < +rows - 1) {
             handleArrowUp()
         }
 
-        if (diff > -5) {
+
+        if (diff > -5 && counter > 0) {
             handleArrowDown()
         }
 
         setTouchPosition(null)
     }
+
 
     return (
         <section className={className} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
@@ -145,17 +147,6 @@ const ShowTemplateDisplay = ({
                     </button>
                 </div> : null}
 
-
-            {/*<div className="showTemplate-display-arrows">*/}
-            {/*    <button className="showTemplate-display-arrows-btn" disabled={counter > rows - 2}*/}
-            {/*            onClick={handleArrowUp}>*/}
-            {/*        <i className="fa-solid fa-caret-up"></i>*/}
-            {/*    </button>*/}
-            {/*    <button className="showTemplate-display-arrows-btn" disabled={counter <= 0}*/}
-            {/*            onClick={handleArrowDown}>*/}
-            {/*        <i className="fa-solid fa-caret-down"></i>*/}
-            {/*    </button>*/}
-            {/*</div>*/}
         </section>
     )
 }
