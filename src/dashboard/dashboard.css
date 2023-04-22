@@ -3,7 +3,7 @@
  * 6 |   border-bottom: $accent-border-desktop;
  *   |                  ^^^^^^^^^^^^^^^^^^^^^^
  *   '
- *   dashboard.scss 6:18  root stylesheet */
+ *   Dashboard.scss 6:18  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
