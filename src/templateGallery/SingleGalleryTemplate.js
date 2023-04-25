@@ -15,7 +15,7 @@ const SingleGalleryTemplate = ({color1, colorId, color2, gridColor, className, t
                 <GalleryTemplateGrid gridColor={gridColor} template={template} templates={templates}/>
             </Link>
             </div>
-            <GalleryTemplateInfo color={color} template={template} templates={templates}/>
+            <GalleryTemplateInfo color={color} template={template} templates={templates} />
         </section>
     )
 };
