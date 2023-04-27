@@ -8,7 +8,7 @@ const Dashboard = ({windowWidth}) => {
     return (
         <div className="container-dashboard" style={{height: height}}>
             <div className="main-container-dashboard">
-                <Navigation/>
+                <Navigation windowWidth={ windowWidth} />
                 <Outlet/>
             </div>
         </div>

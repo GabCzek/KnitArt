@@ -18,9 +18,6 @@
       display: none;
     }
 
-    @include media(phone, tablet) {
-      border-top: $accent-border-phone;
-    }
   }
 
   &-info-container {
@@ -53,9 +50,13 @@
       justify-content: center;
       font-family: $header-font;
       align-items: center;
-      height: 5em;
+      height: 3em;
       font-size: 1.3em;
-      cursor: pointer;
+      background-color: #852e0f;
+
+      h2 {
+        color: #FFF;
+      }
     }
 
     @include media(phone, tablet) {

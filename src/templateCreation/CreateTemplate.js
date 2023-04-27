@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { addDoc } from "firebase/firestore";
+// import * as htmlToImage from 'html-to-image';
 
 import TemplateGrid from "./TemplateGrid";
 import TemplateInfo from "./TemplateInfo";
@@ -14,9 +15,27 @@ const Template = ({ windowWidth, handleIsOpenTemplate }) => {
   const [tertiaryColor, setTertiaryColor] = useState("#852e0f");
   const [activeColor, setActiveColor] = useState("#1d7874");
   const [grid, setGrid] = useState([]);
-  const [show, setShow] = useState(true);
   const [height, setHeight] = useState("94%");
   const [template, setTemplate] = useState([]);
+  // const [img, setImg] = useState({});
+
+  // const handleSetImg = (img) => {
+  //   setImg(img);
+  // };
+
+  // const canvas = document.getElementById("canvas")
+
+  // const handleClickBtn = () => {
+  //   htmlToImage.toPng(canvas)
+  //    .then(function (dataUrl) {
+  //      const img = new Image()
+  //      img.src = dataUrl
+  //      handleSetImg(img)
+  //    })
+  //     .catch(err => {
+  //       console.log(err)
+  //     })
+  //  }
 
   const handleSubmitTemplate = async () => {
     try {
@@ -27,7 +46,8 @@ const Template = ({ windowWidth, handleIsOpenTemplate }) => {
         primaryColor,
         secondaryColor,
         tertiaryColor,
-        grid
+        grid,
+      
       });
     } catch (err) {
       console.error(err);
@@ -87,41 +107,17 @@ const Template = ({ windowWidth, handleIsOpenTemplate }) => {
     );
   };
 
-  useEffect(() => {
-    setShow(windowWidth >= 820);
-  }, [windowWidth]);
-
-  useEffect(() => {
-    if (windowWidth < 820) {
-      show === false ? setHeight("33%") : setHeight("94%");
-    }
-  }, [show]);
-  const handleClick = () => {
-    setShow((prev) => !prev);
-    handleIsOpenTemplate((prev) => !prev);
-  };
-
   return (
     <div
       className="container mediaContainerTemplate"
       style={{ height: height }}
     >
       <div className="main-container mediaContainerTemplate-title">
-        {windowWidth < 820 && show === false && (
-          <div className="template-title" onClick={handleClick}>
+        {windowWidth < 820 &&  (
+          <div className="template-title">
             <h2>Create your template</h2>
           </div>
         )}
-        {windowWidth < 820 && show && (
-          <div
-            className="template-title"
-            onClick={handleClick}
-            style={{ backgroundColor: "#852e0f" }}
-          >
-            <h2 style={{ color: "#FFF" }}>Hide create your template</h2>
-          </div>
-        )}
-        {show && (
           <div className="template">
             {windowWidth >= 820 ? (
               <>
@@ -181,7 +177,6 @@ const Template = ({ windowWidth, handleIsOpenTemplate }) => {
               </>
             )}
           </div>
-        )}
       </div>
     </div>
   );

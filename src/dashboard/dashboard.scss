@@ -34,6 +34,7 @@
 
   @include media(phone, tablet)  {
     background-color: $background-color;
+    border-bottom: $accent-border-phone;
   }
 
   &-burger {

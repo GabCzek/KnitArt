@@ -20,6 +20,41 @@ function App() {
   const [templates, setTemplates] = useState([]);
   const [windowWidth, setWindowWidth] = useState(0);
 
+  const [isOpenTemplate, setIsOpenTemplate] = useState(false);
+  const [isOpenShowTemplate, setIsOpenShowTemplate] = useState(false);
+  const [isOpenTemplateGallery, setIsOpenTemplateGallery] = useState(false);
+  const [height, setHeight] = useState("100%");
+
+  const [showTemplateGallery, setShowTemplateGallery] = useState(true);
+
+  const handleShowTemplateGallery = (showTemplateGallery) => {
+    setShowTemplateGallery(showTemplateGallery)
+  }
+
+  // useEffect(() => {
+  //   if (
+  //     isOpenTemplate === false &&
+  //     isOpenShowTemplate === false &&
+  //     isOpenTemplateGallery === false
+  //   ) {
+  //     setHeight("calc(100vh - 48px)");
+  //   } else {
+  //     setHeight("100%");
+  //   }
+  // }, [isOpenTemplate, isOpenShowTemplate, isOpenTemplateGallery]);
+
+  const handleIsOpenShowTemplate = (isOpenTemplate) => {
+    setIsOpenTemplate(isOpenTemplate);
+  };
+
+  const handleIsOpenTemplate = (isOpenShowTemplate) => {
+    setIsOpenShowTemplate(isOpenShowTemplate);
+  };
+
+  const handleIsOpenTemplateGallery = (isOpenTemplateGallery) => {
+    setIsOpenTemplateGallery(isOpenTemplateGallery);
+  };
+
   useEffect(
     () =>
       onSnapshot(templatesColRef, (snapshot) =>
@@ -48,29 +83,57 @@ function App() {
         ) : (
           <Route
             path="/"
-            element={<Mobile templates={templates} windowWidth={windowWidth} />}
+            element={
+              <Mobile
+                templates={templates}
+                windowWidth={windowWidth}
+                height={height}
+                handleIsOpenShowTemplate={handleIsOpenShowTemplate}
+                handleIsOpenTemplate={handleIsOpenTemplate}
+                handleIsOpenTemplateGallery={handleIsOpenTemplateGallery}
+                handleShowTemplateGallery={handleShowTemplateGallery}
+              />
+            }
           />
         )}
         <Route
           path="/template"
-          element={<Template windowWidth={windowWidth} />}
+          element={
+            <Template
+              windowWidth={windowWidth}
+              handleIsOpenTemplate={handleIsOpenTemplate}
+            />
+          }
         />
         <Route
           path="/template-gallery"
           element={
-            <TemplateGallery templates={templates} windowWidth={windowWidth} />
+            <TemplateGallery
+              templates={templates}
+              windowWidth={windowWidth}
+              handleIsOpenTemplateGallery={handleIsOpenTemplateGallery}
+              handleShowTemplateGallery={handleShowTemplateGallery}
+            />
           }
         />
         <Route
           path="/show-template"
           element={
-            <ShowTemplate templates={templates} windowWidth={windowWidth} />
+            <ShowTemplate
+              templates={templates}
+              windowWidth={windowWidth}
+              handleIsOpenShowTemplate={handleIsOpenShowTemplate}
+            />
           }
         />
         <Route
           path="/show-template/:id"
           element={
-            <ShowTemplate templates={templates} windowWidth={windowWidth} />
+            <ShowTemplate
+              templates={templates}
+              windowWidth={windowWidth}
+              handleIsOpenShowTemplate={handleIsOpenShowTemplate}
+            />
           }
         />
       </Route>

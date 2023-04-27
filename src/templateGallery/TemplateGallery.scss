@@ -11,7 +11,7 @@
     font-family: $header-font;
     align-items: center;
     background-color: $background-color;
-    height: 5em;
+    height: 3em;
     cursor: pointer;
   }
 
@@ -25,8 +25,8 @@
     @include media(tablet, phone) {
       height: 90%;
       gap: 3px;
-      border-top: $accent-border-phone;
-      grid-auto-rows: 23%;
+      border-top: 1px solid #FFF;
+      grid-auto-rows: 15%;
     }
 
     &-media {

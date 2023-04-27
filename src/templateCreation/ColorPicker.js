@@ -49,6 +49,10 @@ const ColorPicker = ({changeColor, defaultColor}) => {
             bottom: '0px',
             left: '0px',
         },
+        position: {
+            position: "absolute",
+            right: '250px'
+        }
     }
 
     return (
@@ -56,13 +60,15 @@ const ColorPicker = ({changeColor, defaultColor}) => {
             <div className="template-color-picker" style={colorPickerStyles.swatch} onClick={handleClick}>
                 <div style={colorPickerStyles.color}/>
             </div>
-            {displayColorPicker ? <div style={colorPickerStyles.popover}>
+            {displayColorPicker ? <div
+                style={colorPickerStyles.position}
+            ><div style={colorPickerStyles.popover}>
                 <div style={colorPickerStyles.cover} onClick={handleClose}/>
                 <ChromePicker
                     color={color}
                     disableAlpha={true}
                     onChange={handleColorChange}/>
-            </div> : null}
+            </div></div> : null}
         </div>
     )
 };
