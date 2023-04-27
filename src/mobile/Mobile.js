@@ -15,7 +15,6 @@ const Mobile = ({
 }) => {
   return (
     <div className="mobile" style={{ height: height }}>
-      <div className="mobile-img"></div>
       <div className="mobile-content">
         <Template
           windowWidth={windowWidth}
