@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import ShowTemplateDisplay from "./ShowTemplateDisplay";
 import ShowTemplateInfo from "./ShowTemplateInfo";
 
-function ShowTemplate({ templates, windowWidth, handleIsOpenShowTemplate }) {
+function ShowTemplate({ templates, windowWidth, handleShow }) {
   const { id } = useParams();
   const [height, setHeight] = useState("94%");
 
@@ -32,7 +32,7 @@ function ShowTemplate({ templates, windowWidth, handleIsOpenShowTemplate }) {
 
   useEffect(() => {
     templates.length > 0 && setCurrentRow(filterArray);
-  }, [templates]);
+  }, [templates, id]);
 
   const handleArrowUp = () => {
     setCounter((prev) => prev + 1);
@@ -48,7 +48,7 @@ function ShowTemplate({ templates, windowWidth, handleIsOpenShowTemplate }) {
   }, [windowWidth]);
 
   return (
-    <div className="container mediaContainer" style={{ height: height }}>
+    <div className="container mediaContainer" style={{ height: height }} id={"show-template"}>
       {windowWidth < 820 && (
         <div className="showTemplate-info-title">
           <h2>Current template</h2>
@@ -66,6 +66,7 @@ function ShowTemplate({ templates, windowWidth, handleIsOpenShowTemplate }) {
             windowWidth={windowWidth}
             grid={template.grid}
             className="showTemplate-info-container"
+            handleShow={handleShow}
           />
           <ShowTemplateDisplay
             stitches={template.stitches}
@@ -78,6 +79,7 @@ function ShowTemplate({ templates, windowWidth, handleIsOpenShowTemplate }) {
             grid={template.grid}
             windowWidth={windowWidth}
             className="showTemplate-display"
+            id={ id}
           />
         </div>
       )}

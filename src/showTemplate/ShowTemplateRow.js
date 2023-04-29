@@ -9,9 +9,11 @@ const ShowTemplateRow = ({
                              counter,
                              templatesLength,
                              grid,
-                             rows
+    rows,
+                             id
                          }) => {
     const [thisRow, setThisRow] = useState(row)
+    
 
 
     useEffect(() => {
@@ -24,7 +26,7 @@ const ShowTemplateRow = ({
             )
         })
         templatesLength > 0 && setThisRow(filterArray2)
-    }, [counter])
+    }, [counter, id])
 
 
     return (

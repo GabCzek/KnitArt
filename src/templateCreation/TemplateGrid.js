@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 
-
 import TemplateIcons from "./TemplateIcons";
-
 
 const TemplateGrid = ({
   columns,
@@ -13,26 +11,23 @@ const TemplateGrid = ({
   windowWidth,
   createNewArray,
   template,
-  setTemplate
+  setTemplate,
+  handleShow
 }) => {
   const elementSize = rows > 20 || columns > 20 ? "1.2em" : "1.4em";
   const elementSizeMobile = "0.9em";
 
- 
-
-  const handleClick = (id) => {
+  const handleElClick = (id) => {
     const tempTemplate = [...template];
     if (activeColor !== null) {
       tempTemplate[id].color = activeColor;
     }
-      setTemplate(tempTemplate);
+    setTemplate(tempTemplate);
   };
 
   useEffect(() => {
     createNewArray();
   }, [columns, rows, primaryColor]);
-
- 
 
   return (
     <>
@@ -52,7 +47,7 @@ const TemplateGrid = ({
                 <div
                   key={el.id}
                   className="template-grid-item"
-                  onClick={() => handleClick(el.id)}
+                  onClick={() => handleElClick(el.id)}
                   style={{
                     backgroundColor: el.color,
                     height: `${
@@ -68,6 +63,8 @@ const TemplateGrid = ({
         <TemplateIcons
           handleSubmitTemplate={handleSubmitTemplate}
           createNewArray={createNewArray}
+          handleShow={handleShow}
+          windowWidth={windowWidth}
         />
       ) : null}
     </>

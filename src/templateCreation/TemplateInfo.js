@@ -9,14 +9,18 @@ const TemplateInfo = ({
   name,
   changeName,
   handleSubmitTemplate,
+  primaryColor,
   changePrimaryColor,
+  secondaryColor,
   changeSecondaryColor,
+  tertiaryColor,
   changeTertiaryColor,
   changeActiveColor,
   changeRows,
   changeColumns,
   windowWidth,
   createNewArray,
+  handleShow
 }) => (
   <div className="template-info">
     <TemplateInfoForm
@@ -26,8 +30,11 @@ const TemplateInfo = ({
       changeName={changeName}
       changeRows={changeRows}
       changeColumns={changeColumns}
+      primaryColor={ primaryColor}
       changePrimaryColor={changePrimaryColor}
+      secondaryColor={ secondaryColor}
       changeSecondaryColor={changeSecondaryColor}
+      tertiaryColor={tertiaryColor}
       changeTertiaryColor={changeTertiaryColor}
       changeActiveColor={changeActiveColor}
       windowWidth={windowWidth}
@@ -36,6 +43,8 @@ const TemplateInfo = ({
       <TemplateIcons
         handleSubmitTemplate={handleSubmitTemplate}
         createNewArray={createNewArray}
+        handleShow={handleShow}
+        windowWidth={windowWidth}
       />
     ) : null}
   </div>

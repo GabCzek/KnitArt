@@ -13,8 +13,8 @@ const ShowTemplateDisplay = ({
                                  counter,
                                  grid,
                                  rows,
-                                 windowWidth
-
+                                 windowWidth,
+id
                              }) => {
 
     let gridRowClassName;
@@ -45,7 +45,6 @@ const ShowTemplateDisplay = ({
     }
 
     const [touchPosition, setTouchPosition] = useState(null)
-// ...
     const handleTouchStart = (e) => {
         const touchDown = e.touches[0].clientY
         setTouchPosition(touchDown)
@@ -87,6 +86,7 @@ const ShowTemplateDisplay = ({
                     grid={grid}
                     templatesLength={templatesLength}
                     className="showTemplate-display-rowAfterNext"
+                    id={ id}
                 />
                 <ShowTemplateRow
                     stitches={stitches}
@@ -98,6 +98,7 @@ const ShowTemplateDisplay = ({
                     grid={grid}
                     templatesLength={templatesLength}
                     className="showTemplate-display-nextRow"
+                    id={ id}
                 />
                 <ShowTemplateRow
                     stitches={stitches}
@@ -111,6 +112,7 @@ const ShowTemplateDisplay = ({
                     grid={grid}
                     templatesLength={templatesLength}
                     className="showTemplate-display-currentRow"
+                    id={ id}
                 />
                 <ShowTemplateRow
                     stitches={stitches}
@@ -122,6 +124,7 @@ const ShowTemplateDisplay = ({
                     grid={grid}
                     templatesLength={templatesLength}
                     className="showTemplate-display-previousRow"
+                    id={ id}
                 />
                 <ShowTemplateRow
                     stitches={stitches}
@@ -133,6 +136,7 @@ const ShowTemplateDisplay = ({
                     templatesLength={templatesLength}
                     counter={counter - 2}
                     className="showTemplate-display-rowBeforePrevious"
+                    id={ id}
                 />
             </div>
             {windowWidth >= 820 ?

@@ -1,49 +1,51 @@
 import React, { useState } from "react";
 import { addDoc } from "firebase/firestore";
+import { useParams } from "react-router-dom";
 
-import TemplateGrid from "./TemplateGrid";
-import TemplateInfo from "./TemplateInfo";
+import TemplateGrid from "../templateCreation/TemplateGrid";
+import TemplateInfo from "../templateCreation/TemplateInfo";
 import { templatesColRef } from "../firebase";
 
-const Template = ({ windowWidth, handleShow }) => {
-  const [name, setName] = useState("Template 1");
-  const [rows, setRows] = useState(20);
-  const [columns, setColumns] = useState(20);
-  const [primaryColor, setPrimaryColor] = useState("rgba(103, 146, 137)");
-  const [secondaryColor, setSecondaryColor] = useState("rgba(29, 120, 116)");
-  const [tertiaryColor, setTertiaryColor] = useState("rgba(133, 16, 15)");
-  const [activeColor, setActiveColor] = useState("rgba(29, 120, 116)");
-  const [grid, setGrid] = useState([]);
-  const [template, setTemplate] = useState([]);
+const EditTemplate = ({ windowWidth, templates }) => {
+  const { id } = useParams();
+  const oldTemplate = templates.find((obj) => {
+    return obj.id === id;
+  });
 
+  const [template, setTemplate] = useState(oldTemplate);
 
-  const handleSubmitTemplate = async () => {
-    try {
-      await addDoc(templatesColRef, {
-        name,
-        rows,
-        stitches: columns,
-        primaryColor,
-        secondaryColor,
-        tertiaryColor,
-        grid,
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  const [name, setName] = useState(template.name);
+  const [rows, setRows] = useState(template.rows);
+  const [columns, setColumns] = useState(template.stitches);
+  const [primaryColor, setPrimaryColor] = useState(template.primaryColor);
+  const [secondaryColor, setSecondaryColor] = useState(template.secondaryColor);
+  const [tertiaryColor, setTertiaryColor] = useState(template.tertiaryColor);
+  const [activeColor, setActiveColor] = useState(template.secondaryColor);
+  const [grid, setGrid] = useState(template.grid);
+
+  //   const handleSubmitTemplate = async () => {
+  //     try {
+  //       await addDoc(templatesColRef, {
+  //         name,
+  //         rows,
+  //         stitches: columns,
+  //         primaryColor,
+  //         secondaryColor,
+  //         tertiaryColor,
+  //         grid,
+  //       });
+  //     } catch (err) {
+  //       console.error(err);
+  //     }
+  //   };
 
   const handleGridChange = (grid) => {
     setGrid(grid);
   };
 
   const createNewArray = () => {
-    const newTemplate = [...Array(rows * columns)].map((el, i) => ({
-      id: i,
-      color: primaryColor,
-    }));
-    setTemplate(newTemplate);
-    handleGridChange(newTemplate);
+    setTemplate(grid);
+    handleGridChange(grid);
   };
 
   const changeName = (name) => {
@@ -115,13 +117,14 @@ const Template = ({ windowWidth, handleShow }) => {
                 changeRows={changeRows}
                 changeColumns={changeColumns}
                 changePrimaryColor={changePrimaryColor}
+                primaryColor={primaryColor}
+                secondaryColor={secondaryColor}
+                tertiaryColor={tertiaryColor}
                 changeSecondaryColor={changeSecondaryColor}
                 changeTertiaryColor={changeTertiaryColor}
                 changeActiveColor={changeActiveColor}
-                handleSubmitTemplate={handleSubmitTemplate}
                 windowWidth={windowWidth}
                 createNewArray={createNewArray}
-                handleShow={handleShow}
               />
             </>
           ) : (
@@ -133,8 +136,11 @@ const Template = ({ windowWidth, handleShow }) => {
                 changeName={changeName}
                 changeRows={changeRows}
                 changeColumns={changeColumns}
+                primaryColor={primaryColor}
                 changePrimaryColor={changePrimaryColor}
+                secondaryColor={secondaryColor}
                 changeSecondaryColor={changeSecondaryColor}
+                tertiaryColor={tertiaryColor}
                 changeTertiaryColor={changeTertiaryColor}
                 changeActiveColor={changeActiveColor}
                 windowWidth={windowWidth}
@@ -146,11 +152,9 @@ const Template = ({ windowWidth, handleShow }) => {
                 activeColor={activeColor}
                 handleGridChange={handleGridChange}
                 windowWidth={windowWidth}
-                handleSubmitTemplate={handleSubmitTemplate}
                 createNewArray={createNewArray}
                 template={template}
                 setTemplate={setTemplate}
-                handleShow={handleShow}
               />
             </>
           )}
@@ -160,4 +164,4 @@ const Template = ({ windowWidth, handleShow }) => {
   );
 };
 
-export default Template;
+export default EditTemplate;

@@ -7,31 +7,31 @@ const Mobile = ({
   templates,
   windowWidth,
   height,
-  handleIsOpenShowTemplate,
-  handleIsOpenTemplate,
-  handleIsOpenTemplateGallery,
-  handleShowTemplateGallery,
-  showTemplateGallery,
+  show,
+  handleClick,
+  handleShow
 }) => {
+
+
   return (
     <div className="mobile" style={{ height: height }}>
       <div className="mobile-content">
         <Template
           windowWidth={windowWidth}
-          handleIsOpenTemplate={handleIsOpenTemplate}
+          handleShow={ handleShow}
         />
         <ShowTemplate
           templates={templates}
           windowWidth={windowWidth}
-          handleIsOpenShowTemplate={handleIsOpenShowTemplate}
+          handleClick={handleClick}
+          handleShow={ handleShow}
         />
-
         <TemplateGallery
           templates={templates}
           windowWidth={windowWidth}
-          handleIsOpenTemplateGallery={handleIsOpenTemplateGallery}
-          handleShowTemplateGallery={handleShowTemplateGallery}
-          showTemplateGallery={showTemplateGallery}
+          handleClick={handleClick}
+          show={show}
+          handleShow={ handleShow}
         />
       </div>
     </div>

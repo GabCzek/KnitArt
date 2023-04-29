@@ -4,11 +4,13 @@ import SingleGalleryTemplate from "./SingleGalleryTemplate";
 const TemplateGallery = ({
   templates,
   windowWidth,
-  handleIsOpenTemplateGallery,
+  show,
+  handleClick,
+  handleShow,
 }) => {
   const color1 = "#F0E0D6";
   const color2 = "#1D7874";
-  const [show, setShow] = useState(true);
+
   const [height, setHeight] = useState("94%");
   let gridColumns;
 
@@ -21,21 +23,17 @@ const TemplateGallery = ({
   }
 
   useEffect(() => {
-    setShow(windowWidth >= 820);
+    handleShow(windowWidth >= 820);
   }, [windowWidth]);
 
   useEffect(() => {
     show === true ? setHeight("94%") : setHeight("33%");
   }, [show]);
 
-  const handleClick = () => {
-    setShow((prev) => !prev);
-    handleIsOpenTemplateGallery((prev) => !prev);
-  };
-
   return (
     <div
       className="container gallery-template-container-media"
+      id="gallery-template"
       style={{ height: height }}
     >
       {windowWidth <= 820 && show === false && (
@@ -66,6 +64,8 @@ const TemplateGallery = ({
               template={template}
               color1={color1}
               color2={color2}
+              windowWidth={windowWidth}
+              handleClick={ handleClick}
             />
           ))}
         </div>
