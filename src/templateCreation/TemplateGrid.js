@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 
+
 import TemplateIcons from "./TemplateIcons";
 
 const TemplateGrid = ({
@@ -12,7 +13,8 @@ const TemplateGrid = ({
   createNewArray,
   template,
   setTemplate,
-  handleShow
+  handleShow,
+  handleUpdateTemplate
 }) => {
   const elementSize = rows > 20 || columns > 20 ? "1.2em" : "1.4em";
   const elementSizeMobile = "0.9em";
@@ -29,12 +31,14 @@ const TemplateGrid = ({
     createNewArray();
   }, [columns, rows, primaryColor]);
 
+
   return (
     <>
       <div className="template-grid-container">
+
         <div
           className="template-grid"
-          id="canvas"
+          id="divToPrint"
           style={{
             gridTemplateColumns: `repeat(${columns}, ${
               windowWidth <= 820 ? elementSizeMobile : elementSize
@@ -65,6 +69,7 @@ const TemplateGrid = ({
           createNewArray={createNewArray}
           handleShow={handleShow}
           windowWidth={windowWidth}
+          handleUpdateTemplate={ handleUpdateTemplate}
         />
       ) : null}
     </>

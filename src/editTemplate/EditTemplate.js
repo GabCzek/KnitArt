@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-import { addDoc } from "firebase/firestore";
+import React, { useState, useEffect } from "react";
+import { updateDoc, doc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 
 import TemplateGrid from "../templateCreation/TemplateGrid";
 import TemplateInfo from "../templateCreation/TemplateInfo";
-import { templatesColRef } from "../firebase";
+import { db } from "../firebase";
 
 const EditTemplate = ({ windowWidth, templates }) => {
   const { id } = useParams();
+
+
   const oldTemplate = templates.find((obj) => {
     return obj.id === id;
   });
@@ -23,21 +25,23 @@ const EditTemplate = ({ windowWidth, templates }) => {
   const [activeColor, setActiveColor] = useState(template.secondaryColor);
   const [grid, setGrid] = useState(template.grid);
 
-  //   const handleSubmitTemplate = async () => {
-  //     try {
-  //       await addDoc(templatesColRef, {
-  //         name,
-  //         rows,
-  //         stitches: columns,
-  //         primaryColor,
-  //         secondaryColor,
-  //         tertiaryColor,
-  //         grid,
-  //       });
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   };
+  const docRef = doc(db, "templates", id);
+
+  const handleUpdateTemplate = async () => {
+    try {
+      await updateDoc(docRef, {
+        name,
+        rows,
+        stitches: columns,
+        primaryColor,
+        secondaryColor,
+        tertiaryColor,
+        grid,
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const handleGridChange = (grid) => {
     setGrid(grid);
@@ -125,6 +129,7 @@ const EditTemplate = ({ windowWidth, templates }) => {
                 changeActiveColor={changeActiveColor}
                 windowWidth={windowWidth}
                 createNewArray={createNewArray}
+                handleUpdateTemplate={handleUpdateTemplate}
               />
             </>
           ) : (
@@ -153,6 +158,7 @@ const EditTemplate = ({ windowWidth, templates }) => {
                 handleGridChange={handleGridChange}
                 windowWidth={windowWidth}
                 createNewArray={createNewArray}
+                handleUpdateTemplate={handleUpdateTemplate}
                 template={template}
                 setTemplate={setTemplate}
               />

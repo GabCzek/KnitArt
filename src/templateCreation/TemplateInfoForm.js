@@ -18,10 +18,10 @@ const TemplateInfoForm = ({
   windowWidth,
   primaryColor,
   secondaryColor,
-  tertiaryColor
+  tertiaryColor,
 }) => {
   const [checked, setChecked] = useState(["secondaryColor"]);
- 
+
 
   const primaryColorEdit = primaryColor !== undefined && primaryColor
     .substr(5, 20)
@@ -32,7 +32,7 @@ const TemplateInfoForm = ({
     g: primaryColorEdit[1],
     b: primaryColorEdit[2],
     a: 1,
-  } 
+  }
 
   const secondaryColorEdit = secondaryColor !== undefined && secondaryColor
     .substr(5, 20)
@@ -44,7 +44,7 @@ const TemplateInfoForm = ({
     b: secondaryColorEdit[2],
     a: 1,
   }
-  
+
   const tertiaryColorEdit = tertiaryColor !== undefined && tertiaryColor
     .substr(5, 20)
     .replace(')', '')
@@ -55,7 +55,6 @@ const TemplateInfoForm = ({
     b: tertiaryColorEdit[2],
     a: 1,
   }
-
 
   const defaultPrimaryColor = {
     r: "103",
@@ -72,8 +71,8 @@ const TemplateInfoForm = ({
   };
 
   const defaultTertiaryColor = {
-    r: "133",
-    g: "16",
+    r: "134",
+    g: "46",
     b: "15",
     a: "1",
   };
@@ -94,11 +93,8 @@ const TemplateInfoForm = ({
     changeName(value);
   };
 
-
-
-
   return (
-    <form className="template-info-form">
+    <form className="template-info-form" >
       <div className="template-info-form-labels">
         <label className="template-info-form-label">
           <span>Name:</span>

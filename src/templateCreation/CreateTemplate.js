@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { addDoc } from "firebase/firestore";
 
+
 import TemplateGrid from "./TemplateGrid";
+import Print from "./Print";
 import TemplateInfo from "./TemplateInfo";
+
 import { templatesColRef } from "../firebase";
 
 const Template = ({ windowWidth, handleShow }) => {
@@ -11,7 +14,7 @@ const Template = ({ windowWidth, handleShow }) => {
   const [columns, setColumns] = useState(20);
   const [primaryColor, setPrimaryColor] = useState("rgba(103, 146, 137)");
   const [secondaryColor, setSecondaryColor] = useState("rgba(29, 120, 116)");
-  const [tertiaryColor, setTertiaryColor] = useState("rgba(133, 16, 15)");
+  const [tertiaryColor, setTertiaryColor] = useState("rgba(134, 46, 15)");
   const [activeColor, setActiveColor] = useState("rgba(29, 120, 116)");
   const [grid, setGrid] = useState([]);
   const [template, setTemplate] = useState([]);
@@ -86,8 +89,10 @@ const Template = ({ windowWidth, handleShow }) => {
     );
   };
 
+
+
   return (
-    <div className="container mediaContainerTemplate">
+    <div className="container mediaContainerTemplate" >
       <div className="main-container mediaContainerTemplate-title">
         {windowWidth < 820 && (
           <div className="template-title">
@@ -97,6 +102,7 @@ const Template = ({ windowWidth, handleShow }) => {
         <div className="template">
           {windowWidth >= 820 ? (
             <>
+                
               <TemplateGrid
                 rows={rows}
                 columns={columns}
@@ -123,9 +129,11 @@ const Template = ({ windowWidth, handleShow }) => {
                 createNewArray={createNewArray}
                 handleShow={handleShow}
               />
+              {/* <Print name={name} rows={rows} columns={columns} grid={grid} /> */}
             </>
           ) : (
-            <>
+              <>
+                {/* <Print name={name} rows={rows} columns={columns} grid={grid}/> */}
               <TemplateInfo
                 rows={rows}
                 columns={columns}

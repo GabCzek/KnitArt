@@ -7,7 +7,7 @@
 .mediaContainerTemplate {
   height: 94%;
   @include media(phone, tablet) {
-    height: 52em;
+    height: 42em;
     border-bottom: $accent-border-phone;
   }
 
@@ -24,29 +24,24 @@
   height: 100%;
   width: 100%;
 
-  @include media(tablet, phone, laptop) {
-    width: calc(100vw - 10px);
-  }
-
-
   &-title {
     display: flex;
     justify-content: space-around;
     font-family: $header-font;
     align-items: center;
     font-size: 1.3em;
-    height: 3em;
-    background-color: $accent-color;
+    height: 2em;
+    background-color: $main-color;
 
     h2 {
-      color: #FFF;
+      color: #fff;
     }
   }
 
   @include media(phone, tablet) {
     flex-direction: column;
     justify-content: space-around;
-    gap: 3em;
+    gap: 1em;
   }
 
   &-grid {
@@ -66,7 +61,7 @@
       justify-content: center;
 
       @include media(phone, tablet) {
-        height: 55%;
+        height: 20em;
         width: 80%;
       }
     }
@@ -90,7 +85,6 @@
       height: 17%;
       width: 80%;
       margin: 1em;
-      margin-top: 3em;
     }
 
     &-form {

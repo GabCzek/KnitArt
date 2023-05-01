@@ -10,7 +10,7 @@ function ShowTemplate({ templates, windowWidth, handleShow }) {
 
   const template =
     id === undefined
-      ? templates[2]
+      ? templates[0]
       : templates.find((obj) => {
           return obj.id === id;
         });
@@ -43,7 +43,7 @@ function ShowTemplate({ templates, windowWidth, handleShow }) {
 
   useEffect(() => {
     if (windowWidth < 820) {
-        setHeight("30em");
+        setHeight("26em");
     }
   }, [windowWidth]);
 
