@@ -1,6 +1,7 @@
 .mediaContainer {
   @include media(phone, tablet) {
     height: 23em;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     border-bottom: $accent-border-desktop;
@@ -132,6 +133,7 @@
     @include media(phone, tablet) {
       flex-direction: column;
       height: 60%;
+      width: 100vw;
       gap: 0;
 
       h2 {
@@ -219,7 +221,7 @@
 }
 
 .smallPhone {
-  height: 1.2em
+  height: 0.8em
 }
 
 .normal {
@@ -227,7 +229,7 @@
 }
 
 .normalPhone {
-  height: 1.1em;
+  height: 0.7em;
 }
 
 .big {

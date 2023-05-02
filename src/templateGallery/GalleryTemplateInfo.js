@@ -3,13 +3,15 @@ import { deleteDoc, doc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { db } from "../firebase";
 
-const GalleryTemplateInfo = ({ color, templates, template }) => {
+const GalleryTemplateInfo = ({ color, templates, template, windowWidth }) => {
   const textColor =
     color === "#1D7874" || color === "#852E0F" ? "#FFF" : "#000";
 
   const deleteTemplate = async (id) => {
     const templateDoc = doc(db, "templates", id);
     await deleteDoc(templateDoc);
+    template.id === templates[0].id &&
+    window.location.reload(false);
   };
 
   return (
@@ -24,9 +26,9 @@ const GalleryTemplateInfo = ({ color, templates, template }) => {
           className="fa-solid fa-trash"
           onClick={() => deleteTemplate(template.id)}
         ></i>
-        <Link to={`/edit-template/${template.id}`} className="link">
+        {windowWidth>= 820 && <Link to={`/edit-template/${template.id}`} className="link">
           <i className="fa-solid fa-pencil" style={{ color: textColor }}></i>
-        </Link>
+        </Link>}
       </div>
     </section>
   );

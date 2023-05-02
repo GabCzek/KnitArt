@@ -22,7 +22,11 @@
   justify-content: space-around;
   align-items: center;
   height: 100%;
-  width: 100vw;
+  width: 100%;
+
+  @include media(phone, tablet) {
+    width: 100vw;
+  }
 
   &-title {
     display: flex;
@@ -49,7 +53,6 @@
     max-width: 100%;
     overflow: auto;
     align-self: center;
-    justify-content: center;
     display: grid;
     gap: 1px;
 
@@ -62,7 +65,7 @@
 
       @include media(phone, tablet) {
         height: 20em;
-        width: 80%;
+        width: 90%;
       }
     }
 
@@ -196,4 +199,8 @@
     }
   }
 
+}
+
+.colorPicker input:focus {
+  display: none;
 }

@@ -20,7 +20,7 @@ const Mobile = ({
           windowWidth={windowWidth}
           handleShow={ handleShow}
         />
-        
+    
         <ShowTemplate
           templates={templates}
           windowWidth={windowWidth}

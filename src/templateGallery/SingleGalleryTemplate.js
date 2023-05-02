@@ -13,7 +13,7 @@ const SingleGalleryTemplate = ({
   template,
   windowWidth,
   templates,
-  handleClick,
+  handleClick
 }) => {
   const color = colorId % 2 === 0 ? color1 : color2;
 
@@ -50,6 +50,7 @@ const SingleGalleryTemplate = ({
         color={color}
         template={template}
         templates={templates}
+        windowWidth={ windowWidth}
       />
     </section>
   );

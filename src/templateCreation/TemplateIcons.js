@@ -5,18 +5,19 @@ import { useParams } from "react-router-dom";
 const TemplateIcons = ({
   handleSubmitTemplate,
   createNewArray,
-  handleShow,
   windowWidth,
+  handleShow,
   handleUpdateTemplate,
+  handleClear
 }) => {
   const { id } = useParams();
 
   const handleSubmitOrUpdate = () => {
-    id === undefined ? handleSubmitTemplate() : handleUpdateTemplate();
+    id === undefined ? handleSubmitTemplate() : handleUpdateTemplate()
   };
 
   const handleCreateNewArray = () => {
-    createNewArray();
+    id === undefined ? createNewArray() : handleClear();
   };
 
   const handleBtnClick = () => {

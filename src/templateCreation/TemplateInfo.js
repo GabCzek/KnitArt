@@ -21,7 +21,8 @@ const TemplateInfo = ({
   windowWidth,
   createNewArray,
   handleShow,
-  handleUpdateTemplate
+  handleUpdateTemplate,
+  handleClear
 }) => (
   <div className="template-info">
     <TemplateInfoForm
@@ -46,7 +47,8 @@ const TemplateInfo = ({
         createNewArray={createNewArray}
         handleShow={handleShow}
         windowWidth={windowWidth}
-        handleUpdateTemplate={ handleUpdateTemplate}
+        handleUpdateTemplate={handleUpdateTemplate}
+        handleClear={ handleClear}
       />
     ) : null}
   </div>

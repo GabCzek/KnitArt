@@ -113,7 +113,7 @@ const TemplateInfoForm = ({
           )}
           <input
             data-tooltip-id="numberOfRows"
-            data-tooltip-content="Changing the rows will delete your current design"
+            data-tooltip-content="Change will delete your current design"
             onChange={handleRowsChange}
             value={rows}
             type="number"
@@ -131,7 +131,7 @@ const TemplateInfoForm = ({
           )}
           <input
             data-tooltip-id="numberOfStitches"
-            data-tooltip-content="Changing the stitches will delete your current design"
+            data-tooltip-content="Change will delete your current design"
             onChange={handleColumnsChange}
             value={columns}
             type="number"
@@ -153,7 +153,7 @@ const TemplateInfoForm = ({
           <div
             className="template-info-form-color"
             data-tooltip-id="primaryColorChange"
-            data-tooltip-content="Changing the main color will delete your current design"
+            data-tooltip-content="Change will delete your current design"
           >
             <ColorPicker
               changeColor={changePrimaryColor}

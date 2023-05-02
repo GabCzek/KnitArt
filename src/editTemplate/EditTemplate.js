@@ -9,7 +9,6 @@ import { db } from "../firebase";
 const EditTemplate = ({ windowWidth, templates }) => {
   const { id } = useParams();
 
-
   const oldTemplate = templates.find((obj) => {
     return obj.id === id;
   });
@@ -24,6 +23,7 @@ const EditTemplate = ({ windowWidth, templates }) => {
   const [tertiaryColor, setTertiaryColor] = useState(template.tertiaryColor);
   const [activeColor, setActiveColor] = useState(template.secondaryColor);
   const [grid, setGrid] = useState(template.grid);
+
 
   const docRef = doc(db, "templates", id);
 
@@ -50,6 +50,15 @@ const EditTemplate = ({ windowWidth, templates }) => {
   const createNewArray = () => {
     setTemplate(grid);
     handleGridChange(grid);
+  };
+
+  const handleClear = () => {
+    const newTemplate = [...Array(rows * columns)].map((el, i) => ({
+      id: i,
+      color: primaryColor,
+    }));
+    setTemplate(newTemplate);
+    handleGridChange(newTemplate);
   };
 
   const changeName = (name) => {
@@ -94,78 +103,83 @@ const EditTemplate = ({ windowWidth, templates }) => {
 
   return (
     <div className="container mediaContainerTemplate">
-      <div className="main-container mediaContainerTemplate-title">
-        {windowWidth < 820 && (
-          <div className="template-title">
-            <h2>Create your template</h2>
-          </div>
-        )}
-        <div className="template">
-          {windowWidth >= 820 ? (
-            <>
-              <TemplateGrid
-                rows={rows}
-                columns={columns}
-                primaryColor={primaryColor}
-                activeColor={activeColor}
-                handleGridChange={handleGridChange}
-                template={template}
-                createNewArray={createNewArray}
-                setTemplate={setTemplate}
-              />
-              <TemplateInfo
-                rows={rows}
-                columns={columns}
-                name={name}
-                changeName={changeName}
-                changeRows={changeRows}
-                changeColumns={changeColumns}
-                changePrimaryColor={changePrimaryColor}
-                primaryColor={primaryColor}
-                secondaryColor={secondaryColor}
-                tertiaryColor={tertiaryColor}
-                changeSecondaryColor={changeSecondaryColor}
-                changeTertiaryColor={changeTertiaryColor}
-                changeActiveColor={changeActiveColor}
-                windowWidth={windowWidth}
-                createNewArray={createNewArray}
-                handleUpdateTemplate={handleUpdateTemplate}
-              />
-            </>
-          ) : (
-            <>
-              <TemplateInfo
-                rows={rows}
-                columns={columns}
-                name={name}
-                changeName={changeName}
-                changeRows={changeRows}
-                changeColumns={changeColumns}
-                primaryColor={primaryColor}
-                changePrimaryColor={changePrimaryColor}
-                secondaryColor={secondaryColor}
-                changeSecondaryColor={changeSecondaryColor}
-                tertiaryColor={tertiaryColor}
-                changeTertiaryColor={changeTertiaryColor}
-                changeActiveColor={changeActiveColor}
-                windowWidth={windowWidth}
-              />
-              <TemplateGrid
-                rows={rows}
-                columns={columns}
-                primaryColor={primaryColor}
-                activeColor={activeColor}
-                handleGridChange={handleGridChange}
-                windowWidth={windowWidth}
-                createNewArray={createNewArray}
-                handleUpdateTemplate={handleUpdateTemplate}
-                template={template}
-                setTemplate={setTemplate}
-              />
-            </>
+      {template === undefined ? null : (
+        <div className="main-container mediaContainerTemplate-title">
+          {windowWidth < 820 && (
+            <div className="template-title">
+              <h2>Edit your template</h2>
+            </div>
           )}
+          <div className="template">
+            {windowWidth >= 820 ? (
+              <>
+                <TemplateGrid
+                  rows={rows}
+                  columns={columns}
+                  primaryColor={primaryColor}
+                  activeColor={activeColor}
+                  handleGridChange={handleGridChange}
+                  template={template}
+                  createNewArray={createNewArray}
+                  setTemplate={setTemplate}
+                />
+                <TemplateInfo
+                  rows={rows}
+                  columns={columns}
+                  name={name}
+                  changeName={changeName}
+                  changeRows={changeRows}
+                  changeColumns={changeColumns}
+                  changePrimaryColor={changePrimaryColor}
+                  primaryColor={primaryColor}
+                  secondaryColor={secondaryColor}
+                  tertiaryColor={tertiaryColor}
+                  changeSecondaryColor={changeSecondaryColor}
+                  changeTertiaryColor={changeTertiaryColor}
+                  changeActiveColor={changeActiveColor}
+                  windowWidth={windowWidth}
+                  createNewArray={createNewArray}
+                  handleUpdateTemplate={handleUpdateTemplate}
+                  handleClear={handleClear}
+                />
+              </>
+            ) : (
+              <>
+                <TemplateInfo
+                  rows={rows}
+                  columns={columns}
+                  name={name}
+                  changeName={changeName}
+                  changeRows={changeRows}
+                  changeColumns={changeColumns}
+                  primaryColor={primaryColor}
+                  changePrimaryColor={changePrimaryColor}
+                  secondaryColor={secondaryColor}
+                  changeSecondaryColor={changeSecondaryColor}
+                  tertiaryColor={tertiaryColor}
+                  changeTertiaryColor={changeTertiaryColor}
+                  changeActiveColor={changeActiveColor}
+                  windowWidth={windowWidth}
+                  createNewArray={createNewArray}
+                />
+                <TemplateGrid
+                  rows={rows}
+                  columns={columns}
+                  primaryColor={primaryColor}
+                  activeColor={activeColor}
+                  handleGridChange={handleGridChange}
+                  windowWidth={windowWidth}
+                  createNewArray={createNewArray}
+                  handleUpdateTemplate={handleUpdateTemplate}
+                  template={template}
+                  setTemplate={setTemplate}
+                  handleClear={handleClear}
+                />
+              </>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

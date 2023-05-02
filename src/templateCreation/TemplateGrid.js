@@ -14,7 +14,8 @@ const TemplateGrid = ({
   template,
   setTemplate,
   handleShow,
-  handleUpdateTemplate
+  handleUpdateTemplate,
+  handleClear
 }) => {
   const elementSize = rows > 20 || columns > 20 ? "1.2em" : "1.4em";
   const elementSizeMobile = "0.9em";
@@ -67,9 +68,10 @@ const TemplateGrid = ({
         <TemplateIcons
           handleSubmitTemplate={handleSubmitTemplate}
           createNewArray={createNewArray}
-          handleShow={handleShow}
           windowWidth={windowWidth}
-          handleUpdateTemplate={ handleUpdateTemplate}
+          handleUpdateTemplate={handleUpdateTemplate}
+          handleShow={handleShow}
+          handleClear={handleClear}
         />
       ) : null}
     </>

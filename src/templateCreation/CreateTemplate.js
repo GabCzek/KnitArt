@@ -102,7 +102,6 @@ const Template = ({ windowWidth, handleShow }) => {
         <div className="template">
           {windowWidth >= 820 ? (
             <>
-                
               <TemplateGrid
                 rows={rows}
                 columns={columns}

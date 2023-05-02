@@ -26,22 +26,22 @@ id
         gridRowClassName = "small";
         gridRowClassNamePhone = "smallPhone";
         currentRowSize = 1.4;
-        currentRowSizePhone = 1;
+        currentRowSizePhone = 0.75;
     } else if ((templatesLength > 0 && stitches > 20) && (templatesLength > 0 && stitches <= 40)) {
         gridRowClassName = "normal";
         gridRowClassNamePhone = "normalPhone";
         currentRowSize = 1.1;
-        currentRowSizePhone = 0.5;
+        currentRowSizePhone = 0.4;
     } else if ((templatesLength > 0 && stitches > 40) && (templatesLength > 0 && stitches <= 60)) {
         gridRowClassName = "big";
         gridRowClassNamePhone = "bigPhone";
         currentRowSize = 0.8;
-        currentRowSizePhone = 0.4;
+        currentRowSizePhone = 0.27;
     } else if ((templatesLength > 0 && stitches > 60) && (templatesLength > 0 && stitches <= 80)) {
         gridRowClassName = "biggest";
         gridRowClassNamePhone = "biggestPhone";
         currentRowSize = 0.5;
-        currentRowSizePhone = 0.23;
+        currentRowSizePhone = 0.2;
     }
 
     const [touchPosition, setTouchPosition] = useState(null)

@@ -65,7 +65,7 @@ const TemplateGallery = ({
               color1={color1}
               color2={color2}
               windowWidth={windowWidth}
-              handleClick={ handleClick}
+              handleClick={handleClick}
             />
           ))}
         </div>

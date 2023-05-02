@@ -120,7 +120,7 @@ function App() {
         <Route
           path="/edit-template/:id"
           element={
-            <EditTemplate templates={templates} windowWidth={windowWidth} />
+            <EditTemplate templates={templates} windowWidth={windowWidth}/>
           }
         />
       </Route>
