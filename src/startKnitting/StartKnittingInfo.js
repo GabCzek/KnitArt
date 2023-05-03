@@ -44,14 +44,12 @@ const ShowTemplateInfo = ({
         <span>Current row: {counter}</span>
         <p>Of all rows: {Math.round((counter / rows) * 100)}%</p>
         {windowWidth >= 820 ? (
-          <button>
             <Link
               to="/template-gallery"
               className="link showTemplate-info-link"
             >
-              Change{" "}
+            <button className="showTemplate-info-link">Change</button>
             </Link>
-          </button>
         ) : (
           <button onClick={handleBtnClick} className="showTemplate-info-link">
             Change

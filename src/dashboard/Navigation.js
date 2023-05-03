@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Navigation = ({ windowWidth }) => {
+  const { id } = useParams();
+
+  console.log(id);
+
   return (
     <nav className="main-nav">
       <Link to="/" className="link main-nav-logo">
@@ -24,15 +29,18 @@ const Navigation = ({ windowWidth }) => {
         <Link to="/template" className="main-nav-link link">
           <h2>CREATE TEMPLATE</h2>
         </Link>
-        <Link to="/show-template" className="main-nav-link link">
-          <h2>CURRENT TEMPLATE</h2>
-        </Link>
+        {id === undefined ? (
+          <Link to="/show-template" className="main-nav-link link">
+            <h2>START KNITTING</h2>
+          </Link>
+        ) : (
+          <Link to={`/show-template/${id}`} className="main-nav-link link">
+            <h2>START KNITTING</h2>
+          </Link>
+        )}
         <Link to="/template-gallery" className="main-nav-link link">
           <h2>TEMPLATE GALLERY</h2>
         </Link>
-        {/*<div className="main-nav-burger">*/}
-        {/*    <i className="fa-solid fa-bars"></i>*/}
-        {/*</div>*/}
       </div>
     </nav>
   );

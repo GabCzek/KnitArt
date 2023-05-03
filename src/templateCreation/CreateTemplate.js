@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { addDoc } from "firebase/firestore";
 
-
 import TemplateGrid from "./TemplateGrid";
 import Print from "./Print";
 import TemplateInfo from "./TemplateInfo";
@@ -17,7 +16,6 @@ const Template = ({ windowWidth, handleShow }) => {
   const [tertiaryColor, setTertiaryColor] = useState("rgba(134, 46, 15)");
   const [activeColor, setActiveColor] = useState("rgba(29, 120, 116)");
   const [grid, setGrid] = useState([]);
-  const [template, setTemplate] = useState([]);
 
 
   const handleSubmitTemplate = async () => {
@@ -45,7 +43,7 @@ const Template = ({ windowWidth, handleShow }) => {
       id: i,
       color: primaryColor,
     }));
-    setTemplate(newTemplate);
+    setGrid(newTemplate);
     handleGridChange(newTemplate);
   };
 
@@ -89,10 +87,8 @@ const Template = ({ windowWidth, handleShow }) => {
     );
   };
 
-
-
   return (
-    <div className="container mediaContainerTemplate" >
+    <div className="container mediaContainerTemplate">
       <div className="main-container mediaContainerTemplate-title">
         {windowWidth < 820 && (
           <div className="template-title">
@@ -108,9 +104,9 @@ const Template = ({ windowWidth, handleShow }) => {
                 primaryColor={primaryColor}
                 activeColor={activeColor}
                 handleGridChange={handleGridChange}
-                template={template}
                 createNewArray={createNewArray}
-                setTemplate={setTemplate}
+                setGrid={setGrid}
+                grid={grid}
               />
               <TemplateInfo
                 rows={rows}
@@ -128,11 +124,11 @@ const Template = ({ windowWidth, handleShow }) => {
                 createNewArray={createNewArray}
                 handleShow={handleShow}
               />
-              {/* <Print name={name} rows={rows} columns={columns} grid={grid} /> */}
+
             </>
           ) : (
-              <>
-                {/* <Print name={name} rows={rows} columns={columns} grid={grid}/> */}
+            <>
+              <Print name={name} rows={rows} columns={columns} grid={grid}/>
               <TemplateInfo
                 rows={rows}
                 columns={columns}
@@ -155,13 +151,14 @@ const Template = ({ windowWidth, handleShow }) => {
                 windowWidth={windowWidth}
                 handleSubmitTemplate={handleSubmitTemplate}
                 createNewArray={createNewArray}
-                template={template}
-                setTemplate={setTemplate}
+                setGrid={setGrid}
                 handleShow={handleShow}
+                grid={grid}
               />
             </>
           )}
         </div>
+        <Print name={name} rows={rows} columns={columns} grid={grid}/>
       </div>
     </div>
   );

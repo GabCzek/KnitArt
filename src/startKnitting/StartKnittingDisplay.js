@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import ShowTemplateRow from "./ShowTemplateRow";
+import ShowTemplateRow from "./StartKnittingRow";
 import {Swiper, SwiperSlide} from "swiper/react";
 import 'swiper/css';
 

@@ -22,34 +22,33 @@ const TemplateInfoForm = ({
 }) => {
   const [checked, setChecked] = useState(["secondaryColor"]);
 
-
-  const primaryColorEdit = primaryColor !== undefined && primaryColor
+  const primaryColorEdit = primaryColor !== false && primaryColor !== undefined && primaryColor
     .substr(5, 20)
     .replace(')', '')
     .split(', ')
-  const primaryColorEditDiv = primaryColor !== undefined && {
+  const primaryColorEditDiv = primaryColor !== false && {
     r: primaryColorEdit[0],
     g: primaryColorEdit[1],
     b: primaryColorEdit[2],
     a: 1,
   }
 
-  const secondaryColorEdit = secondaryColor !== undefined && secondaryColor
+  const secondaryColorEdit = secondaryColor !== false && secondaryColor !== undefined && secondaryColor
     .substr(5, 20)
     .replace(')', '')
     .split(', ')
-  const secondaryColorEditDiv = secondaryColor !== undefined && {
+  const secondaryColorEditDiv = secondaryColor !== false && {
     r: secondaryColorEdit[0],
     g: secondaryColorEdit[1],
     b: secondaryColorEdit[2],
     a: 1,
   }
 
-  const tertiaryColorEdit = tertiaryColor !== undefined && tertiaryColor
+  const tertiaryColorEdit = tertiaryColor !== false && tertiaryColor !== undefined && tertiaryColor
     .substr(5, 20)
     .replace(')', '')
     .split(', ')
-  const tertiaryColorEditDiv = tertiaryColor !== undefined && {
+  const tertiaryColorEditDiv = tertiaryColor !== false && {
     r: tertiaryColorEdit[0],
     g: tertiaryColorEdit[1],
     b: tertiaryColorEdit[2],
@@ -92,6 +91,7 @@ const TemplateInfoForm = ({
   const handleNameChange = ({ target: { value } }) => {
     changeName(value);
   };
+
 
   return (
     <form className="template-info-form" >
@@ -157,7 +157,7 @@ const TemplateInfoForm = ({
           >
             <ColorPicker
               changeColor={changePrimaryColor}
-              defaultColor={primaryColor !== undefined ? primaryColorEditDiv : defaultPrimaryColor}
+              defaultColor={primaryColor !== undefined && primaryColor !== false ? primaryColorEditDiv : defaultPrimaryColor}
             />
             <Tooltip id="primaryColorChange" />
             <input
@@ -178,7 +178,7 @@ const TemplateInfoForm = ({
           <div className="template-info-form-color">
             <ColorPicker
               changeColor={changeSecondaryColor}
-              defaultColor={secondaryColor !== undefined ? secondaryColorEditDiv : defaultSecondaryColor}
+              defaultColor={secondaryColor !== undefined && secondaryColor !== false ? secondaryColorEditDiv : defaultSecondaryColor}
             />
             <input
               type="checkbox"
@@ -198,7 +198,7 @@ const TemplateInfoForm = ({
           <div className="template-info-form-color">
             <ColorPicker
               changeColor={changeTertiaryColor}
-              defaultColor={tertiaryColor !== undefined ? tertiaryColorEditDiv : defaultTertiaryColor}
+              defaultColor={tertiaryColor !== undefined && tertiaryColor !== false ? tertiaryColorEditDiv : defaultTertiaryColor}
             />
             <input
               type="checkbox"

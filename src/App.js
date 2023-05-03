@@ -11,7 +11,7 @@ import Home from "./home/Home.js";
 import Template from "./templateCreation/CreateTemplate";
 import TemplateGallery from "./templateGallery/TemplateGallery";
 import Dashboard from "./dashboard/Dashboard";
-import ShowTemplate from "./showTemplate/ShowTemplate";
+import StartKnitting from "./startKnitting/StartKnitting";
 import Mobile from "./mobile/Mobile";
 import EditTemplate from "./editTemplate/EditTemplate";
 import { onSnapshot, doc } from "firebase/firestore";
@@ -46,6 +46,7 @@ function App() {
     window.addEventListener(`resize`, updateDimensions);
     return () => window.removeEventListener(`resize`, updateDimensions);
   }, []);
+  
   const updateDimensions = () => {
     const width = window.innerWidth;
     setWindowWidth(width);
@@ -108,13 +109,13 @@ function App() {
         <Route
           path="/show-template"
           element={
-            <ShowTemplate templates={templates} windowWidth={windowWidth} />
+            <StartKnitting templates={templates} windowWidth={windowWidth} />
           }
         />
         <Route
           path="/show-template/:id"
           element={
-            <ShowTemplate templates={templates} windowWidth={windowWidth} />
+            <StartKnitting templates={templates} windowWidth={windowWidth} />
           }
         />
         <Route

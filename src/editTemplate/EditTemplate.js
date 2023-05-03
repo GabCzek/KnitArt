@@ -9,20 +9,55 @@ import { db } from "../firebase";
 const EditTemplate = ({ windowWidth, templates }) => {
   const { id } = useParams();
 
-  const oldTemplate = templates.find((obj) => {
-    return obj.id === id;
-  });
+  const [firstTemplate, setFirstTemplate] = useState(
+    templates.length > 0 &&
+      templates.find((obj) => {
+        return obj.id === id;
+      })
 
-  const [template, setTemplate] = useState(oldTemplate);
+  );
 
-  const [name, setName] = useState(template.name);
-  const [rows, setRows] = useState(template.rows);
-  const [columns, setColumns] = useState(template.stitches);
-  const [primaryColor, setPrimaryColor] = useState(template.primaryColor);
-  const [secondaryColor, setSecondaryColor] = useState(template.secondaryColor);
-  const [tertiaryColor, setTertiaryColor] = useState(template.tertiaryColor);
-  const [activeColor, setActiveColor] = useState(template.secondaryColor);
-  const [grid, setGrid] = useState(template.grid);
+  useEffect(() => {
+    setFirstTemplate(
+      templates.length > 0 &&
+        templates.find((obj) => {
+          return obj.id === id;
+        })
+    );
+  }, [templates]);
+
+
+  const [name, setName] = useState(firstTemplate.name);
+
+  const [rows, setRows] = useState(firstTemplate.rows);
+  const [columns, setColumns] = useState(firstTemplate.stitches);
+  const [primaryColor, setPrimaryColor] = useState(templates.length > 0 && firstTemplate.primaryColor
+  );
+  const [secondaryColor, setSecondaryColor] = useState(
+    templates.length > 0 && firstTemplate.secondaryColor
+  );
+  const [tertiaryColor, setTertiaryColor] = useState(
+    templates.length > 0 && firstTemplate.tertiaryColor
+  );
+  const [activeColor, setActiveColor] = useState(
+    templates.length > 0 && firstTemplate.secondaryColor
+  );
+  const [grid, setGrid] = useState(templates.length > 0 && firstTemplate.grid);
+
+  useEffect(() => {
+  setName(firstTemplate.name);
+  setRows(firstTemplate.rows);
+  setColumns(firstTemplate.stitches);
+  setPrimaryColor(templates.length > 0 && firstTemplate.primaryColor
+  );
+  setSecondaryColor(templates.length > 0 && firstTemplate.secondaryColor
+  );
+  setTertiaryColor(templates.length > 0 && firstTemplate.tertiaryColor
+  );
+  setActiveColor(templates.length > 0 && firstTemplate.secondaryColor
+  );
+  setGrid(templates.length > 0 && firstTemplate.grid);
+  }, [firstTemplate]);
 
 
   const docRef = doc(db, "templates", id);
@@ -48,25 +83,32 @@ const EditTemplate = ({ windowWidth, templates }) => {
   };
 
   const createNewArray = () => {
-    setTemplate(grid);
-    handleGridChange(grid);
+    const newGrid  = [...Array(rows * columns)].map((el, i) => ({
+      id: i,
+      color: primaryColor,
+    }));
+    setGrid(newGrid);
+    handleGridChange(newGrid);
   };
+
 
   const handleClear = () => {
     const newTemplate = [...Array(rows * columns)].map((el, i) => ({
       id: i,
       color: primaryColor,
     }));
-    setTemplate(newTemplate);
+    setGrid(newTemplate);
     handleGridChange(newTemplate);
   };
 
   const changeName = (name) => {
     setName(name);
   };
+
   const changeRows = (rows) => {
     rows >= 0 && rows <= 80 && setRows(rows);
   };
+
   const changeColumns = (columns) => {
     columns >= 0 && columns <= 80 && setColumns(columns);
   };
@@ -103,7 +145,7 @@ const EditTemplate = ({ windowWidth, templates }) => {
 
   return (
     <div className="container mediaContainerTemplate">
-      {template === undefined ? null : (
+      {grid === false ? null : (
         <div className="main-container mediaContainerTemplate-title">
           {windowWidth < 820 && (
             <div className="template-title">
@@ -119,9 +161,9 @@ const EditTemplate = ({ windowWidth, templates }) => {
                   primaryColor={primaryColor}
                   activeColor={activeColor}
                   handleGridChange={handleGridChange}
-                  template={template}
                   createNewArray={createNewArray}
-                  setTemplate={setTemplate}
+                  setGrid={setGrid}
+                  grid={grid}
                 />
                 <TemplateInfo
                   rows={rows}
@@ -171,9 +213,9 @@ const EditTemplate = ({ windowWidth, templates }) => {
                   windowWidth={windowWidth}
                   createNewArray={createNewArray}
                   handleUpdateTemplate={handleUpdateTemplate}
-                  template={template}
-                  setTemplate={setTemplate}
+                  setGrid={setGrid}
                   handleClear={handleClear}
+                  grid={grid}
                 />
               </>
             )}

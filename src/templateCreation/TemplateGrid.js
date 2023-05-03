@@ -11,21 +11,22 @@ const TemplateGrid = ({
   handleSubmitTemplate,
   windowWidth,
   createNewArray,
-  template,
-  setTemplate,
   handleShow,
   handleUpdateTemplate,
-  handleClear
+  handleClear,
+  grid,
+  setGrid
 }) => {
+
   const elementSize = rows > 20 || columns > 20 ? "1.2em" : "1.4em";
   const elementSizeMobile = "0.9em";
 
   const handleElClick = (id) => {
-    const tempTemplate = [...template];
+    const tempTemplate = [...grid];
     if (activeColor !== null) {
       tempTemplate[id].color = activeColor;
     }
-    setTemplate(tempTemplate);
+    setGrid(tempTemplate);
   };
 
   useEffect(() => {
@@ -46,8 +47,8 @@ const TemplateGrid = ({
             })`,
           }}
         >
-          {template.length > 0 &&
-            template.map((el, i) => {
+          {grid.length > 0 &&
+            grid.map((el, i) => {
               return (
                 <div
                   key={el.id}

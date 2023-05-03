@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Template from "../templateCreation/CreateTemplate";
-import ShowTemplate from "../showTemplate/ShowTemplate";
+import StartKnitting from "../startKnitting/StartKnitting";
 import TemplateGallery from "../templateGallery/TemplateGallery";
 
 const Mobile = ({
@@ -21,7 +21,7 @@ const Mobile = ({
           handleShow={ handleShow}
         />
     
-        <ShowTemplate
+        <StartKnitting
           templates={templates}
           windowWidth={windowWidth}
           handleClick={handleClick}

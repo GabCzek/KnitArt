@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import ShowTemplateDisplay from "./ShowTemplateDisplay";
-import ShowTemplateInfo from "./ShowTemplateInfo";
+import ShowTemplateDisplay from "./StartKnittingDisplay";
+import ShowTemplateInfo from "./StartKnittingInfo";
 
 function ShowTemplate({ templates, windowWidth, handleShow }) {
   const { id } = useParams();
-  const [height, setHeight] = useState("94%");
 
   const template =
     id === undefined
@@ -14,7 +13,6 @@ function ShowTemplate({ templates, windowWidth, handleShow }) {
       : templates.find((obj) => {
           return obj.id === id;
         });
-
 
   const filterArray =
     templates.length > 0 &&
@@ -41,14 +39,8 @@ function ShowTemplate({ templates, windowWidth, handleShow }) {
     setCounter((prev) => prev - 1);
   };
 
-  useEffect(() => {
-    if (windowWidth < 820) {
-        setHeight("26em");
-    }
-  }, [windowWidth]);
-
   return (
-    <div className="container mediaContainer" style={{ height: height }} id={"show-template"}>
+    <div className="container mediaContainer" id={"show-template"}>
       {windowWidth < 820 && (
         <div className="showTemplate-info-title">
           <h2>Current template</h2>

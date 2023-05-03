@@ -14,17 +14,17 @@ const Home = () => {
                             </Link>
                         </div>
                         <div className="secondary-links">
-                            <Link
-                                to="/template-gallery"
+                            <Link to="/show-template"
+                                
                                 className="link secondary-link secondary-link-right"
                             >
                                 <div>
-                                    <h2>See template gallery</h2>
+                                    <h2>Start your knitting</h2>
                                 </div>
                             </Link>
-                            <Link to="/show-template" className="link secondary-link">
+                            <Link to="/template-gallery" className="link secondary-link">
                                 <div>
-                                    <h2>See current project</h2>
+                                    <h2>See template gallery</h2>
                                 </div>
                             </Link>
                         </div>
