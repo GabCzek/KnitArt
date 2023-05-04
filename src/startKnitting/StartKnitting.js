@@ -7,6 +7,9 @@ import ShowTemplateInfo from "./StartKnittingInfo";
 function ShowTemplate({ templates, windowWidth, handleShow }) {
   const { id } = useParams();
 
+  const [currentRow, setCurrentRow] = useState([]);
+  const [counter, setCounter] = useState(0);
+
   const template =
     id === undefined
       ? templates[0]
@@ -24,9 +27,6 @@ function ShowTemplate({ templates, windowWidth, handleShow }) {
         el.id < highestIdNumber && el.id >= highestIdNumber - numberOfStitches
       );
     });
-
-  const [currentRow, setCurrentRow] = useState([]);
-  const [counter, setCounter] = useState(0);
 
   useEffect(() => {
     templates.length > 0 && setCurrentRow(filterArray);
@@ -71,7 +71,7 @@ function ShowTemplate({ templates, windowWidth, handleShow }) {
             grid={template.grid}
             windowWidth={windowWidth}
             className="showTemplate-display"
-            id={ id}
+            id={id}
           />
         </div>
       )}

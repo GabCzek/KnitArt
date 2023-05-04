@@ -13,7 +13,7 @@ const SingleGalleryTemplate = ({
   template,
   windowWidth,
   templates,
-  handleClick
+  handleClick,
 }) => {
   const color = colorId % 2 === 0 ? color1 : color2;
 
@@ -37,7 +37,11 @@ const SingleGalleryTemplate = ({
             />
           </Link>
         ) : (
-                      <Link to={`/${template.id}`} className="link gallery-template-link" onClick={handleClickShowTemplate}>
+          <Link
+            to={`/${template.id}`}
+            className="link gallery-template-link"
+            onClick={handleClickShowTemplate}
+          >
             <GalleryTemplateGrid
               gridColor={gridColor}
               template={template}
@@ -50,7 +54,7 @@ const SingleGalleryTemplate = ({
         color={color}
         template={template}
         templates={templates}
-        windowWidth={ windowWidth}
+        windowWidth={windowWidth}
       />
     </section>
   );

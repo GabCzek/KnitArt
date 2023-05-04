@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
 const ShowTemplateInfo = ({
   templatesLength,
   grid,
@@ -10,11 +11,12 @@ const ShowTemplateInfo = ({
   currentRow,
   counter,
   windowWidth,
-  handleShow
+  handleShow,
 }) => {
+  const [thisRow, setThisRow] = useState(currentRow);
+
   const size = templatesLength > 40 || rows > 40 ? "0.2" : "0.4";
   const phoneSize = templatesLength > 40 || rows > 40 ? "0.09" : "0.2";
-  const [thisRow, setThisRow] = useState(currentRow);
 
   useEffect(() => {
     const filterArray2 =
@@ -44,12 +46,9 @@ const ShowTemplateInfo = ({
         <span>Current row: {counter}</span>
         <p>Of all rows: {Math.round((counter / rows) * 100)}%</p>
         {windowWidth >= 820 ? (
-            <Link
-              to="/template-gallery"
-              className="link showTemplate-info-link"
-            >
+          <Link to="/template-gallery" className="link showTemplate-info-link">
             <button className="showTemplate-info-link">Change</button>
-            </Link>
+          </Link>
         ) : (
           <button onClick={handleBtnClick} className="showTemplate-info-link">
             Change

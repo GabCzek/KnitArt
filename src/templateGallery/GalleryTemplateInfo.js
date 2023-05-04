@@ -10,8 +10,9 @@ const GalleryTemplateInfo = ({ color, templates, template, windowWidth }) => {
   const deleteTemplate = async (id) => {
     const templateDoc = doc(db, "templates", id);
     await deleteDoc(templateDoc);
-    template.id === templates[0].id &&
-    window.location.reload(false);
+    windowWidth < 820 &&
+      template.id === templates[0].id &&
+      window.location.reload(false);
   };
 
   return (
@@ -26,9 +27,11 @@ const GalleryTemplateInfo = ({ color, templates, template, windowWidth }) => {
           className="fa-solid fa-trash"
           onClick={() => deleteTemplate(template.id)}
         ></i>
-        {windowWidth>= 820 && <Link to={`/edit-template/${template.id}`} className="link">
-          <i className="fa-solid fa-pencil" style={{ color: textColor }}></i>
-        </Link>}
+        {windowWidth >= 820 && (
+          <Link to={`/edit-template/${template.id}`} className="link">
+            <i className="fa-solid fa-pencil" style={{ color: textColor }}></i>
+          </Link>
+        )}
       </div>
     </section>
   );

@@ -63,7 +63,6 @@
   }
 }
 
-
 .secondary-links {
   display: flex;
   flex-direction: column;
@@ -106,7 +105,6 @@
   }
 }
 
-
 @include tablet {
   .home {
     &-content {
@@ -118,12 +116,8 @@
       height: 30%;
     }
 
-    &-links{
+    &-links {
       display: none;
     }
   }
 }
-
-
-
-

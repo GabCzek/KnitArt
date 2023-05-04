@@ -41,15 +41,15 @@ $phone-width: 500px;
   @each $key in $keys {
     @if ($key == phone) {
       @include phone {
-        @content
+        @content;
       }
     } @else if ($key == tablet) {
       @include tablet {
-        @content
+        @content;
       }
     } @else if ($key == laptop) {
       @include laptop {
-        @content
+        @content;
       }
     }
   }

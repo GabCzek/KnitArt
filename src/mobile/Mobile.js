@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+
 import Template from "../templateCreation/CreateTemplate";
 import StartKnitting from "../startKnitting/StartKnitting";
 import TemplateGallery from "../templateGallery/TemplateGallery";
@@ -6,33 +7,26 @@ import TemplateGallery from "../templateGallery/TemplateGallery";
 const Mobile = ({
   templates,
   windowWidth,
-  height,
   show,
   handleClick,
-  handleShow
+  handleShow,
 }) => {
-
-
   return (
-    <div className="mobile" style={{ height: height }}>
+    <div className="mobile">
       <div className="mobile-content">
-        <Template
-          windowWidth={windowWidth}
-          handleShow={ handleShow}
-        />
-    
+        <Template windowWidth={windowWidth} handleShow={handleShow} />
         <StartKnitting
           templates={templates}
           windowWidth={windowWidth}
           handleClick={handleClick}
-          handleShow={ handleShow}
+          handleShow={handleShow}
         />
         <TemplateGallery
           templates={templates}
           windowWidth={windowWidth}
           handleClick={handleClick}
           show={show}
-          handleShow={ handleShow}
+          handleShow={handleShow}
         />
       </div>
     </div>

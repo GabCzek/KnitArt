@@ -5,8 +5,6 @@ import { useParams } from "react-router-dom";
 const Navigation = ({ windowWidth }) => {
   const { id } = useParams();
 
-  console.log(id);
-
   return (
     <nav className="main-nav">
       <Link to="/" className="link main-nav-logo">

@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { addDoc } from "firebase/firestore";
+import { templatesColRef } from "../firebase";
 
 import TemplateGrid from "./TemplateGrid";
-import Print from "./Print";
 import TemplateInfo from "./TemplateInfo";
-
-import { templatesColRef } from "../firebase";
 
 const Template = ({ windowWidth, handleShow }) => {
   const [name, setName] = useState("Template 1");
@@ -16,7 +14,6 @@ const Template = ({ windowWidth, handleShow }) => {
   const [tertiaryColor, setTertiaryColor] = useState("rgba(134, 46, 15)");
   const [activeColor, setActiveColor] = useState("rgba(29, 120, 116)");
   const [grid, setGrid] = useState([]);
-
 
   const handleSubmitTemplate = async () => {
     try {
@@ -107,6 +104,7 @@ const Template = ({ windowWidth, handleShow }) => {
                 createNewArray={createNewArray}
                 setGrid={setGrid}
                 grid={grid}
+                name={name}
               />
               <TemplateInfo
                 rows={rows}
@@ -124,11 +122,9 @@ const Template = ({ windowWidth, handleShow }) => {
                 createNewArray={createNewArray}
                 handleShow={handleShow}
               />
-
             </>
           ) : (
             <>
-              <Print name={name} rows={rows} columns={columns} grid={grid}/>
               <TemplateInfo
                 rows={rows}
                 columns={columns}
@@ -154,11 +150,11 @@ const Template = ({ windowWidth, handleShow }) => {
                 setGrid={setGrid}
                 handleShow={handleShow}
                 grid={grid}
+                name={name}
               />
             </>
           )}
         </div>
-        <Print name={name} rows={rows} columns={columns} grid={grid}/>
       </div>
     </div>
   );

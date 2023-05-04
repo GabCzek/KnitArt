@@ -22,7 +22,7 @@ const TemplateInfo = ({
   createNewArray,
   handleShow,
   handleUpdateTemplate,
-  handleClear
+  handleClear,
 }) => (
   <div className="template-info">
     <TemplateInfoForm
@@ -34,7 +34,7 @@ const TemplateInfo = ({
       changeColumns={changeColumns}
       primaryColor={primaryColor}
       changePrimaryColor={changePrimaryColor}
-      secondaryColor={ secondaryColor}
+      secondaryColor={secondaryColor}
       changeSecondaryColor={changeSecondaryColor}
       tertiaryColor={tertiaryColor}
       changeTertiaryColor={changeTertiaryColor}
@@ -48,7 +48,10 @@ const TemplateInfo = ({
         handleShow={handleShow}
         windowWidth={windowWidth}
         handleUpdateTemplate={handleUpdateTemplate}
-        handleClear={ handleClear}
+        handleClear={handleClear}
+        rows={rows}
+        columns={columns}
+        name={name}
       />
     ) : null}
   </div>

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ChromePicker } from "react-color";
 
-const ColorPicker = ({ changeColor, defaultColor }) => {
+const ColorPicker = ({ changeColor, defaultColor, windowWidth }) => {
   const [displayColorPicker, setDisplayColorPicker] = useState(false);
+  const [right, setRight] = useState("250px")
   const [color, setColor] = useState({
     r: defaultColor.r,
     g: defaultColor.g,
@@ -22,57 +23,33 @@ const ColorPicker = ({ changeColor, defaultColor }) => {
     setDisplayColorPicker(false);
   };
 
-  const colorPickerStyles = {
-    color: {
-      width: "46px",
-      height: "24px",
-      borderRadius: "2px",
-      background: `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`,
-    },
-    swatch: {
-      padding: "3px",
-      background: "#fff",
-      borderRadius: "1px",
-      boxShadow: "0 0 0 1px rgba(0,0,0,.1)",
-      display: "inline-block",
-      cursor: "pointer",
-    },
-    popover: {
-      position: "absolute",
-      zIndex: "2",
-    },
-    cover: {
-      position: "fixed",
-      top: "0px",
-      right: "0px",
-      bottom: "0px",
-      left: "0px",
-    },
-    position: {
-      position: "absolute",
-      right: "250px",
-    },
-  };
+  useEffect(() => {
+    setRight(windowWidth < 1440 ? 250 : ((windowWidth - 1440) / 2 + 250))
+  }, [windowWidth])
 
   return (
     <div>
-      <div
-        className="template-color-picker"
-        style={colorPickerStyles.swatch}
-        onClick={handleClick}
-      >
-        <div style={colorPickerStyles.color} />
+      <div className="template-color-picker" onClick={handleClick}>
+        <div
+          style={{background: `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`}}
+          className="template-color-picker-color"
+        />
       </div>
       {displayColorPicker ? (
-        <div style={colorPickerStyles.position}>
-          <div style={colorPickerStyles.popover}>
-            <div style={colorPickerStyles.cover} onClick={handleClose} />
+        <div
+          className="template-color-picker-position"
+          style={{ right: `${right}px`}}
+        >
+          <div className="template-color-picker-popover">
+            <div
+              onClick={handleClose}
+              className="template-color-picker-cover"
+            />
             <ChromePicker
-                          color={color}
-                          disableAlpha={true}
-                          onChange={handleColorChange}
-                        className="colorPicker"
-                          
+              color={color}
+              disableAlpha={true}
+              onChange={handleColorChange}
+              className="template-color-picker-chromePicker"
             />
           </div>
         </div>

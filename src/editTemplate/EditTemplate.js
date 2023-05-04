@@ -14,24 +14,12 @@ const EditTemplate = ({ windowWidth, templates }) => {
       templates.find((obj) => {
         return obj.id === id;
       })
-
   );
-
-  useEffect(() => {
-    setFirstTemplate(
-      templates.length > 0 &&
-        templates.find((obj) => {
-          return obj.id === id;
-        })
-    );
-  }, [templates]);
-
-
   const [name, setName] = useState(firstTemplate.name);
-
   const [rows, setRows] = useState(firstTemplate.rows);
   const [columns, setColumns] = useState(firstTemplate.stitches);
-  const [primaryColor, setPrimaryColor] = useState(templates.length > 0 && firstTemplate.primaryColor
+  const [primaryColor, setPrimaryColor] = useState(
+    templates.length > 0 && firstTemplate.primaryColor
   );
   const [secondaryColor, setSecondaryColor] = useState(
     templates.length > 0 && firstTemplate.secondaryColor
@@ -45,20 +33,24 @@ const EditTemplate = ({ windowWidth, templates }) => {
   const [grid, setGrid] = useState(templates.length > 0 && firstTemplate.grid);
 
   useEffect(() => {
-  setName(firstTemplate.name);
-  setRows(firstTemplate.rows);
-  setColumns(firstTemplate.stitches);
-  setPrimaryColor(templates.length > 0 && firstTemplate.primaryColor
-  );
-  setSecondaryColor(templates.length > 0 && firstTemplate.secondaryColor
-  );
-  setTertiaryColor(templates.length > 0 && firstTemplate.tertiaryColor
-  );
-  setActiveColor(templates.length > 0 && firstTemplate.secondaryColor
-  );
-  setGrid(templates.length > 0 && firstTemplate.grid);
-  }, [firstTemplate]);
+    setFirstTemplate(
+      templates.length > 0 &&
+        templates.find((obj) => {
+          return obj.id === id;
+        })
+    );
+  }, [templates]);
 
+  useEffect(() => {
+    setName(firstTemplate.name);
+    setRows(firstTemplate.rows);
+    setColumns(firstTemplate.stitches);
+    setPrimaryColor(templates.length > 0 && firstTemplate.primaryColor);
+    setSecondaryColor(templates.length > 0 && firstTemplate.secondaryColor);
+    setTertiaryColor(templates.length > 0 && firstTemplate.tertiaryColor);
+    setActiveColor(templates.length > 0 && firstTemplate.secondaryColor);
+    setGrid(templates.length > 0 && firstTemplate.grid);
+  }, [firstTemplate]);
 
   const docRef = doc(db, "templates", id);
 
@@ -83,14 +75,13 @@ const EditTemplate = ({ windowWidth, templates }) => {
   };
 
   const createNewArray = () => {
-    const newGrid  = [...Array(rows * columns)].map((el, i) => ({
+    const newGrid = [...Array(rows * columns)].map((el, i) => ({
       id: i,
       color: primaryColor,
     }));
     setGrid(newGrid);
     handleGridChange(newGrid);
   };
-
 
   const handleClear = () => {
     const newTemplate = [...Array(rows * columns)].map((el, i) => ({

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import SingleGalleryTemplate from "./SingleGalleryTemplate";
 
 const TemplateGallery = ({

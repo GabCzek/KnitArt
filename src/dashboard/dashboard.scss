@@ -3,7 +3,6 @@
   justify-content: center;
   width: 100vw;
 
-
   @include media(phone, tablet) {
     justify-content: start;
   }
@@ -28,11 +27,11 @@
   display: flex;
   justify-content: space-between;
   border-bottom: $accent-border-desktop;
-  background-color: #FFF;
+  background-color: #fff;
   gap: 5px;
   font-size: 40px;
 
-  @include media(phone, tablet)  {
+  @include media(phone, tablet) {
     background-color: $background-color;
     border-bottom: $accent-border-phone;
   }
@@ -40,11 +39,11 @@
   &-burger {
     display: none;
 
-    @include media(phone, tablet)  {
+    @include media(phone, tablet) {
       display: block;
       font-size: 2em;
       margin-right: 20px;
-      color: $accent-color
+      color: $accent-color;
     }
   }
 
@@ -66,7 +65,7 @@
         &::before,
         &::after {
           content: "l";
-          font-family: 'Neucha', cursive;
+          font-family: "Neucha", cursive;
           display: block;
           font-size: 50px;
           background-color: $background-color;
@@ -87,14 +86,13 @@
         }
       }
 
-      @include media(phone, tablet, laptop)  {
+      @include media(phone, tablet, laptop) {
         transform: scale(0.8);
 
         &-start {
           padding-left: 10px;
         }
       }
-
     }
   }
 
@@ -105,7 +103,7 @@
     width: 50%;
     justify-content: space-between;
     align-items: center;
-    background-color: #FFF;
+    background-color: #fff;
     height: 100%;
     gap: 5px;
   }
@@ -121,7 +119,6 @@
     h2 {
       color: $accent-color;
       font-weight: 600;
-
     }
   }
 
@@ -147,5 +144,3 @@
     }
   }
 }
-
-
