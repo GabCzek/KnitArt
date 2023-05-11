@@ -6,7 +6,8 @@ const Home = () => {
     <div className="container">
       <div className="main-container">
         <div className="home-content">
-          <div className="home-img"></div>
+          <div className="home-img" />
+          {/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav */}
           <nav className="home-links">
             <div className="home-link">
               <Link to="/template" className="link">

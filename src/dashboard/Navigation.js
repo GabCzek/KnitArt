@@ -23,19 +23,17 @@ const Navigation = ({ windowWidth }) => {
           </div>
         )}
       </Link>
+      {/* nav is a UL html element --> ul li link */}
       <div className="main-nav-links">
         <Link to="/template" className="main-nav-link link">
           <h2>CREATE TEMPLATE</h2>
         </Link>
-        {id === undefined ? (
-          <Link to="/show-template" className="main-nav-link link">
-            <h2>START KNITTING</h2>
-          </Link>
-        ) : (
-          <Link to={`/show-template/${id}`} className="main-nav-link link">
-            <h2>START KNITTING</h2>
-          </Link>
-        )}
+        <Link
+          to={id === undefined ? `/show-template` : `/show-template/${id}`}
+          className="main-nav-link link"
+        >
+          <h2>START KNITTING</h2>
+        </Link>
         <Link to="/template-gallery" className="main-nav-link link">
           <h2>TEMPLATE GALLERY</h2>
         </Link>

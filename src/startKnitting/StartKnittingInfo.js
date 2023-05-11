@@ -40,7 +40,7 @@ const ShowTemplateInfo = ({
   };
 
   return (
-    <section className={className}>
+    <section className="showTemplate-info-container">
       <div className="showTemplate-info">
         <h2>{name}</h2>
         <span>Current row: {counter}</span>

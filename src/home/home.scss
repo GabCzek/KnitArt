@@ -10,7 +10,7 @@
   }
 
   &-img {
-    background: no-repeat center url("../images/main.png");
+    background: no-repeat center url("../assets/images/main.png");
     background-size: cover;
     width: 50%;
     height: 100%;
@@ -38,7 +38,7 @@
       &:after {
         content: "";
         display: block;
-        background: url("../images/arrow1.png");
+        background: url("../assets/images/arrow1.png");
         background-position: center;
         background-repeat: no-repeat;
         background-size: 100% auto;
@@ -90,7 +90,7 @@
     &:before {
       content: "";
       display: block;
-      background: url("../images/arrow1.png");
+      background: url("../assets/images/arrow1.png");
       background-position: center;
       background-repeat: no-repeat;
       background-size: 100% auto;
