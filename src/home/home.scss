@@ -22,29 +22,18 @@
   }
 
   &-link {
-    height: 30%;
+    height: 55%;
     width: 100%;
     font-family: $header-font;
     border-bottom: $accent-border-desktop;
 
     h1 {
       display: block;
-      width: 40%;
-      font-size: 2.6em;
+      width: 45%;
+      font-size: 2.8em;
       font-weight: normal;
       padding: 9% 30% 0 10%;
       line-height: 1.2;
-
-      &:after {
-        content: "";
-        display: block;
-        background: url("../images/arrow1.png");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 100% auto;
-        width: 100%;
-        height: 40px;
-      }
     }
 
     @include laptop {
@@ -67,16 +56,15 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 65%;
+  height: 35%;
 }
 
 .secondary-link {
   justify-self: end;
   font-family: $header-font;
-  font-size: 2em;
+  font-size: 2.5em;
   width: 35%;
   margin-left: 10%;
-  margin-top: 20%;
 
   @include laptop {
     font-size: 1.5em;
@@ -86,17 +74,21 @@
     display: block;
     line-height: 1.1;
     margin-right: 0.8em;
+    margin-bottom: 0.5em;
+  }
 
-    &:before {
-      content: "";
-      display: block;
-      background: url("../images/arrow1.png");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 100% auto;
-      width: 90%;
-      height: 40px;
-    }
+  & button {
+    background-color: $background-color;
+    border: 3px solid #fff;
+    border-radius: 3px;
+  }
+
+  &-arrow-img {
+    background: no-repeat center url("../images/arrow1.png");
+    display: block;
+    background-size: 100% auto;
+    width: 160px;
+    height: 40px;
   }
 
   &-right {
