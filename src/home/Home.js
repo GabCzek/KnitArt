@@ -16,7 +16,7 @@ const Home = () => {
                 to="/template"
                 className="link secondary-link secondary-link-right"
               >
-                <h2>Start your knitting</h2>
+                <h2>Create your template</h2>
                 <button>
                 <div className="secondary-link-arrow-img"></div>
                 </button>
