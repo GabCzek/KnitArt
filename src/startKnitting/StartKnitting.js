@@ -10,6 +10,7 @@ function ShowTemplate({ templates, windowWidth, handleShow }) {
   const [currentRow, setCurrentRow] = useState([]);
   const [counter, setCounter] = useState(0);
 
+  //use memo - https://react.dev/reference/react/useMemo
   const template =
     id === undefined
       ? templates[0]
@@ -17,11 +18,12 @@ function ShowTemplate({ templates, windowWidth, handleShow }) {
           return obj.id === id;
         });
 
+  //use callback https://react.dev/reference/react/useCallback
   const filterArray =
     templates.length > 0 &&
     template.grid.filter((el) => {
-      let numberOfStitches = templates.length > 0 && template.stitches;
-      let highestIdNumber =
+      const numberOfStitches = templates.length > 0 && template.stitches;
+      const highestIdNumber =
         templates.length > 0 && template.stitches * template.rows;
       return (
         el.id < highestIdNumber && el.id >= highestIdNumber - numberOfStitches
@@ -57,7 +59,6 @@ function ShowTemplate({ templates, windowWidth, handleShow }) {
             stitches={template.stitches}
             windowWidth={windowWidth}
             grid={template.grid}
-            className="showTemplate-info-container"
             handleShow={handleShow}
           />
           <ShowTemplateDisplay

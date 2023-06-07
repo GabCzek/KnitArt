@@ -5,7 +5,6 @@ const ShowTemplateDisplay = ({
   templatesLength,
   stitches,
   currentRow,
-  className,
   handleArrowUp,
   handleArrowDown,
   counter,
@@ -16,47 +15,28 @@ const ShowTemplateDisplay = ({
 }) => {
   const [touchPosition, setTouchPosition] = useState(null);
 
+  // change to state
   let gridRowClassName;
   let currentRowSize;
   let gridRowClassNamePhone;
   let currentRowSizePhone;
 
-  if (
-    templatesLength > 0 &&
-    stitches > 0 &&
-    templatesLength > 0 &&
-    stitches <= 25
-  ) {
+  if (templatesLength > 0 && stitches > 0 && stitches <= 25) {
     gridRowClassName = "small";
     gridRowClassNamePhone = "smallPhone";
     currentRowSize = 1.4;
     currentRowSizePhone = 0.75;
-  } else if (
-    templatesLength > 0 &&
-    stitches > 20 &&
-    templatesLength > 0 &&
-    stitches <= 40
-  ) {
+  } else if (templatesLength > 0 && stitches > 20 && stitches <= 40) {
     gridRowClassName = "normal";
     gridRowClassNamePhone = "normalPhone";
     currentRowSize = 1.1;
     currentRowSizePhone = 0.4;
-  } else if (
-    templatesLength > 0 &&
-    stitches > 40 &&
-    templatesLength > 0 &&
-    stitches <= 60
-  ) {
+  } else if (templatesLength > 0 && stitches > 40 && stitches <= 60) {
     gridRowClassName = "big";
     gridRowClassNamePhone = "bigPhone";
     currentRowSize = 0.8;
     currentRowSizePhone = 0.27;
-  } else if (
-    templatesLength > 0 &&
-    stitches > 60 &&
-    templatesLength > 0 &&
-    stitches <= 80
-  ) {
+  } else if (templatesLength > 0 && stitches > 60 && stitches <= 80) {
     gridRowClassName = "biggest";
     gridRowClassNamePhone = "biggestPhone";
     currentRowSize = 0.5;
@@ -91,7 +71,7 @@ const ShowTemplateDisplay = ({
 
   return (
     <section
-      className={className}
+      className="showTemplate-display"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
     >
