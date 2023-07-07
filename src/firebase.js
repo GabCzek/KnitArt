@@ -3,12 +3,12 @@ import { collection, getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDxWIVyilzoMEaXcboDiD-TH5MqDl1XJoo",
-  authDomain: "knitart-432d6.firebaseapp.com",
-  projectId: "knitart-432d6",
-  storageBucket: "knitart-432d6.appspot.com",
-  messagingSenderId: "566278852449",
-  appId: "1:566278852449:web:e2fbf95d0d329d5e79bf20"
+  apiKey: "AIzaSyBI8WWq6lMx47wcsRonE_IeXsP-ilavKr8",
+  authDomain: "knitart-c068f.firebaseapp.com",
+  projectId: "knitart-c068f",
+  storageBucket: "knitart-c068f.appspot.com",
+  messagingSenderId: "1066879530161",
+  appId: "1:1066879530161:web:cfb10635fba3a2bcf4de90"
 };
 
 const app = initializeApp(firebaseConfig);
